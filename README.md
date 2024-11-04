@@ -1,4 +1,4 @@
-<img width=700 src="https://github.com/user-attachments/assets/13bc67c3-c80e-4b29-a632-61b9ba86f532">
+![image](https://github.com/user-attachments/assets/2a178c96-3b9a-4b44-99d9-e69e17e65fdd)
 
 # 나만의 뮤직 포트폴리오, molio **🎶**
 
