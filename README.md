@@ -49,8 +49,12 @@
 1. 친구가 좋아하는 노래도 알려드려요. 내가 몰랐던 노래를 `친구를 통해 알아가는 재미`를 느껴보세요! 😎
 2. 내 몰리오를 친구가 좋아하면 푸시 알람으로 알려드려요! **🔔**
 
+## 4. 아키텍쳐
+<img width="1000" alt="molio팀의 피그잼" src="https://github.com/user-attachments/assets/b5e7716a-f9d2-4e77-b7ab-280464448061">
 
-## 4. 팀원 정보
+
+
+## 5. 팀원 정보
 
 
 ### 🐵 등차수열 팀 (iOS06)
@@ -64,7 +68,7 @@
 | 깃허브 링크 | [@Park-kxng](https://github.com/Park-kxng) | [@alstn38](https://github.com/alstn38) | [@kybeen](https://github.com/kybeen) | [@windowcow](https://github.com/windowcow) |
      
 
-## 5. 문서
+## 6. 문서
 
 |📚 문서|[Wiki](https://github.com/boostcampwm-2024/iOS06-molio/wiki)|[팀 노션](https://silly-squid-e4b.notion.site/iOS06-12aa06a926628080bfeed6d8ce906062?pvs=4)|[그라운드 룰](https://silly-squid-e4b.notion.site/12da06a92662809cb5a5c6a5f21bf16b?pvs=4)|[개발 규칙](https://silly-squid-e4b.notion.site/12da06a926628000b18ec72def7595af?pvs=4)|[회의록](https://silly-squid-e4b.notion.site/12aa06a926628084b3c3d18f3c960e55?v=133a06a9266280febf43000cbd62645e&pvs=4)|[Figma](https://www.figma.com/design/AUazDR6Oe91jGPGnFhrXal/MOLIO?node-id=0-1&t=I2PNeHHz4tDP0bQc-1)|
 |:-:|:-:|:-:|:-:|:-:|:-:|:--:|
