@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2003BA012CDB7498002CAB3E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA002CDB7498002CAB3E /* Color.swift */; };
 		B809707D2CDB4425007BC3C4 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707C2CDB4425007BC3C4 /* Component.swift */; };
 		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
 		B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970842CDB44E3007BC3C4 /* Entity.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2003BA002CDB7498002CAB3E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B809707C2CDB4425007BC3C4 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B80970842CDB44E3007BC3C4 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -59,9 +61,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2003B9FF2CDB7479002CAB3E /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2003BA002CDB7498002CAB3E /* Color.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
 		B80970732CDB434B007BC3C4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2003B9FF2CDB7479002CAB3E /* DesignSystem */,
 				B80970752CDB43D3007BC3C4 /* App */,
 				B80970762CDB43E2007BC3C4 /* Presentation */,
 				B80970772CDB43E7007BC3C4 /* Domain */,
@@ -337,6 +348,7 @@
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
 				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
 				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
+				2003BA012CDB7498002CAB3E /* Color.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
