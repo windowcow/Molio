@@ -13,10 +13,10 @@
 		B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */; };
 		B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970882CDB451D007BC3C4 /* UseCase.swift */; };
 		B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809708D2CDB4589007BC3C4 /* Repository.swift */; };
-		B80970922CDB45C4007BC3C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970912CDB45C4007BC3C4 /* Network.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
 		B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970952CDB45EE007BC3C4 /* DTO.swift */; };
 		B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709A2CDB4682007BC3C4 /* Extension.swift */; };
+		B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709D2CDB640B007BC3C4 /* MusicKitService.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FC2CD86B1100F6242C /* ViewController.swift */; };
@@ -33,10 +33,10 @@
 		B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInterface.swift; sourceTree = "<group>"; };
 		B80970882CDB451D007BC3C4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		B809708D2CDB4589007BC3C4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		B80970912CDB45C4007BC3C4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		B80970952CDB45EE007BC3C4 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B809709D2CDB640B007BC3C4 /* MusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitService.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		B809708F2CDB45B7007BC3C4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B80970912CDB45C4007BC3C4 /* Network.swift */,
+				B809709D2CDB640B007BC3C4 /* MusicKitService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					F17368F42CD86B1100F6242C = {
@@ -329,13 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
-				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
 				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
 				B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */,
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
 				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
+				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,
 				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
