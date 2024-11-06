@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2003BA012CDB7498002CAB3E /* GlassMorphismModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA002CDB7498002CAB3E /* GlassMorphismModifier.swift */; };
+		2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA002CDB7498002CAB3E /* PretendardFontName.swift */; };
 		2003BA0C2CDB8300002CAB3E /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA032CDB82FF002CAB3E /* Pretendard-Medium.otf */; };
 		2003BA0D2CDB8300002CAB3E /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA042CDB82FF002CAB3E /* Pretendard-Thin.otf */; };
 		2003BA0E2CDB8300002CAB3E /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA052CDB8300002CAB3E /* Pretendard-Black.otf */; };
@@ -17,6 +17,9 @@
 		2003BA122CDB8300002CAB3E /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA092CDB8300002CAB3E /* Pretendard-SemiBold.otf */; };
 		2003BA132CDB8300002CAB3E /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA0A2CDB8300002CAB3E /* Pretendard-ExtraLight.otf */; };
 		2003BA142CDB8300002CAB3E /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA0B2CDB8300002CAB3E /* Pretendard-Bold.otf */; };
+		2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA152CDB8D69002CAB3E /* Font+Extension.swift */; };
+		2003BA182CDB8DE0002CAB3E /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */; };
+		2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */; };
 		B809707D2CDB4425007BC3C4 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707C2CDB4425007BC3C4 /* Component.swift */; };
 		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
 		B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970842CDB44E3007BC3C4 /* Entity.swift */; };
@@ -26,7 +29,6 @@
 		B80970922CDB45C4007BC3C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970912CDB45C4007BC3C4 /* Network.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
 		B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970952CDB45EE007BC3C4 /* DTO.swift */; };
-		B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709A2CDB4682007BC3C4 /* Extension.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FC2CD86B1100F6242C /* ViewController.swift */; };
@@ -37,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2003BA002CDB7498002CAB3E /* GlassMorphismModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassMorphismModifier.swift; sourceTree = "<group>"; };
+		2003BA002CDB7498002CAB3E /* PretendardFontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendardFontName.swift; sourceTree = "<group>"; };
 		2003BA032CDB82FF002CAB3E /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		2003BA042CDB82FF002CAB3E /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		2003BA052CDB8300002CAB3E /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -47,6 +49,9 @@
 		2003BA092CDB8300002CAB3E /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		2003BA0A2CDB8300002CAB3E /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		2003BA0B2CDB8300002CAB3E /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		2003BA152CDB8D69002CAB3E /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		B809707C2CDB4425007BC3C4 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B80970842CDB44E3007BC3C4 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
@@ -56,7 +61,6 @@
 		B80970912CDB45C4007BC3C4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		B80970952CDB45EE007BC3C4 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
-		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +86,7 @@
 		2003B9FF2CDB7479002CAB3E /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
-				2003BA002CDB7498002CAB3E /* GlassMorphismModifier.swift */,
+				2003BA002CDB7498002CAB3E /* PretendardFontName.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -101,6 +105,23 @@
 				2003BA042CDB82FF002CAB3E /* Pretendard-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2003BA192CDB8EB5002CAB3E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				2003BA152CDB8D69002CAB3E /* Font+Extension.swift */,
+				2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		2003BA1A2CDB8EC6002CAB3E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		B80970732CDB434B007BC3C4 /* Source */ = {
@@ -267,7 +288,8 @@
 		B80970992CDB4678007BC3C4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B809709A2CDB4682007BC3C4 /* Extension.swift */,
+				2003BA1A2CDB8EC6002CAB3E /* UIKit */,
+				2003BA192CDB8EB5002CAB3E /* SwiftUI */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -385,14 +407,16 @@
 			files = (
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
 				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
+				2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
+				2003BA182CDB8DE0002CAB3E /* Text+Extension.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
 				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
 				B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */,
+				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
 				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
-				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
-				2003BA012CDB7498002CAB3E /* GlassMorphismModifier.swift in Sources */,
+				2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
