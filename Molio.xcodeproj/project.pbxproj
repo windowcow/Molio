@@ -13,6 +13,7 @@
 		F17369002CD86B1100F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17368FF2CD86B1100F6242C /* Base */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
 		F17369052CD86B1300F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17369042CD86B1300F6242C /* Base */; };
+		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F17369012CD86B1300F6242C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F17369042CD86B1300F6242C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F17369062CD86B1300F6242C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		F17368EC2CD86B1100F6242C = {
 			isa = PBXGroup;
 			children = (
+				F17369112CDAFE8C00F6242C /* .swiftlint.yml */,
 				F17368F72CD86B1100F6242C /* Molio */,
 				F17368F62CD86B1100F6242C /* Products */,
 			);
@@ -81,6 +84,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F17369152CDB004100F6242C /* PBXTargetDependency */,
 			);
 			name = Molio;
 			productName = Molio;
@@ -111,6 +115,9 @@
 				Base,
 			);
 			mainGroup = F17368EC2CD86B1100F6242C;
+			packageReferences = (
+				F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			productRefGroup = F17368F62CD86B1100F6242C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */,
 				F17369022CD86B1300F6242C /* Assets.xcassets in Resources */,
 				F17369052CD86B1300F6242C /* Base in Resources */,
 				F17369002CD86B1100F6242C /* Base in Resources */,
@@ -145,6 +153,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F17369152CDB004100F6242C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F17368FE2CD86B1100F6242C /* Main.storyboard */ = {
@@ -363,6 +378,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F17368ED2CD86B1100F6242C /* Project object */;
 }
