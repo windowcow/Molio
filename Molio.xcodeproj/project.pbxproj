@@ -502,6 +502,7 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Molio/Resource/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Apple Music의 음악 데이터를 검색하거나 플레이리스트를 내보내려면 Apple Music 접근 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -535,6 +536,7 @@
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Molio/Resource/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Apple Music의 음악 데이터를 검색하거나 플레이리스트를 내보내려면 Apple Music 접근 권한 승인이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
