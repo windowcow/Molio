@@ -20,10 +20,10 @@
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FC2CD86B1100F6242C /* ViewController.swift */; };
-		F17369002CD86B1100F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17368FF2CD86B1100F6242C /* Base */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
 		F17369052CD86B1300F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17369042CD86B1300F6242C /* Base */; };
 		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
+		F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +41,11 @@
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F17368FC2CD86B1100F6242C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F17368FF2CD86B1100F6242C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F17369012CD86B1300F6242C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F17369042CD86B1300F6242C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F17369062CD86B1300F6242C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,6 @@
 		B80970742CDB4353007BC3C4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F17368FE2CD86B1100F6242C /* Main.storyboard */,
 				F17369012CD86B1300F6242C /* Assets.xcassets */,
 				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
 				F17369062CD86B1300F6242C /* Info.plist */,
@@ -95,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				B809707A2CDB4405007BC3C4 /* Common */,
+				F173691C2CDB991D00F6242C /* SwipeMusic */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -252,6 +252,22 @@
 			path = Molio;
 			sourceTree = "<group>";
 		};
+		F173691C2CDB991D00F6242C /* SwipeMusic */ = {
+			isa = PBXGroup;
+			children = (
+				F173691D2CDB992700F6242C /* View */,
+			);
+			path = SwipeMusic;
+			sourceTree = "<group>";
+		};
+		F173691D2CDB992700F6242C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,7 +333,6 @@
 				F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */,
 				F17369022CD86B1300F6242C /* Assets.xcassets in Resources */,
 				F17369052CD86B1300F6242C /* Base in Resources */,
-				F17369002CD86B1100F6242C /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +348,7 @@
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
 				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
+				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */,
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
 				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
@@ -354,14 +370,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F17368FE2CD86B1100F6242C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F17368FF2CD86B1100F6242C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F17369032CD86B1300F6242C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -504,7 +512,6 @@
 				INFOPLIST_FILE = Molio/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -537,7 +544,6 @@
 				INFOPLIST_FILE = Molio/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
