@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B809707D2CDB4425007BC3C4 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707C2CDB4425007BC3C4 /* Component.swift */; };
+		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
+		B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970842CDB44E3007BC3C4 /* Entity.swift */; };
+		B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */; };
+		B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970882CDB451D007BC3C4 /* UseCase.swift */; };
+		B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809708D2CDB4589007BC3C4 /* Repository.swift */; };
+		B80970922CDB45C4007BC3C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970912CDB45C4007BC3C4 /* Network.swift */; };
+		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
+		B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970952CDB45EE007BC3C4 /* DTO.swift */; };
+		B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709A2CDB4682007BC3C4 /* Extension.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FC2CD86B1100F6242C /* ViewController.swift */; };
@@ -17,6 +27,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B809707C2CDB4425007BC3C4 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		B80970842CDB44E3007BC3C4 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInterface.swift; sourceTree = "<group>"; };
+		B80970882CDB451D007BC3C4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		B809708D2CDB4589007BC3C4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		B80970912CDB45C4007BC3C4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		B80970952CDB45EE007BC3C4 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
+		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +59,173 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B80970732CDB434B007BC3C4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B80970752CDB43D3007BC3C4 /* App */,
+				B80970762CDB43E2007BC3C4 /* Presentation */,
+				B80970772CDB43E7007BC3C4 /* Domain */,
+				B80970782CDB43EC007BC3C4 /* Data */,
+				B80970792CDB43F1007BC3C4 /* Util */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B80970742CDB4353007BC3C4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F17368FE2CD86B1100F6242C /* Main.storyboard */,
+				F17369012CD86B1300F6242C /* Assets.xcassets */,
+				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
+				F17369062CD86B1300F6242C /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		B80970752CDB43D3007BC3C4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F17368F82CD86B1100F6242C /* AppDelegate.swift */,
+				F17368FA2CD86B1100F6242C /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B80970762CDB43E2007BC3C4 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B809707A2CDB4405007BC3C4 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B80970772CDB43E7007BC3C4 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B80970812CDB4472007BC3C4 /* UseCase */,
+				B80970822CDB4478007BC3C4 /* Repository Interface */,
+				B80970832CDB44DB007BC3C4 /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B80970782CDB43EC007BC3C4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B809708A2CDB456E007BC3C4 /* Repository */,
+				B809708B2CDB4575007BC3C4 /* DataSource */,
+				B809708C2CDB457C007BC3C4 /* DTO */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B80970792CDB43F1007BC3C4 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B80970992CDB4678007BC3C4 /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		B809707A2CDB4405007BC3C4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B809707B2CDB440A007BC3C4 /* Component */,
+				B809707E2CDB444C007BC3C4 /* Base */,
+				F17368FC2CD86B1100F6242C /* ViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B809707B2CDB440A007BC3C4 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B809707C2CDB4425007BC3C4 /* Component.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B809707E2CDB444C007BC3C4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B809707F2CDB4455007BC3C4 /* Base.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B80970812CDB4472007BC3C4 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B80970882CDB451D007BC3C4 /* UseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B80970822CDB4478007BC3C4 /* Repository Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */,
+			);
+			path = "Repository Interface";
+			sourceTree = "<group>";
+		};
+		B80970832CDB44DB007BC3C4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B80970842CDB44E3007BC3C4 /* Entity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B809708A2CDB456E007BC3C4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B809708D2CDB4589007BC3C4 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B809708B2CDB4575007BC3C4 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B809708F2CDB45B7007BC3C4 /* Network */,
+				B80970902CDB45BC007BC3C4 /* LocalStorage */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B809708C2CDB457C007BC3C4 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				B80970952CDB45EE007BC3C4 /* DTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		B809708F2CDB45B7007BC3C4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B80970912CDB45C4007BC3C4 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B80970902CDB45BC007BC3C4 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				B80970932CDB45DF007BC3C4 /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		B80970992CDB4678007BC3C4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B809709A2CDB4682007BC3C4 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F17368EC2CD86B1100F6242C = {
 			isa = PBXGroup;
 			children = (
@@ -59,13 +246,8 @@
 		F17368F72CD86B1100F6242C /* Molio */ = {
 			isa = PBXGroup;
 			children = (
-				F17368F82CD86B1100F6242C /* AppDelegate.swift */,
-				F17368FA2CD86B1100F6242C /* SceneDelegate.swift */,
-				F17368FC2CD86B1100F6242C /* ViewController.swift */,
-				F17368FE2CD86B1100F6242C /* Main.storyboard */,
-				F17369012CD86B1300F6242C /* Assets.xcassets */,
-				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
-				F17369062CD86B1300F6242C /* Info.plist */,
+				B80970732CDB434B007BC3C4 /* Source */,
+				B80970742CDB4353007BC3C4 /* Resource */,
 			);
 			path = Molio;
 			sourceTree = "<group>";
@@ -146,9 +328,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
+				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
+				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
+				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
+				B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */,
+				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
+				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
+				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
+				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
+				B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
