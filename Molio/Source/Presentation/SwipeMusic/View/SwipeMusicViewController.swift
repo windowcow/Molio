@@ -5,7 +5,7 @@ final class SwipeMusicViewController: UIViewController {
     private var viewModel = SwipeMusicViewModel()
     private var cancellables = Set<AnyCancellable>()
 
-    let basicBackgroundColor = UIColor(named: "background")
+    let basicBackgroundColor = UIColor(resource: .background)
     
     private let playlistSelectButton: UIButton = {
         let button = UIButton()
