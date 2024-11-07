@@ -18,7 +18,6 @@
 		2003BA132CDB8300002CAB3E /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA0A2CDB8300002CAB3E /* Pretendard-ExtraLight.otf */; };
 		2003BA142CDB8300002CAB3E /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2003BA0B2CDB8300002CAB3E /* Pretendard-Bold.otf */; };
 		2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA152CDB8D69002CAB3E /* Font+Extension.swift */; };
-		2003BA182CDB8DE0002CAB3E /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */; };
 		2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */; };
 		B809707D2CDB4425007BC3C4 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707C2CDB4425007BC3C4 /* Component.swift */; };
 		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
@@ -28,7 +27,6 @@
 		B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809708D2CDB4589007BC3C4 /* Repository.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
 		B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970952CDB45EE007BC3C4 /* DTO.swift */; };
-		B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709A2CDB4682007BC3C4 /* Extension.swift */; };
 		B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709D2CDB640B007BC3C4 /* MusicKitService.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
@@ -37,9 +35,9 @@
 		F17369052CD86B1300F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17369042CD86B1300F6242C /* Base */; };
 		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
 		F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */; };
-		F17369212CDBA97A00F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369202CDBA97900F6242C /* MusicTrackView.swift */; };
 		F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369222CDC5E5F00F6242C /* MusicTagView.swift */; };
 		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
+		F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicTrackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,9 +73,9 @@
 		F17369062CD86B1300F6242C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewController.swift; sourceTree = "<group>"; };
-		F17369202CDBA97900F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
 		F17369222CDC5E5F00F6242C /* MusicTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTagView.swift; sourceTree = "<group>"; };
 		F17369242CDC662A00F6242C /* CircleMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
+		F17369282CDC79E100F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +306,7 @@
 				F17369112CDAFE8C00F6242C /* .swiftlint.yml */,
 				F17368F72CD86B1100F6242C /* Molio */,
 				F17368F62CD86B1100F6242C /* Products */,
+				F17369272CDC784900F6242C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,11 +339,19 @@
 			isa = PBXGroup;
 			children = (
 				F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */,
-				F17369202CDBA97900F6242C /* MusicTrackView.swift */,
+				F17369282CDC79E100F6242C /* MusicTrackView.swift */,
 				F17369222CDC5E5F00F6242C /* MusicTagView.swift */,
 				F17369242CDC662A00F6242C /* CircleMenuButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F17369272CDC784900F6242C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				B809709A2CDB4682007BC3C4 /* Extension.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +368,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F17369152CDB004100F6242C /* PBXTargetDependency */,
+				F173692B2CDC85DD00F6242C /* PBXTargetDependency */,
 			);
 			name = Molio;
 			productName = Molio;
@@ -421,7 +428,6 @@
 				F17369052CD86B1300F6242C /* Base in Resources */,
 				2003BA112CDB8300002CAB3E /* Pretendard-Regular.otf in Resources */,
 				2003BA0E2CDB8300002CAB3E /* Pretendard-Black.otf in Resources */,
-				F17369002CD86B1100F6242C /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
-				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
 				2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
@@ -444,9 +449,9 @@
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
 				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
 				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,
-				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
 				2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
+				F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
 				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
@@ -458,9 +463,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F17369152CDB004100F6242C /* PBXTargetDependency */ = {
+		F173692B2CDC85DD00F6242C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */;
+			productRef = F173692A2CDC85DD00F6242C /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -696,7 +701,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */ = {
+		F173692A2CDC85DD00F6242C /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";

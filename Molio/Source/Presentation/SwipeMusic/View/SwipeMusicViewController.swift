@@ -19,8 +19,7 @@ final class SwipeMusicViewController: UIViewController {
     
     private let selectedPlaylistTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "🎧카공할 때 듣는 플리" // TODO: 연결되어야 함
-        label.font = .systemFont(ofSize: 16, weight: .medium) // TODO: 변경된 폰트 적용해야 함
+        label.molioMedium(text: "🎧카공할 때 듣는 플리", size: 16) // TODO: 서버 연결시 text 제거
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -98,8 +97,7 @@ final class SwipeMusicViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            menuStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 56),
-            menuStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -56),
+            menuStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             menuStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -22)
         ])
     }

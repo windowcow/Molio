@@ -14,8 +14,7 @@ final class MusicTrackView: UIView {
     
     private let songTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "APT." //TODO: 이후 삭제
-        label.font = .systemFont(ofSize: 48, weight: .bold) // TODO: 변경된 폰트 적용해야 함
+        label.molioExtraBold(text: "APT.", size: 48) // TODO: 서버 연결시 text 제거
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -23,8 +22,7 @@ final class MusicTrackView: UIView {
     
     private let artistNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "로제 & Bruno Mars" //TODO: 이후 삭제
-        label.font = .systemFont(ofSize: 20, weight: .medium) // TODO: 변경된 폰트 적용해야 함
+        label.molioMedium(text: "로제 & Bruno Mars", size: 20) // TODO: 서버 연결시 text 제거
         label.textColor = .white.withAlphaComponent(0.7)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

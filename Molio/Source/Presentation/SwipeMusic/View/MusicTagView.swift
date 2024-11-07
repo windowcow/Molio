@@ -4,7 +4,6 @@ final class MusicTagView: UIView {
     
     private let tagTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .medium) // TODO: 변경된 폰트 적용해야 함
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -16,7 +15,7 @@ final class MusicTagView: UIView {
         setupLayer()
         setupHierarchy()
         setupConstraint()
-        tagTitleLabel.text = tagTitle
+        tagTitleLabel.molioMedium(text: tagTitle, size: 14)
         self.backgroundColor = backgroundColor
     }
     
