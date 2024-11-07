@@ -5,7 +5,7 @@ final class SwipeMusicViewController: UIViewController {
     private let viewModel = SwipeMusicViewModel()
     private var cancellables = Set<AnyCancellable>()
 
-    let basicBackgroundColor = UIColor(named: "background")
+    let basicBackgroundColor = UIColor(resource: .background)
     
     private let playlistSelectButton: UIButton = {
         let button = UIButton()
@@ -79,6 +79,8 @@ final class SwipeMusicViewController: UIViewController {
         
         setupBindings()
         viewModel.fetchMusic()
+        
+        addPanGestureToMusicTrack()
     }
     
     private func setupBindings() {
@@ -90,8 +92,44 @@ final class SwipeMusicViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    private func setupBackgroundColor(by cgColor: CGColor?){
+    private func setupBackgroundColor(by cgColor: CGColor?) {
         view.backgroundColor = cgColor.map(UIColor.init(cgColor:)) ?? basicBackgroundColor
+    }
+    
+    private func addPanGestureToMusicTrack() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        musicTrackView.addGestureRecognizer(panGesture)
+    }
+    
+    @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        guard let card = gesture.view else { return }
+        
+        let translation = gesture.translation(in: view)
+        card.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+                
+        if gesture.state == .ended {
+            // 스와이프 임계값 : 카드를 특정 거리 이상 스와이프되었는지를 확인한다.
+            let swipeThreshold: CGFloat = 200
+            
+            // X축으로 이동한 거리가 스와이프 임계값을 넘은 경우
+            if abs(translation.x) > swipeThreshold {
+                let direction: CGFloat = translation.x > 0 ? 1 : -1 // 좌우 판단
+                // 화면 밖으로 이동하는 애니메이션
+                UIView.animate(withDuration: 0.3, animations: {
+                    card.center = CGPoint(x: card.center.x + direction * self.view.frame.width, y: card.center.y)
+                }) { _ in
+                    // 애니메이션 이후 카드 제거 및 새로운 카드 설정
+                    card.removeFromSuperview()
+                    self.setupMusicTrackView()
+                }
+            } else {
+                // 다시 원래 자리로 되돌린다.
+                UIView.animate(withDuration: 0.3) {
+                    card.center = self.view.center
+                    card.transform = .identity
+                }
+            }
+        }
     }
     
     private func setupSelectPlaylistView() {
