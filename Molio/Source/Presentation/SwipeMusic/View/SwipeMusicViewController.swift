@@ -2,7 +2,7 @@ import UIKit
 import Combine
 
 final class SwipeMusicViewController: UIViewController {
-    private var viewModel = SwipeMusicViewModel()
+    private let viewModel = SwipeMusicViewModel()
     private var cancellables = Set<AnyCancellable>()
 
     let basicBackgroundColor = UIColor(resource: .background)
@@ -85,7 +85,7 @@ final class SwipeMusicViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.$music
-            .receive(on: RunLoop.main) // 메인 스레드에서 UI 업데이트
+            .receive(on: RunLoop.main)
             .sink { [weak self] music in
                 self?.setupBackgroundColor(by: music?.artwork?.backgroundColor)
             }

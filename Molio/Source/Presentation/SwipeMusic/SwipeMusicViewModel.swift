@@ -2,7 +2,7 @@ import Foundation
 import Combine
 import MusicKit
 
-class SwipeMusicViewModel: ObservableObject {
+final class SwipeMusicViewModel: ObservableObject {
     @Published var music: Song?
     let musicService = MusicKitService()
     
