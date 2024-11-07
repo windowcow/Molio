@@ -1,6 +1,11 @@
 import UIKit
+import Combine
 
 final class SwipeMusicViewController: UIViewController {
+    private var viewModel = SwipeMusicViewModel()
+    private var cancellables = Set<AnyCancellable>()
+
+    let basicBackgroundColor = UIColor(named: "background")
     
     private let playlistSelectButton: UIButton = {
         let button = UIButton()
@@ -67,10 +72,27 @@ final class SwipeMusicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = .white // TODO: 앨범의 배경색으로 지정된 이후 삭제
+        view.backgroundColor = basicBackgroundColor // TODO: 앨범의 배경색으로 지정된 이후 삭제
         setupSelectPlaylistView()
         setupMusicTrackView()
         setupMenuButtonView()
+        
+        setupBindings()
+        viewModel.fetchMusic()
+        
+    }
+    
+    private func setupBindings() {
+        viewModel.$music
+            .receive(on: RunLoop.main) // 메인 스레드에서 UI 업데이트
+            .sink { [weak self] music in
+                self?.setupBackgroundColor(by: music?.artwork?.backgroundColor)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func setupBackgroundColor(by cgColor: CGColor?){
+        view.backgroundColor = cgColor.map(UIColor.init(cgColor:)) ?? basicBackgroundColor
     }
     
     private func setupSelectPlaylistView() {
@@ -125,5 +147,24 @@ final class SwipeMusicViewController: UIViewController {
             menuStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             menuStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -22)
         ])
+    }
+}
+
+// SwiftUI에서 SwipeViewController 미리보기
+import SwiftUI
+struct SwipeViewControllerPreview: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> SwipeMusicViewController {
+        return SwipeMusicViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: SwipeMusicViewController, context: Context) {
+        
+    }
+}
+
+struct SwipeViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        SwipeViewControllerPreview()
+            .edgesIgnoringSafeArea(.all)
     }
 }
