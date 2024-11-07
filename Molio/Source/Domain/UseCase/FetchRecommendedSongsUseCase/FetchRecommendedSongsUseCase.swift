@@ -1,5 +1,5 @@
 // 카드 추천 덱의 ViewModel에서 사용할 노래 추천 유즈케이스
-class FetchRecommendedSongsUseCase {
+final class FetchRecommendedSongsUseCase {
     let spotifyRepository: SpotifyRepository
     
     init(spotifyRepository: SpotifyRepository = MockSpotifyRepository()) {
