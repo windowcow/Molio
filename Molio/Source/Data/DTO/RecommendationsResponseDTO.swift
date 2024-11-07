@@ -1,3 +1,3 @@
-struct RecommendationsResponseDTO: Codable {
+struct RecommendationsResponseDTO: Decodable {
     let tracks: [TrackDTO]
 }
