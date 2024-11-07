@@ -3,19 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88CE4A9C2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */; };
+		88CE4AB92CDC6FD800E367C1 /* MusicFilterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */; };
+		88CE4ABB2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */; };
+		88CE4ABD2CDC7A1800E367C1 /* TrackDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */; };
+		88CE4ABF2CDC7A4900E367C1 /* SpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABE2CDC7A4900E367C1 /* SpotifyAPIService.swift */; };
+		88CE4AC12CDC7A5200E367C1 /* SpotifyAccessTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AC02CDC7A5200E367C1 /* SpotifyAccessTokenProvider.swift */; };
+		88CE4AC32CDC7A5B00E367C1 /* MockSpotifyAccessTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AC22CDC7A5B00E367C1 /* MockSpotifyAccessTokenProvider.swift */; };
+		88CE4AC52CDC7A6600E367C1 /* MockSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AC42CDC7A6600E367C1 /* MockSpotifyAPIService.swift */; };
+		88CE4AC72CDC7A8200E367C1 /* ExternalIDsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AC62CDC7A8200E367C1 /* ExternalIDsDTO.swift */; };
 		B809707D2CDB4425007BC3C4 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707C2CDB4425007BC3C4 /* Component.swift */; };
 		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
-		B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970842CDB44E3007BC3C4 /* Entity.swift */; };
-		B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */; };
-		B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970882CDB451D007BC3C4 /* UseCase.swift */; };
-		B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809708D2CDB4589007BC3C4 /* Repository.swift */; };
-		B80970922CDB45C4007BC3C4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970912CDB45C4007BC3C4 /* Network.swift */; };
+		B80970852CDB44E3007BC3C4 /* RecommendationRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970842CDB44E3007BC3C4 /* RecommendationRequestEntity.swift */; };
+		B80970872CDB44F7007BC3C4 /* SpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970862CDB44F7007BC3C4 /* SpotifyRepository.swift */; };
+		B80970892CDB451D007BC3C4 /* FetchRecommendedSongsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970882CDB451D007BC3C4 /* FetchRecommendedSongsUseCase.swift */; };
+		B809708E2CDB4589007BC3C4 /* MockSpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809708D2CDB4589007BC3C4 /* MockSpotifyRepository.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
-		B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970952CDB45EE007BC3C4 /* DTO.swift */; };
 		B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709A2CDB4682007BC3C4 /* Extension.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
@@ -26,16 +33,34 @@
 		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		88CE4AB32CDC6D5B00E367C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F17368ED2CD86B1100F6242C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F17368F42CD86B1100F6242C;
+			remoteInfo = Molio;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsRequestDTO.swift; sourceTree = "<group>"; };
+		88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilterEntity.swift; sourceTree = "<group>"; };
+		88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponseDTO.swift; sourceTree = "<group>"; };
+		88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDTO.swift; sourceTree = "<group>"; };
+		88CE4ABE2CDC7A4900E367C1 /* SpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIService.swift; sourceTree = "<group>"; };
+		88CE4AC02CDC7A5200E367C1 /* SpotifyAccessTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenProvider.swift; sourceTree = "<group>"; };
+		88CE4AC22CDC7A5B00E367C1 /* MockSpotifyAccessTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyAccessTokenProvider.swift; sourceTree = "<group>"; };
+		88CE4AC42CDC7A6600E367C1 /* MockSpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyAPIService.swift; sourceTree = "<group>"; };
+		88CE4AC62CDC7A8200E367C1 /* ExternalIDsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIDsDTO.swift; sourceTree = "<group>"; };
 		B809707C2CDB4425007BC3C4 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
-		B80970842CDB44E3007BC3C4 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInterface.swift; sourceTree = "<group>"; };
-		B80970882CDB451D007BC3C4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		B809708D2CDB4589007BC3C4 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		B80970912CDB45C4007BC3C4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B80970842CDB44E3007BC3C4 /* RecommendationRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationRequestEntity.swift; sourceTree = "<group>"; };
+		B80970862CDB44F7007BC3C4 /* SpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyRepository.swift; sourceTree = "<group>"; };
+		B80970882CDB451D007BC3C4 /* FetchRecommendedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecommendedSongsUseCase.swift; sourceTree = "<group>"; };
+		B809708D2CDB4589007BC3C4 /* MockSpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyRepository.swift; sourceTree = "<group>"; };
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
-		B80970952CDB45EE007BC3C4 /* DTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTO.swift; sourceTree = "<group>"; };
 		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +73,18 @@
 		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		88CE4AB02CDC6D5B00E367C1 /* MolioTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MolioTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		88CE4AAC2CDC6D5B00E367C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F17368F22CD86B1100F6242C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,6 +95,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88CE4A9F2CDBBAC100E367C1 /* FetchRecommendedSongsUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B80970882CDB451D007BC3C4 /* FetchRecommendedSongsUseCase.swift */,
+			);
+			path = FetchRecommendedSongsUseCase;
+			sourceTree = "<group>";
+		};
+		88CE4AC82CDC7B2E00E367C1 /* SpotifyAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				88CE4ABE2CDC7A4900E367C1 /* SpotifyAPIService.swift */,
+				88CE4AC42CDC7A6600E367C1 /* MockSpotifyAPIService.swift */,
+			);
+			path = SpotifyAPIService;
+			sourceTree = "<group>";
+		};
+		88CE4AC92CDC7B5900E367C1 /* SpotifyAccessTokenProvider */ = {
+			isa = PBXGroup;
+			children = (
+				88CE4AC02CDC7A5200E367C1 /* SpotifyAccessTokenProvider.swift */,
+				88CE4AC22CDC7A5B00E367C1 /* MockSpotifyAccessTokenProvider.swift */,
+			);
+			path = SpotifyAccessTokenProvider;
+			sourceTree = "<group>";
+		};
 		B80970732CDB434B007BC3C4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +218,7 @@
 		B80970812CDB4472007BC3C4 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				B80970882CDB451D007BC3C4 /* UseCase.swift */,
+				88CE4A9F2CDBBAC100E367C1 /* FetchRecommendedSongsUseCase */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -164,7 +226,7 @@
 		B80970822CDB4478007BC3C4 /* Repository Interface */ = {
 			isa = PBXGroup;
 			children = (
-				B80970862CDB44F7007BC3C4 /* RepositoryInterface.swift */,
+				B80970862CDB44F7007BC3C4 /* SpotifyRepository.swift */,
 			);
 			path = "Repository Interface";
 			sourceTree = "<group>";
@@ -172,7 +234,8 @@
 		B80970832CDB44DB007BC3C4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				B80970842CDB44E3007BC3C4 /* Entity.swift */,
+				B80970842CDB44E3007BC3C4 /* RecommendationRequestEntity.swift */,
+				88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -180,7 +243,7 @@
 		B809708A2CDB456E007BC3C4 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				B809708D2CDB4589007BC3C4 /* Repository.swift */,
+				B809708D2CDB4589007BC3C4 /* MockSpotifyRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -197,7 +260,10 @@
 		B809708C2CDB457C007BC3C4 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				B80970952CDB45EE007BC3C4 /* DTO.swift */,
+				88CE4AC62CDC7A8200E367C1 /* ExternalIDsDTO.swift */,
+				88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */,
+				88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */,
+				88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -205,7 +271,8 @@
 		B809708F2CDB45B7007BC3C4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B80970912CDB45C4007BC3C4 /* Network.swift */,
+				88CE4AC82CDC7B2E00E367C1 /* SpotifyAPIService */,
+				88CE4AC92CDC7B5900E367C1 /* SpotifyAccessTokenProvider */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -231,6 +298,7 @@
 			children = (
 				F17369112CDAFE8C00F6242C /* .swiftlint.yml */,
 				F17368F72CD86B1100F6242C /* Molio */,
+				88CE4AB02CDC6D5B00E367C1 /* MolioTests */,
 				F17368F62CD86B1100F6242C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -239,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				F17368F52CD86B1100F6242C /* Molio.app */,
+				88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +324,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		88CE4AAE2CDC6D5B00E367C1 /* MolioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88CE4AB52CDC6D5B00E367C1 /* Build configuration list for PBXNativeTarget "MolioTests" */;
+			buildPhases = (
+				88CE4AAB2CDC6D5B00E367C1 /* Sources */,
+				88CE4AAC2CDC6D5B00E367C1 /* Frameworks */,
+				88CE4AAD2CDC6D5B00E367C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88CE4AB42CDC6D5B00E367C1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				88CE4AB02CDC6D5B00E367C1 /* MolioTests */,
+			);
+			name = MolioTests;
+			packageProductDependencies = (
+			);
+			productName = MolioTests;
+			productReference = 88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F17368F42CD86B1100F6242C /* Molio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F17369092CD86B1300F6242C /* Build configuration list for PBXNativeTarget "Molio" */;
@@ -280,9 +372,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					88CE4AAE2CDC6D5B00E367C1 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = F17368F42CD86B1100F6242C;
+					};
 					F17368F42CD86B1100F6242C = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -305,11 +401,19 @@
 			projectRoot = "";
 			targets = (
 				F17368F42CD86B1100F6242C /* Molio */,
+				88CE4AAE2CDC6D5B00E367C1 /* MolioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		88CE4AAD2CDC6D5B00E367C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F17368F32CD86B1100F6242C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,29 +428,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		88CE4AAB2CDC6D5B00E367C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F17368F12CD86B1100F6242C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CE4AC32CDC7A5B00E367C1 /* MockSpotifyAccessTokenProvider.swift in Sources */,
+				88CE4AC72CDC7A8200E367C1 /* ExternalIDsDTO.swift in Sources */,
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
-				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
-				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
-				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
-				B80970872CDB44F7007BC3C4 /* RepositoryInterface.swift in Sources */,
+				88CE4ABF2CDC7A4900E367C1 /* SpotifyAPIService.swift in Sources */,
+				88CE4ABB2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift in Sources */,
+				B80970892CDB451D007BC3C4 /* FetchRecommendedSongsUseCase.swift in Sources */,
+				88CE4AC52CDC7A6600E367C1 /* MockSpotifyAPIService.swift in Sources */,
+				88CE4ABD2CDC7A1800E367C1 /* TrackDTO.swift in Sources */,
+				B80970872CDB44F7007BC3C4 /* SpotifyRepository.swift in Sources */,
+				88CE4AC12CDC7A5200E367C1 /* SpotifyAccessTokenProvider.swift in Sources */,
 				B809707D2CDB4425007BC3C4 /* Component.swift in Sources */,
-				B80970852CDB44E3007BC3C4 /* Entity.swift in Sources */,
+				B80970852CDB44E3007BC3C4 /* RecommendationRequestEntity.swift in Sources */,
 				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
+				88CE4A9C2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
+				88CE4AB92CDC6FD800E367C1 /* MusicFilterEntity.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
-				B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */,
+				B809708E2CDB4589007BC3C4 /* MockSpotifyRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		88CE4AB42CDC6D5B00E367C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F17368F42CD86B1100F6242C /* Molio */;
+			targetProxy = 88CE4AB32CDC6D5B00E367C1 /* PBXContainerItemProxy */;
+		};
 		F17369152CDB004100F6242C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */;
@@ -373,6 +496,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		88CE4AB62CDC6D5B00E367C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KPHTM749M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = windowcow.MolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
+			};
+			name = Debug;
+		};
+		88CE4AB72CDC6D5B00E367C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KPHTM749M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = windowcow.MolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
+			};
+			name = Release;
+		};
 		F17369072CD86B1300F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -561,6 +722,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		88CE4AB52CDC6D5B00E367C1 /* Build configuration list for PBXNativeTarget "MolioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88CE4AB62CDC6D5B00E367C1 /* Debug */,
+				88CE4AB72CDC6D5B00E367C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F17368F02CD86B1100F6242C /* Build configuration list for PBXProject "Molio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
