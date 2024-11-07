@@ -79,7 +79,6 @@ final class SwipeMusicViewController: UIViewController {
         
         setupBindings()
         viewModel.fetchMusic()
-        
     }
     
     private func setupBindings() {
