@@ -2,7 +2,7 @@ import UIKit
 import Combine
 
 final class SwipeMusicViewController: UIViewController {
-    private var viewModel = SwipeMusicViewModel()
+    private let viewModel = SwipeMusicViewModel()
     private var cancellables = Set<AnyCancellable>()
 
     let basicBackgroundColor = UIColor(named: "background")
