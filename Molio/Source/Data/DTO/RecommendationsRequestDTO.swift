@@ -1,8 +1,3 @@
-// DTO 모델 객체 파일
-// 최초 파일 생성하면 삭제해주세요
-
-import Foundation
-
 struct RecommendationsRequestDTO: Codable {
     
     // MARK: - 기본
@@ -127,18 +122,3 @@ struct RecommendationsRequestDTO: Codable {
         self.targetValence = targetValence
     }
 }
-
-struct RecommendationRequestEntity {
-    var genres: [String]
-    
-    var genresDescription: String {
-        genres.joined(separator: ",")
-    }
-    
-    func toDTO() -> RecommendationsRequestDTO {
-        let requestSeedGenres = genresDescription
-        
-        return RecommendationsRequestDTO(limit: 20, seedGenres: requestSeedGenres)
-    }
-}
-
