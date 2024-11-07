@@ -102,9 +102,9 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-        let card = gesture.view!
-        let translation = gesture.translation(in: view)
+        guard let card = gesture.view else { return }
         
+        let translation = gesture.translation(in: view)
         card.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
                 
         if gesture.state == .ended {
