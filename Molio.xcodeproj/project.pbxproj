@@ -39,7 +39,18 @@
 		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
 		F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicTrackView.swift */; };
 		F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */; };
+		F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369352CDCE31C00F6242C /* MolioTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F17369372CDCE31C00F6242C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F17368ED2CD86B1100F6242C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F17368F42CD86B1100F6242C;
+			remoteInfo = Molio;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2003BA002CDB7498002CAB3E /* PretendardFontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendardFontName.swift; sourceTree = "<group>"; };
@@ -78,10 +89,19 @@
 		F17369242CDC662A00F6242C /* CircleMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
 		F17369282CDC79E100F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
 		F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F17369332CDCE31C00F6242C /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F17369352CDCE31C00F6242C /* MolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolioTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F17368F22CD86B1100F6242C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F17369302CDCE31C00F6242C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,6 +328,7 @@
 			children = (
 				F17369112CDAFE8C00F6242C /* .swiftlint.yml */,
 				F17368F72CD86B1100F6242C /* Molio */,
+				F17369342CDCE31C00F6242C /* MolioTests */,
 				F17368F62CD86B1100F6242C /* Products */,
 				F17369272CDC784900F6242C /* Recovered References */,
 			);
@@ -317,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				F17368F52CD86B1100F6242C /* Molio.app */,
+				F17369332CDCE31C00F6242C /* MolioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -357,6 +379,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		F17369342CDCE31C00F6242C /* MolioTests */ = {
+			isa = PBXGroup;
+			children = (
+				F17369352CDCE31C00F6242C /* MolioTests.swift */,
+			);
+			path = MolioTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +408,24 @@
 			productReference = F17368F52CD86B1100F6242C /* Molio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F17369322CDCE31C00F6242C /* MolioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F173693B2CDCE31C00F6242C /* Build configuration list for PBXNativeTarget "MolioTests" */;
+			buildPhases = (
+				F173692F2CDCE31C00F6242C /* Sources */,
+				F17369302CDCE31C00F6242C /* Frameworks */,
+				F17369312CDCE31C00F6242C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F17369382CDCE31C00F6242C /* PBXTargetDependency */,
+			);
+			name = MolioTests;
+			productName = MolioTests;
+			productReference = F17369332CDCE31C00F6242C /* MolioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -385,11 +433,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					F17368F42CD86B1100F6242C = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					F17369322CDCE31C00F6242C = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = F17368F42CD86B1100F6242C;
 					};
 				};
 			};
@@ -410,6 +462,7 @@
 			projectRoot = "";
 			targets = (
 				F17368F42CD86B1100F6242C /* Molio */,
+				F17369322CDCE31C00F6242C /* MolioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -431,6 +484,13 @@
 				F17369052CD86B1300F6242C /* Base in Resources */,
 				2003BA112CDB8300002CAB3E /* Pretendard-Regular.otf in Resources */,
 				2003BA0E2CDB8300002CAB3E /* Pretendard-Black.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F17369312CDCE31C00F6242C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,12 +524,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F173692F2CDCE31C00F6242C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		F173692B2CDC85DD00F6242C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = F173692A2CDC85DD00F6242C /* SwiftLintBuildToolPlugin */;
+		};
+		F17369382CDCE31C00F6242C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F17368F42CD86B1100F6242C /* Molio */;
+			targetProxy = F17369372CDCE31C00F6242C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -670,6 +743,42 @@
 			};
 			name = Release;
 		};
+		F17369392CDCE31C00F6242C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.boostcamp9.MolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
+			};
+			name = Debug;
+		};
+		F173693A2CDCE31C00F6242C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.codesquad.boostcamp9.MolioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -687,6 +796,15 @@
 			buildConfigurations = (
 				F173690A2CD86B1300F6242C /* Debug */,
 				F173690B2CD86B1300F6242C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F173693B2CDCE31C00F6242C /* Build configuration list for PBXNativeTarget "MolioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F17369392CDCE31C00F6242C /* Debug */,
+				F173693A2CDCE31C00F6242C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
