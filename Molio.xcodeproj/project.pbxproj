@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88CE4A9C2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */; };
-		88CE4AB92CDC6FD800E367C1 /* MusicFilterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */; };
+		88CE4AB92CDC6FD800E367C1 /* MusicFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4AB82CDC6FD800E367C1 /* MusicFilter.swift */; };
 		88CE4ABB2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */; };
 		88CE4ABD2CDC7A1800E367C1 /* TrackDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */; };
 		88CE4ABF2CDC7A4900E367C1 /* SpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CE4ABE2CDC7A4900E367C1 /* SpotifyAPIService.swift */; };
@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsRequestDTO.swift; sourceTree = "<group>"; };
-		88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilterEntity.swift; sourceTree = "<group>"; };
+		88CE4AB82CDC6FD800E367C1 /* MusicFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilter.swift; sourceTree = "<group>"; };
 		88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponseDTO.swift; sourceTree = "<group>"; };
 		88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDTO.swift; sourceTree = "<group>"; };
 		88CE4ABE2CDC7A4900E367C1 /* SpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIService.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				B80970842CDB44E3007BC3C4 /* RecommendationRequestEntity.swift */,
-				88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */,
+				88CE4AB82CDC6FD800E367C1 /* MusicFilter.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				88CE4A9C2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
-				88CE4AB92CDC6FD800E367C1 /* MusicFilterEntity.swift in Sources */,
+				88CE4AB92CDC6FD800E367C1 /* MusicFilter.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				B809708E2CDB4589007BC3C4 /* MockSpotifyRepository.swift in Sources */,
 			);
