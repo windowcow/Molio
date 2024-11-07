@@ -24,6 +24,9 @@
 		F17369052CD86B1300F6242C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F17369042CD86B1300F6242C /* Base */; };
 		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
 		F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */; };
+		F17369212CDBA97A00F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369202CDBA97900F6242C /* MusicTrackView.swift */; };
+		F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369222CDC5E5F00F6242C /* MusicTagView.swift */; };
+		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		F17369062CD86B1300F6242C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewController.swift; sourceTree = "<group>"; };
+		F17369202CDBA97900F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
+		F17369222CDC5E5F00F6242C /* MusicTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTagView.swift; sourceTree = "<group>"; };
+		F17369242CDC662A00F6242C /* CircleMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,9 @@
 			isa = PBXGroup;
 			children = (
 				F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */,
+				F17369202CDBA97900F6242C /* MusicTrackView.swift */,
+				F17369222CDC5E5F00F6242C /* MusicTagView.swift */,
+				F17369242CDC662A00F6242C /* CircleMenuButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
 				B80970922CDB45C4007BC3C4 /* Network.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
+				F17369212CDBA97A00F6242C /* MusicTrackView.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
 				B80970892CDB451D007BC3C4 /* UseCase.swift in Sources */,
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
@@ -355,8 +365,10 @@
 				B809709B2CDB4682007BC3C4 /* Extension.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
+				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				B809708E2CDB4589007BC3C4 /* Repository.swift in Sources */,
+				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
