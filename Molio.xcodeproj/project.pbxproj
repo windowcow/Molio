@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,19 +33,8 @@
 		F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F17369112CDAFE8C00F6242C /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		88CE4AB32CDC6D5B00E367C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F17368ED2CD86B1100F6242C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F17368F42CD86B1100F6242C;
-			remoteInfo = Molio;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		88CE4A9B2CDBAC5900E367C1 /* RecommendationsRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsRequestDTO.swift; sourceTree = "<group>"; };
-		88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CE4AB82CDC6FD800E367C1 /* MusicFilterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilterEntity.swift; sourceTree = "<group>"; };
 		88CE4ABA2CDC7A1100E367C1 /* RecommendationsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponseDTO.swift; sourceTree = "<group>"; };
 		88CE4ABC2CDC7A1800E367C1 /* TrackDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDTO.swift; sourceTree = "<group>"; };
@@ -73,18 +62,7 @@
 		F17369112CDAFE8C00F6242C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		88CE4AB02CDC6D5B00E367C1 /* MolioTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MolioTests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		88CE4AAC2CDC6D5B00E367C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F17368F22CD86B1100F6242C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,7 +276,6 @@
 			children = (
 				F17369112CDAFE8C00F6242C /* .swiftlint.yml */,
 				F17368F72CD86B1100F6242C /* Molio */,
-				88CE4AB02CDC6D5B00E367C1 /* MolioTests */,
 				F17368F62CD86B1100F6242C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -307,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				F17368F52CD86B1100F6242C /* Molio.app */,
-				88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,29 +300,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		88CE4AAE2CDC6D5B00E367C1 /* MolioTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 88CE4AB52CDC6D5B00E367C1 /* Build configuration list for PBXNativeTarget "MolioTests" */;
-			buildPhases = (
-				88CE4AAB2CDC6D5B00E367C1 /* Sources */,
-				88CE4AAC2CDC6D5B00E367C1 /* Frameworks */,
-				88CE4AAD2CDC6D5B00E367C1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				88CE4AB42CDC6D5B00E367C1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				88CE4AB02CDC6D5B00E367C1 /* MolioTests */,
-			);
-			name = MolioTests;
-			packageProductDependencies = (
-			);
-			productName = MolioTests;
-			productReference = 88CE4AAF2CDC6D5B00E367C1 /* MolioTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		F17368F42CD86B1100F6242C /* Molio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F17369092CD86B1300F6242C /* Build configuration list for PBXNativeTarget "Molio" */;
@@ -375,10 +328,6 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					88CE4AAE2CDC6D5B00E367C1 = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = F17368F42CD86B1100F6242C;
-					};
 					F17368F42CD86B1100F6242C = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -401,19 +350,11 @@
 			projectRoot = "";
 			targets = (
 				F17368F42CD86B1100F6242C /* Molio */,
-				88CE4AAE2CDC6D5B00E367C1 /* MolioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		88CE4AAD2CDC6D5B00E367C1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F17368F32CD86B1100F6242C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,13 +369,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		88CE4AAB2CDC6D5B00E367C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F17368F12CD86B1100F6242C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,11 +399,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		88CE4AB42CDC6D5B00E367C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F17368F42CD86B1100F6242C /* Molio */;
-			targetProxy = 88CE4AB32CDC6D5B00E367C1 /* PBXContainerItemProxy */;
-		};
 		F17369152CDB004100F6242C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = F17369142CDB004100F6242C /* SwiftLintBuildToolPlugin */;
@@ -496,44 +425,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		88CE4AB62CDC6D5B00E367C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9KPHTM749M;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = windowcow.MolioTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
-			};
-			name = Debug;
-		};
-		88CE4AB72CDC6D5B00E367C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9KPHTM749M;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = windowcow.MolioTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Molio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Molio";
-			};
-			name = Release;
-		};
 		F17369072CD86B1300F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -722,15 +613,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		88CE4AB52CDC6D5B00E367C1 /* Build configuration list for PBXNativeTarget "MolioTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				88CE4AB62CDC6D5B00E367C1 /* Debug */,
-				88CE4AB72CDC6D5B00E367C1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		F17368F02CD86B1100F6242C /* Build configuration list for PBXProject "Molio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
