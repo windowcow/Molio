@@ -1,5 +1,5 @@
 protocol SpotifyAPIService {
     var spotifyAccessTokenProvider: SpotifyAccessTokenProvider { get }
     
-    func fetchRecommendedMusicISRCs(musicFilterEntity: MusicFilterEntity) async -> [String]
+    func fetchRecommendedMusicISRCs(musicFilterEntity: MusicFilter) async -> [String]
 }

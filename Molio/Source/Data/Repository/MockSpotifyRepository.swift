@@ -1,5 +1,3 @@
-import Foundation
-
 struct MockSpotifyRepository: SpotifyRepository {
     var spotifyAPIService: SpotifyAPIService
     
@@ -7,7 +5,7 @@ struct MockSpotifyRepository: SpotifyRepository {
         self.spotifyAPIService = spotifyAPIService
     }
     
-    func fetchRecommendedSong(musicFilter: MusicFilterEntity) async -> [String] {
+    func fetchRecommendedSong(musicFilter: MusicFilter) async -> [String] {
         return await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilterEntity: musicFilter)
     }
 }
