@@ -57,7 +57,7 @@
 		F17369492CDF250200F6242C /* DefaultFetchMusicsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369482CDF250200F6242C /* DefaultFetchMusicsUseCase.swift */; };
 		F173694B2CDF265900F6242C /* DefaultMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173694A2CDF265900F6242C /* DefaultMusicRepository.swift */; };
 		F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369512CDFA7DC00F6242C /* SongMapper.swift */; };
-		F17369542CDFA9FD00F6242C /* MusicColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369532CDFA9FD00F6242C /* MusicColorMapper.swift */; };
+		F17369542CDFA9FD00F6242C /* CGColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369532CDFA9FD00F6242C /* CGColorMapper.swift */; };
 		F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */; };
 		F17369592CDFB73000F6242C /* MusicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369582CDFB73000F6242C /* MusicColor.swift */; };
 /* End PBXBuildFile section */
@@ -128,7 +128,7 @@
 		F17369482CDF250200F6242C /* DefaultFetchMusicsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchMusicsUseCase.swift; sourceTree = "<group>"; };
 		F173694A2CDF265900F6242C /* DefaultMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicRepository.swift; sourceTree = "<group>"; };
 		F17369512CDFA7DC00F6242C /* SongMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMapper.swift; sourceTree = "<group>"; };
-		F17369532CDFA9FD00F6242C /* MusicColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicColorMapper.swift; sourceTree = "<group>"; };
+		F17369532CDFA9FD00F6242C /* CGColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorMapper.swift; sourceTree = "<group>"; };
 		F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicKitService.swift; sourceTree = "<group>"; };
 		F17369582CDFB73000F6242C /* MusicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -497,7 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				F17369512CDFA7DC00F6242C /* SongMapper.swift */,
-				F17369532CDFA9FD00F6242C /* MusicColorMapper.swift */,
+				F17369532CDFA9FD00F6242C /* CGColorMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -631,7 +631,7 @@
 				881BBCC72CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift in Sources */,
 				F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */,
 				2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */,
-				F17369542CDFA9FD00F6242C /* MusicColorMapper.swift in Sources */,
+				F17369542CDFA9FD00F6242C /* CGColorMapper.swift in Sources */,
 				F17368FD2CD86B1100F6242C /* ViewController.swift in Sources */,
 				B80970962CDB45EE007BC3C4 /* DTO.swift in Sources */,
 				F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */,
