@@ -36,6 +36,12 @@
 		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
 		B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709D2CDB640B007BC3C4 /* MusicKitService.swift */; };
+		B8D553E82CDFE25C007CCD6D /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */; };
+		B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553E92CDFE271007CCD6D /* EndPoint.swift */; };
+		B8D553EC2CDFE29D007CCD6D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553EB2CDFE29D007CCD6D /* NetworkError.swift */; };
+		B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553ED2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift */; };
+		B8D553F02CDFE2F5007CCD6D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553EF2CDFE2F5007CCD6D /* HTTPMethod.swift */; };
+		B8D553F22CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
@@ -100,6 +106,12 @@
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B809709D2CDB640B007BC3C4 /* MusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitService.swift; sourceTree = "<group>"; };
+		B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		B8D553E92CDFE271007CCD6D /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		B8D553EB2CDFE29D007CCD6D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B8D553ED2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseStatusCode.swift; sourceTree = "<group>"; };
+		B8D553EF2CDFE2F5007CCD6D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthorizationAPI.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +202,7 @@
 			children = (
 				881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */,
 				881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */,
+				B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */,
 			);
 			path = SpotifyTokenProvider;
 			sourceTree = "<group>";
@@ -370,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				F17369552CDFB02100F6242C /* MusicKitService */,
+				B8D553E62CDFE245007CCD6D /* NetworkProvider */,
 				881BBCAE2CDCF91B00010A61 /* SpotifyTokenProvider */,
 				881BBCB12CDCF91B00010A61 /* SpotifyAPIService */,
 			);
@@ -391,6 +405,18 @@
 				2003BA192CDB8EB5002CAB3E /* SwiftUI */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B8D553E62CDFE245007CCD6D /* NetworkProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */,
+				B8D553E92CDFE271007CCD6D /* EndPoint.swift */,
+				B8D553EB2CDFE29D007CCD6D /* NetworkError.swift */,
+				B8D553ED2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift */,
+				B8D553EF2CDFE2F5007CCD6D /* HTTPMethod.swift */,
+			);
+			path = NetworkProvider;
 			sourceTree = "<group>";
 		};
 		F17368EC2CD86B1100F6242C = {
@@ -631,6 +657,7 @@
 			files = (
 				F17369492CDF250200F6242C /* DefaultFetchMusicsUseCase.swift in Sources */,
 				881BBCC42CDCF98300010A61 /* SpotifyRepository.swift in Sources */,
+				B8D553F22CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift in Sources */,
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
 				881BBCC72CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift in Sources */,
 				F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */,
@@ -643,9 +670,13 @@
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
 				881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */,
+				B8D553EC2CDFE29D007CCD6D /* NetworkError.swift in Sources */,
 				881BBCC22CDCF97900010A61 /* RecommendationRequestEntity.swift in Sources */,
+				B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */,
+				B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */,
 				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,
 				2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */,
+				B8D553E82CDFE25C007CCD6D /* NetworkProvider.swift in Sources */,
 				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				881BBCBB2CDCF95600010A61 /* TrackDTO.swift in Sources */,
 				881BBCBC2CDCF95600010A61 /* RecommendationsResponseDTO.swift in Sources */,
@@ -655,6 +686,7 @@
 				F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
 				F17369462CDF24A100F6242C /* FetchMusicsUseCase.swift in Sources */,
+				B8D553F02CDFE2F5007CCD6D /* HTTPMethod.swift in Sources */,
 				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
 				881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
