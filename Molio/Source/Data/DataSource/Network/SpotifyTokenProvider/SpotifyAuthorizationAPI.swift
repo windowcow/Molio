@@ -17,7 +17,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
         switch self {
         case .createAccessToken:
             let params: [String: String] = ["grant_type": "client_credentials"]
-            return makeFullPath(with: "", params: params)
+            return makeFullPath(with: "/token", params: params)
         }
     }
     
