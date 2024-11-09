@@ -11,6 +11,6 @@ final class DefaultFetchRecommendedSongsUseCase: FetchRecommendedSongsUseCase {
     
     // 노래 필터를 기반으로 추천 노래 ISRC 배열을 비동기로 가져온다.
     func execute(musicFilter: MusicFilter) async -> [String] {
-        await spotifyRepository.fetchRecommendedSong(musicFilter: musicFilter)
+        await spotifyRepository.fetchRecommendedSongsISRC(musicFilter: musicFilter)
     }
 }

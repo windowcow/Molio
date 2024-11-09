@@ -1,5 +1,3 @@
 protocol SpotifyRepository {
-    var spotifyAPIService: SpotifyAPIService { get }
-    // ISRC 배열을 반환한다.
-    func fetchRecommendedSong(musicFilter: MusicFilter) async -> [String]
+    func fetchRecommendedSongsISRC(musicFilter: MusicFilter) async -> [String]
 }
