@@ -42,10 +42,6 @@
 		B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553ED2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift */; };
 		B8D553F02CDFE2F5007CCD6D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553EF2CDFE2F5007CCD6D /* HTTPMethod.swift */; };
 		B8D553F22CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */; };
-		B8D553F52CDFE5F0007CCD6D /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F42CDFE5F0007CCD6D /* MockURLProtocol.swift */; };
-		B8D553F92CDFE8FE007CCD6D /* SpotifyAccessTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F82CDFE8FE007CCD6D /* SpotifyAccessTokenResponseDTO.swift */; };
-		B8D553FD2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553FC2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift */; };
-		B8D553FE2CDFEB31007CCD6D /* SpotifyAccessTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F82CDFE8FE007CCD6D /* SpotifyAccessTokenResponseDTO.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
@@ -117,6 +113,7 @@
 		B8D553EF2CDFE2F5007CCD6D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthorizationAPI.swift; sourceTree = "<group>"; };
 		B8D553F42CDFE5F0007CCD6D /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderTests.swift; sourceTree = "<group>"; };
 		B8D553F82CDFE8FE007CCD6D /* SpotifyAccessTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenResponseDTO.swift; sourceTree = "<group>"; };
 		B8D553FC2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenResponseDTODummy.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -513,6 +510,7 @@
 			children = (
 				B8D553F32CDFE5E6007CCD6D /* Test Double */,
 				F17369352CDCE31C00F6242C /* MolioTests.swift */,
+				B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */,
 			);
 			path = MolioTests;
 			sourceTree = "<group>";
@@ -742,6 +740,7 @@
 				B8D553FD2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift in Sources */,
 				F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */,
 				B8D553FE2CDFEB31007CCD6D /* SpotifyAccessTokenResponseDTO.swift in Sources */,
+				B8D553F72CDFE623007CCD6D /* NetworkProviderTests.swift in Sources */,
 				B8D553F52CDFE5F0007CCD6D /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
