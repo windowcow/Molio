@@ -1,11 +1,11 @@
 import Foundation
 
 enum SpotifyAuthorizationAPI {
-    case getAccessToken
+    case createAccessToken
     
     var description: String {
         switch self {
-        case .getAccessToken: "access token 요청 엔드포인트"
+        case .createAccessToken: "access token 요청 엔드포인트"
         }
     }
 }
@@ -15,7 +15,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
     
     var path: String {
         switch self {
-        case .getAccessToken:
+        case .createAccessToken:
             let params: [String: String] = ["grant_type": "client_credentials"]
             return makeFullPath(with: "", params: params)
         }
@@ -23,7 +23,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getAccessToken: return .post
+        case .createAccessToken: return .post
         }
     }
     
@@ -36,7 +36,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
     
     var body: Data? {
         switch self {
-        case .getAccessToken: return nil
+        case .createAccessToken: return nil
         }
     }
 }
