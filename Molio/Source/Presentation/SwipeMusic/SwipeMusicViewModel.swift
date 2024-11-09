@@ -3,17 +3,28 @@ import Combine
 import MusicKit
 
 final class SwipeMusicViewModel: ObservableObject {
-    @Published var music: Song?
-    let musicService = MusicKitService()
+    @Published var musics: [Music] = []
+    
+    let fetchMusicsUseCase: FetchMusicsUseCase
+    
+    init() {
+        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultMusicRepository = DefaultMusicRepository(
+            spotifyAPIService: mockSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        self.fetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+    }
     
     func fetchMusic() {
-        if musicService.checkAuthorizationStatus() {
-            Task {
-                let music = await musicService.getMusic(with: "USAT22409172")
-                self.music = music
+        Task {
+            do {
+                musics = try await fetchMusicsUseCase.execute(genres: ["k-pop"])
+                print(musics)
+            } catch {
+                print("error")
             }
-        } else {
-            music = nil
         }
     }
 }
