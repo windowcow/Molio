@@ -1,7 +1,7 @@
 import Foundation
 
 struct MockSpotifyAPIService: SpotifyAPIService {
-    var spotifyAccessTokenProvider: SpotifyAccessTokenProvider
+    private let spotifyAccessTokenProvider: SpotifyAccessTokenProvider
     
     init(spotifyAccessTokenProvider: SpotifyAccessTokenProvider = MockSpotifyAccessTokenProvider()) {
         self.spotifyAccessTokenProvider = spotifyAccessTokenProvider
