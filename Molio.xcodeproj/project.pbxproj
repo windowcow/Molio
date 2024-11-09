@@ -22,8 +22,8 @@
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
 		881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */; };
 		881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAF2CDCF91B00010A61 /* MockSpotifyAPIService.swift */; };
-		881BBCB42CDCF91B00010A61 /* SpotifyAccessTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAD2CDCF91B00010A61 /* SpotifyAccessTokenProvider.swift */; };
-		881BBCB52CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAC2CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift */; };
+		881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */; };
+		881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */; };
 		881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCB02CDCF91B00010A61 /* SpotifyAPIService.swift */; };
 		881BBCBB2CDCF95600010A61 /* TrackDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCBA2CDCF95600010A61 /* TrackDTO.swift */; };
 		881BBCBC2CDCF95600010A61 /* RecommendationsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCB92CDCF95600010A61 /* RecommendationsResponseDTO.swift */; };
@@ -84,8 +84,8 @@
 		2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
 		881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyRepository.swift; sourceTree = "<group>"; };
-		881BBCAC2CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyAccessTokenProvider.swift; sourceTree = "<group>"; };
-		881BBCAD2CDCF91B00010A61 /* SpotifyAccessTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenProvider.swift; sourceTree = "<group>"; };
+		881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyTokenProvider.swift; sourceTree = "<group>"; };
+		881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenProvider.swift; sourceTree = "<group>"; };
 		881BBCAF2CDCF91B00010A61 /* MockSpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyAPIService.swift; sourceTree = "<group>"; };
 		881BBCB02CDCF91B00010A61 /* SpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIService.swift; sourceTree = "<group>"; };
 		881BBCB72CDCF95600010A61 /* ExternalIDsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIDsDTO.swift; sourceTree = "<group>"; };
@@ -185,13 +185,13 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		881BBCAE2CDCF91B00010A61 /* SpotifyAccessTokenProvider */ = {
+		881BBCAE2CDCF91B00010A61 /* SpotifyTokenProvider */ = {
 			isa = PBXGroup;
 			children = (
-				881BBCAC2CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift */,
-				881BBCAD2CDCF91B00010A61 /* SpotifyAccessTokenProvider.swift */,
+				881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */,
+				881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */,
 			);
-			path = SpotifyAccessTokenProvider;
+			path = SpotifyTokenProvider;
 			sourceTree = "<group>";
 		};
 		881BBCB12CDCF91B00010A61 /* SpotifyAPIService */ = {
@@ -370,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				F17369552CDFB02100F6242C /* MusicKitService */,
-				881BBCAE2CDCF91B00010A61 /* SpotifyAccessTokenProvider */,
+				881BBCAE2CDCF91B00010A61 /* SpotifyTokenProvider */,
 				881BBCB12CDCF91B00010A61 /* SpotifyAPIService */,
 			);
 			path = Network;
@@ -657,9 +657,9 @@
 				F17369462CDF24A100F6242C /* FetchMusicsUseCase.swift in Sources */,
 				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
 				881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */,
-				881BBCB42CDCF91B00010A61 /* SpotifyAccessTokenProvider.swift in Sources */,
-				881BBCB52CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
+				881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */,
+				881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */,
 				881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */,
 				F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,

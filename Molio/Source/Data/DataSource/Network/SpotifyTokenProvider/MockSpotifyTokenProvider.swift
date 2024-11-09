@@ -1,4 +1,4 @@
-struct MockSpotifyAccessTokenProvider: SpotifyAccessTokenProvider {
+struct MockSpotifyTokenProvider: SpotifyTokenProvider {
     private var accessToken: String = ""
     
     func getAccessToken() async -> String {

@@ -1,19 +1,19 @@
 import Foundation
 
 struct MockSpotifyAPIService: SpotifyAPIService {
-    private let spotifyAccessTokenProvider: SpotifyAccessTokenProvider
+    private let spotifyTokenProvider: SpotifyTokenProvider
     
-    init(spotifyAccessTokenProvider: SpotifyAccessTokenProvider = MockSpotifyAccessTokenProvider()) {
-        self.spotifyAccessTokenProvider = spotifyAccessTokenProvider
+    init(spotifyTokenProvider: SpotifyTokenProvider = MockSpotifyTokenProvider()) {
+        self.spotifyTokenProvider = spotifyTokenProvider
     }
     
-    func fetchRecommendedMusicISRCs(musicFilterEntity: MusicFilter) async -> [String] {
-        let accessToken = await spotifyAccessTokenProvider.getAccessToken()
+    func fetchRecommendedMusicISRCs(musicFilter: MusicFilter) async -> [String] {
+        let accessToken = await spotifyTokenProvider.getAccessToken()
         
         var components = URLComponents(string: "https://api.spotify.com/v1/recommendations")!
 
         components.queryItems = [
-            URLQueryItem(name: "seed_genres", value: musicFilterEntity.genres.joined(separator: ",")),
+            URLQueryItem(name: "seed_genres", value: musicFilter.genres.joined(separator: ",")),
         ]
         
         guard let url = components.url else {

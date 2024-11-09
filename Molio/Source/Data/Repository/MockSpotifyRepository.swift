@@ -6,6 +6,6 @@ struct MockSpotifyRepository: SpotifyRepository {
     }
     
     func fetchRecommendedSongsISRC(musicFilter: MusicFilter) async -> [String] {
-        return await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilterEntity: musicFilter)
+        return await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilter: musicFilter)
     }
 }
