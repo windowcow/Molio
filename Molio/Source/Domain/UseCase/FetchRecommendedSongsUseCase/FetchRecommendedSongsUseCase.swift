@@ -1,6 +1,9 @@
-// 카드 추천 덱의 ViewModel에서 사용할 노래 추천 유즈케이스
-final class FetchRecommendedSongsUseCase {
-    let spotifyRepository: SpotifyRepository
+protocol FetchRecommendedSongsUseCase {
+    func execute(musicFilter: MusicFilter) async -> [String]
+}
+
+final class DefaultFetchRecommendedSongsUseCase: FetchRecommendedSongsUseCase {
+    private let spotifyRepository: SpotifyRepository
     
     init(spotifyRepository: SpotifyRepository = MockSpotifyRepository()) {
         self.spotifyRepository = spotifyRepository
