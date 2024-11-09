@@ -1,14 +1,14 @@
 import Foundation
 
 enum NetworkError: LocalizedError {
-    case invalidURLString
+    case invalidURL
     case requestFail(code: HTTPResponseStatusCode?)
     case responseNotHTTP
     case urlDownloadsError
 
     var errorDescription: String? {
         switch self {
-        case .invalidURLString:
+        case .invalidURL:
             return "잘못된 URL"
         case let .requestFail(code):
             let base = "요청 실패 "

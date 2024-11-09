@@ -14,8 +14,8 @@ protocol NetworkProvider {
 }
 
 private extension NetworkProvider {
-    func makeURLRequest(of endPoint: EndPoint) -> URLRequest {
-        let url = endPoint.baseURL.appendingPathComponent(endPoint.path)
+    func makeURLRequest(of endPoint: EndPoint) throws -> URLRequest {
+        guard let url = endPoint.url else { throw NetworkError.invalidURL }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.httpMethod.rawValue
         endPoint.headers?.forEach {
@@ -39,7 +39,7 @@ final class DefaultNetworkProvider: NetworkProvider {
     
     @discardableResult
     func request<T: Decodable>(_ endPoint: any EndPoint) async throws -> T {
-        let urlRequest = makeURLRequest(of: endPoint)
+        let urlRequest = try makeURLRequest(of: endPoint)
         let (data, response) = try await session.data(for: urlRequest)
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.responseNotHTTP

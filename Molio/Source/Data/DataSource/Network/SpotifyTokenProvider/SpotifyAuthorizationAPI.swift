@@ -11,13 +11,14 @@ enum SpotifyAuthorizationAPI {
 }
 
 extension SpotifyAuthorizationAPI: EndPoint {
-    var baseURL: URL { URL(string: "https://accounts.spotify.com/api")! }
+    var base: String {
+        "https://accounts.spotify.com/api"
+    }
     
     var path: String {
         switch self {
         case .createAccessToken:
-            let params: [String: String] = ["grant_type": "client_credentials"]
-            return makeFullPath(with: "/token", params: params)
+            return "/token"
         }
     }
     
@@ -39,15 +40,25 @@ extension SpotifyAuthorizationAPI: EndPoint {
         case .createAccessToken: return nil
         }
     }
-}
-
-extension SpotifyAuthorizationAPI {
-    private func makeFullPath(with path: String, params: [String: String]) -> String {
-        return params.reduce(path + "?") { result, param in
-            result + "&\(param.key)=\(param.value)"
+    
+    var params: [String: String] {
+        switch self {
+        case .createAccessToken:
+            return ["grant_type": "client_credentials"]
         }
     }
     
+    var url: URL? {
+        switch self {
+        case .createAccessToken:
+            guard var components = URLComponents(string: base + path) else { return nil }
+            components.queryItems = params.map({ URLQueryItem(name: $0.key, value: $0.value) })
+            return components.url
+        }
+    }
+}
+
+extension SpotifyAuthorizationAPI {
     enum Header {
         enum Authorization {
             static let field = "Authorization"
