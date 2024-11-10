@@ -26,6 +26,25 @@ final class NetworkProviderTests: XCTestCase {
     
     // MARK: - GET
     
+    func test_SpotifyAPI의_getRecommendations_엔드포인트로_요청시_request를_제대로_생성한다() async throws {
+        // Given
+        var isRequestContainsCorrectPath: Bool!
+        var requestHttpMethod: String!
+        MockURLProtocol.requestHandler = { request in
+            isRequestContainsCorrectPath = request.url?.pathComponents.contains("recommendations")
+            requestHttpMethod = request.httpMethod
+            return (HTTPURLResponse(), RecommendationsResponseDTO.dummyData)
+        }
+        let apiRequest = SpotifyAPI.getRecommendations(genres: ["Pop"])
+
+        // When
+        let _: RecommendationsResponseDTO = try await sut.request(apiRequest)
+
+        // Then
+        XCTAssertTrue(isRequestContainsCorrectPath)
+        XCTAssertEqual(requestHttpMethod, apiRequest.httpMethod.value)
+    }
+    
     // MARK: - POST
     
     func test_SpotifyAuthorizationAPI의_createAccessToken_엔드포인트로_요청시_request를_제대로_생성한다() async throws {

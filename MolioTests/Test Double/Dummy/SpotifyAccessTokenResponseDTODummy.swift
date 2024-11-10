@@ -1,6 +1,7 @@
 import Foundation
+@testable import Molio
 
-extension SpotifyAccessTokenResponseDTO: Equatable {
+extension SpotifyAccessTokenResponseDTO: @retroactive Equatable {
     public static func == (lhs: SpotifyAccessTokenResponseDTO, rhs: SpotifyAccessTokenResponseDTO) -> Bool {
         let isAccessTokenEqual = lhs.accessToken == rhs.accessToken
         let isTokenTypeEqual = lhs.tokenType == rhs.tokenType
