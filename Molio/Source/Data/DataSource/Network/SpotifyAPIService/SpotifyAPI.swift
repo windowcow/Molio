@@ -65,7 +65,7 @@ extension SpotifyAPI {
         enum Authorization {
             static let field = "Authorization"
             static var value: String {
-                let accessToken = "" // TODO: - TokenProvider 연결
+                let accessToken = "" // TODO: - 토큰 받아와서 연결하기
                 return "Bearer \(accessToken)"
             }
         }

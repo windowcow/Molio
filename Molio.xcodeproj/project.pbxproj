@@ -48,6 +48,7 @@
 		B8D554852CE0F411007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553FC2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift */; };
 		B8D554862CE0F417007CCD6D /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F42CDFE5F0007CCD6D /* MockURLProtocol.swift */; };
 		B8D554872CE0F41F007CCD6D /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */; };
+		B8D554892CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554882CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		B8D553FC2CDFEA78007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAccessTokenResponseDTODummy.swift; sourceTree = "<group>"; };
 		B8D554052CE0ED2C007CCD6D /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 		B8D5547F2CE0F152007CCD6D /* RecommendationsResponseDTODummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponseDTODummy.swift; sourceTree = "<group>"; };
+		B8D554882CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpotifyAPIService.swift; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				881BBCAF2CDCF91B00010A61 /* MockSpotifyAPIService.swift */,
 				881BBCB02CDCF91B00010A61 /* SpotifyAPIService.swift */,
 				B8D554052CE0ED2C007CCD6D /* SpotifyAPI.swift */,
+				B8D554882CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift */,
 			);
 			path = SpotifyAPIService;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				881BBCBB2CDCF95600010A61 /* TrackDTO.swift in Sources */,
 				881BBCBC2CDCF95600010A61 /* RecommendationsResponseDTO.swift in Sources */,
 				881BBCBD2CDCF95600010A61 /* ExternalIDsDTO.swift in Sources */,
+				B8D554892CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift in Sources */,
 				881BBCBE2CDCF95600010A61 /* RecommendationsRequestDTO.swift in Sources */,
 				F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */,
 				F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */,
