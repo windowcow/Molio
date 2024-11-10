@@ -17,14 +17,13 @@ extension SpotifyAuthorizationAPI: EndPoint {
     
     var path: String {
         switch self {
-        case .createAccessToken:
-            return "/token"
+        case .createAccessToken: "/token"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .createAccessToken: return .post
+        case .createAccessToken: .post
         }
     }
     
@@ -37,7 +36,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
     
     var body: Data? {
         switch self {
-        case .createAccessToken: return nil
+        case .createAccessToken: nil
         }
     }
     
