@@ -279,6 +279,7 @@
 		B80970792CDB43F1007BC3C4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F173695B2CE0F5B800F6242C /* Mapper */,
 				B80970992CDB4678007BC3C4 /* Extension */,
 			);
 			path = Util;
@@ -488,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				F17369512CDFA7DC00F6242C /* SongMapper.swift */,
-				F17369532CDFA9FD00F6242C /* CGColorMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -508,6 +508,14 @@
 				2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F173695B2CE0F5B800F6242C /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				F17369532CDFA9FD00F6242C /* CGColorMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

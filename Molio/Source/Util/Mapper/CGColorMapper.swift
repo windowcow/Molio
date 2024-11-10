@@ -1,11 +1,10 @@
 import CoreGraphics
 
 struct CGColorMapper {
-    static func toDomain(_ cgColor: CGColor?) -> RGBAColor? {
-        guard let cgColor = cgColor,
-              cgColor.colorSpace?.model == .rgb,
-              let components = cgColor.components,
-              components.count >= 4 else {
+    static func toDomain(_ cgColor: CGColor) -> RGBAColor? {
+        guard let components = cgColor.components,
+              components.count >= 4,
+              cgColor.colorSpace?.model == .rgb else {
             return nil
         }
         
