@@ -1,3 +1,3 @@
 protocol SpotifyTokenProvider {
-    func getAccessToken() async -> String
+    func getAccessToken() async throws -> String
 }

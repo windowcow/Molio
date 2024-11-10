@@ -1,20 +1,12 @@
 struct MockSpotifyTokenProvider: SpotifyTokenProvider {
-    private var accessToken: String = ""
+    var accessTokenToReturn: String = ""
+    var isValid: Bool = true
     
-    func getAccessToken() async -> String {
-        if await isValid(token: accessToken) {
-            return accessToken
+    func getAccessToken() async throws -> String {
+        if isValid {
+            return accessTokenToReturn
+        } else {
+            throw NetworkError.requestFail(code: .badRequest)
         }
-        
-        return await fetchNewAccessToken()
-    }
-    
-    /// 만료 시간을 통해 토큰 유효성을 검사
-    private func isValid(token: String) async -> Bool {
-        return true
-    }
-    
-    private func fetchNewAccessToken() async -> String {
-        return ""
     }
 }
