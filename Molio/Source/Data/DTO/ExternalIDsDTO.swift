@@ -1,3 +1,3 @@
-struct ExternalIDsDTO: Codable {
+struct ExternalIDsDTO: Decodable {
     let isrc: String
 }
