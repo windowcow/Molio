@@ -1,3 +1,3 @@
 protocol SpotifyRepository {
-    func fetchRecommendedSongsISRC(musicFilter: MusicFilter) async -> [String]
+    func fetchRecommendedSongsISRC(musicFilter: MusicFilter) async throws -> [String]
 }
