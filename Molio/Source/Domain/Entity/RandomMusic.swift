@@ -18,11 +18,11 @@ struct RandomMusic {
     let previewAsset: URL
     
     /// 앨범 아트워크 이미지
-    let artworkImageURL: URL
+    let artworkImageURL: URL?
     
     /// 앨범에 이미지에 따른 평균 배경색
-    let artworkBackgroundColor: RGBAColor
+    let artworkBackgroundColor: RGBAColor?
     
     /// 앨범에 이미지에 따른 primary 색상
-    let primaryTextColor: RGBAColor
+    let primaryTextColor: RGBAColor?
 }

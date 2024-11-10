@@ -87,12 +87,8 @@ final class SwipeMusicViewController: UIViewController {
         viewModel.$musics
             .receive(on: RunLoop.main)
             .sink { [weak self] musics in
-                guard !musics.isEmpty else { return }
-                self?.view.backgroundColor = UIColor(red: musics[0].artworkBackgroundColor.red,
-                                               green: musics[0].artworkBackgroundColor.green,
-                                               blue: musics[0].artworkBackgroundColor.blue,
-                                               alpha: musics[0].artworkBackgroundColor.alpha
-                )
+                guard let self, !musics.isEmpty else { return }
+                view.backgroundColor = UIColor(rgbaColor: musics[0].artworkBackgroundColor) ?? basicBackgroundColor
             }
             .store(in: &cancellables)
     }
