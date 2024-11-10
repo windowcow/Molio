@@ -5,7 +5,7 @@ struct DefaultFetchMusicsUseCase: FetchMusicsUseCase {
         self.musicRepository = repository
     }
     
-    func execute(genres: [String]) async throws -> [Music] {
+    func execute(genres: [String]) async throws -> [RandomMusic] {
         return try await musicRepository.fetchMusics(genres: genres)
     }
 }

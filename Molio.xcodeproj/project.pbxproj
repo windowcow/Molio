@@ -48,7 +48,7 @@
 		F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicTrackView.swift */; };
 		F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */; };
 		F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369352CDCE31C00F6242C /* MolioTests.swift */; };
-		F173693D2CDF191800F6242C /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* Music.swift */; };
+		F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* RandomMusic.swift */; };
 		F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693E2CDF21BC00F6242C /* MusicRepository.swift */; };
 		F17369462CDF24A100F6242C /* FetchMusicsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369452CDF24A100F6242C /* FetchMusicsUseCase.swift */; };
 		F17369492CDF250200F6242C /* DefaultFetchMusicsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369482CDF250200F6242C /* DefaultFetchMusicsUseCase.swift */; };
@@ -56,7 +56,7 @@
 		F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369512CDFA7DC00F6242C /* SongMapper.swift */; };
 		F17369542CDFA9FD00F6242C /* CGColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369532CDFA9FD00F6242C /* CGColorMapper.swift */; };
 		F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */; };
-		F17369592CDFB73000F6242C /* MusicColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369582CDFB73000F6242C /* MusicColor.swift */; };
+		F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369582CDFB73000F6242C /* RGBAColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,7 @@
 		F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F17369332CDCE31C00F6242C /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17369352CDCE31C00F6242C /* MolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolioTests.swift; sourceTree = "<group>"; };
-		F173693C2CDF191800F6242C /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		F173693C2CDF191800F6242C /* RandomMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusic.swift; sourceTree = "<group>"; };
 		F173693E2CDF21BC00F6242C /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 		F17369452CDF24A100F6242C /* FetchMusicsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMusicsUseCase.swift; sourceTree = "<group>"; };
 		F17369482CDF250200F6242C /* DefaultFetchMusicsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchMusicsUseCase.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		F17369512CDFA7DC00F6242C /* SongMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMapper.swift; sourceTree = "<group>"; };
 		F17369532CDFA9FD00F6242C /* CGColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorMapper.swift; sourceTree = "<group>"; };
 		F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicKitService.swift; sourceTree = "<group>"; };
-		F17369582CDFB73000F6242C /* MusicColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicColor.swift; sourceTree = "<group>"; };
+		F17369582CDFB73000F6242C /* RGBAColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBAColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,8 +333,8 @@
 			children = (
 				881BBCBF2CDCF97900010A61 /* MusicFilter.swift */,
 				881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */,
-				F173693C2CDF191800F6242C /* Music.swift */,
-				F17369582CDFB73000F6242C /* MusicColor.swift */,
+				F173693C2CDF191800F6242C /* RandomMusic.swift */,
+				F17369582CDFB73000F6242C /* RGBAColor.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -635,7 +635,7 @@
 				F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */,
 				2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */,
 				F173694B2CDF265900F6242C /* DefaultMusicRepository.swift in Sources */,
-				F173693D2CDF191800F6242C /* Music.swift in Sources */,
+				F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */,
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
 				881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */,
@@ -657,7 +657,7 @@
 				881BBCB52CDCF91B00010A61 /* MockSpotifyAccessTokenProvider.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
 				881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */,
-				F17369592CDFB73000F6242C /* MusicColor.swift in Sources */,
+				F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
 				881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */,

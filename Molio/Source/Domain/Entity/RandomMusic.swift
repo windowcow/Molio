@@ -1,7 +1,7 @@
 import Foundation
 
 /// Swipe 할 수 있는 카드 정보에 표시되는 음악 정보에 대한 Entity입니다.
-struct Music {
+struct RandomMusic {
     /// 노래 제목
     let title: String
     
@@ -21,8 +21,8 @@ struct Music {
     let artworkImageURL: URL
     
     /// 앨범에 이미지에 따른 평균 배경색
-    let artworkBackgroundColor: MusicColor
+    let artworkBackgroundColor: RGBAColor
     
     /// 앨범에 이미지에 따른 primary 색상
-    let primaryTextColor: MusicColor
+    let primaryTextColor: RGBAColor
 }

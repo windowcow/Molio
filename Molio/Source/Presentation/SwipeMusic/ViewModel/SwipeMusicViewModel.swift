@@ -3,7 +3,7 @@ import Combine
 import MusicKit
 
 final class SwipeMusicViewModel: ObservableObject {
-    @Published var musics: [Music] = []
+    @Published var musics: [RandomMusic] = []
     
     let fetchMusicsUseCase: FetchMusicsUseCase
     

@@ -21,7 +21,7 @@ final class DefaultMusicKitService: MusicKitService {
     /// ISRC 코드로 애플 뮤직 카탈로그 음악을 검색합니다.
     ///  - Parameters: 검색할 isrc 문자열
     ///  - Returns: 응답 Data
-    func getMusic(with isrc: String) async -> Music? {
+    func getMusic(with isrc: String) async -> RandomMusic? {
         guard checkAuthorizationStatus() else { return nil }
         
         let request = MusicCatalogResourceRequest<Song>(matching: \.isrc, equalTo: isrc)

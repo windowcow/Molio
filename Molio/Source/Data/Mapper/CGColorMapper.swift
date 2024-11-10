@@ -1,7 +1,7 @@
 import CoreGraphics
 
 struct CGColorMapper {
-    static func toDomain(_ cgColor: CGColor?) -> MusicColor? {
+    static func toDomain(_ cgColor: CGColor?) -> RGBAColor? {
         guard let cgColor = cgColor,
               cgColor.colorSpace?.model == .rgb,
               let components = cgColor.components,
@@ -9,7 +9,7 @@ struct CGColorMapper {
             return nil
         }
         
-        return MusicColor(
+        return RGBAColor(
             red: components[0],
             green: components[1],
             blue: components[2],
