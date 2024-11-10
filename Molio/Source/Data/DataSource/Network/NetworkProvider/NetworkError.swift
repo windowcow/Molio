@@ -13,7 +13,7 @@ enum NetworkError: LocalizedError {
         case let .requestFail(code):
             let base = "요청 실패 "
             if let code = code {
-                return base + "\(code.rawValue)"
+                return base + "\(code.description)"
             } else {
                 return base
             }
