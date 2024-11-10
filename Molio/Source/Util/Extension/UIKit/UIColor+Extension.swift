@@ -24,4 +24,15 @@ extension UIColor {
         
         return nil
     }
+    
+    convenience init?(rgbaColor: RGBAColor?) {
+        guard let red = rgbaColor?.red,
+              let green = rgbaColor?.green,
+              let blue = rgbaColor?.blue,
+              let alpha = rgbaColor?.alpha else {
+            return nil
+        }
+        
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
 }
