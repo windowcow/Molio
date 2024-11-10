@@ -21,7 +21,6 @@ final class SwipeMusicViewModel: ObservableObject {
         Task {
             do {
                 musics = try await fetchMusicsUseCase.execute(genres: ["k-pop"])
-                print(musics)
             } catch {
                 print("error")
             }
