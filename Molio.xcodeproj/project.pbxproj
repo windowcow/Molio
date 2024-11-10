@@ -59,7 +59,6 @@
 		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
 		F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicTrackView.swift */; };
 		F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */; };
-		F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369352CDCE31C00F6242C /* MolioTests.swift */; };
 		F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* RandomMusic.swift */; };
 		F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693E2CDF21BC00F6242C /* MusicRepository.swift */; };
 		F17369462CDF24A100F6242C /* FetchMusicsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369452CDF24A100F6242C /* FetchMusicsUseCase.swift */; };
@@ -139,7 +138,6 @@
 		F17369282CDC79E100F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
 		F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F17369332CDCE31C00F6242C /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F17369352CDCE31C00F6242C /* MolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolioTests.swift; sourceTree = "<group>"; };
 		F173693C2CDF191800F6242C /* RandomMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusic.swift; sourceTree = "<group>"; };
 		F173693E2CDF21BC00F6242C /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 		F17369452CDF24A100F6242C /* FetchMusicsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMusicsUseCase.swift; sourceTree = "<group>"; };
@@ -522,7 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				B8D553F32CDFE5E6007CCD6D /* Test Double */,
-				F17369352CDCE31C00F6242C /* MolioTests.swift */,
 				B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */,
 			);
 			path = MolioTests;
@@ -756,7 +753,6 @@
 				B8D554862CE0F417007CCD6D /* MockURLProtocol.swift in Sources */,
 				B8D554852CE0F411007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift in Sources */,
 				B8D554802CE0F152007CCD6D /* RecommendationsResponseDTODummy.swift in Sources */,
-				F17369362CDCE31C00F6242C /* MolioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
