@@ -259,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				B80970812CDB4472007BC3C4 /* UseCase */,
-				B80970822CDB4478007BC3C4 /* Repository Interface */,
+				B80970822CDB4478007BC3C4 /* RepositoryInterface */,
 				B80970832CDB44DB007BC3C4 /* Entity */,
 			);
 			path = Domain;
@@ -320,13 +320,13 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		B80970822CDB4478007BC3C4 /* Repository Interface */ = {
+		B80970822CDB4478007BC3C4 /* RepositoryInterface */ = {
 			isa = PBXGroup;
 			children = (
 				881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */,
 				F173693E2CDF21BC00F6242C /* MusicRepository.swift */,
 			);
-			path = "Repository Interface";
+			path = RepositoryInterface;
 			sourceTree = "<group>";
 		};
 		B80970832CDB44DB007BC3C4 /* Entity */ = {
