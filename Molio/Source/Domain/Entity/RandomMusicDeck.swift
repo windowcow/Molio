@@ -108,15 +108,3 @@ final class RandomMusicDeck: MusicDeck {
         randomMusics.value.remove(at: 0)
     }
 }
-
-protocol MusicFilterProvider {
-    func getMusicFilterPublisher() -> AnyPublisher<MusicFilter, Never>
-}
-
-struct MockMusicFilterProvider: MusicFilterProvider {
-    func getMusicFilterPublisher() -> AnyPublisher<MusicFilter, Never> {
-        let musicFilter = MusicFilter(genres: ["k-pop"])
-        
-        return Just(musicFilter).eraseToAnyPublisher()
-    }
-}
