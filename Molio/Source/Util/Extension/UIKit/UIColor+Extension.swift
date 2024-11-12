@@ -24,4 +24,12 @@ extension UIColor {
         
         return nil
     }
+    
+    convenience init(rgbaColor: RGBAColor) {
+        self.init(red: rgbaColor.red,
+                  green: rgbaColor.green,
+                  blue: rgbaColor.blue,
+                  alpha: rgbaColor.alpha
+        )
+    }
 }
