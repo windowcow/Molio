@@ -1,11 +1,11 @@
 import Foundation
 
 enum SpotifyAPI {
-    case getRecommendations(genres: [String])
+    case getRecommendations(genres: [String], accessToken: String)
     
     var description: String {
         switch self {
-        case .getRecommendations(let genres): "[\(genres.joined(separator: ","))] 장르에 대한 추천 음악 불러오기 엔드포인트"
+        case .getRecommendations(let genres, _): "[\(genres.joined(separator: ","))] 장르에 대한 추천 음악 불러오기 엔드포인트"
         }
     }
 }
@@ -28,9 +28,10 @@ extension SpotifyAPI: EndPoint {
     }
     
     var headers: [String: String]? {
-        return [
-            Header.Authorization.field: Header.Authorization.value
-        ]
+        switch self {
+        case .getRecommendations(let genres, let accessToken):
+            return makeAuthorizationHeader(with: accessToken)
+        }
     }
     
     var body: Data? {
@@ -41,7 +42,7 @@ extension SpotifyAPI: EndPoint {
     
     var params: [String: String] {
         switch self {
-        case .getRecommendations(let genres):
+        case .getRecommendations(let genres, _):
             return [
                 "limit": "20", // TODO: - 개수 정하기
                 "market": "KR",
@@ -61,13 +62,7 @@ extension SpotifyAPI: EndPoint {
 }
 
 extension SpotifyAPI {
-    enum Header {
-        enum Authorization {
-            static let field = "Authorization"
-            static var value: String {
-                let accessToken = "" // TODO: - 토큰 받아와서 연결하기
-                return "Bearer \(accessToken)"
-            }
-        }
+    private func makeAuthorizationHeader(with accessToken: String) -> [String: String] {
+        return ["Authorization": "Bearer \(accessToken)"]
     }
 }
