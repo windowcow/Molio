@@ -79,14 +79,24 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let defaultNetworkProvider = DefaultNetworkProvider()
+        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
+                                                                tokenProvider: mockSpotifyTokenProvider
+        )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultMusicRepository = DefaultMusicRepository(
-            spotifyAPIService: mockSpotifyAPIService,
+            spotifyAPIService: defaultSpotifyAPIService,
             musicKitService: defaultMusicKitService
         )
         let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
-        self.viewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase)
+        let defaultImageProvider = DefaultImageProvider()
+        let defaultImageRepository = DefaultImageRepository(imageProvider: defaultImageProvider)
+        let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
+        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
+                                                      fetchImageUseCase: defaultFetchImageUseCase
+        )
+        self.viewModel = swipeMusicViewModel
         self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
         self.output = viewModel.transform(from: input)
         super.init(coder: coder)
@@ -217,14 +227,25 @@ final class SwipeMusicViewController: UIViewController {
 import SwiftUI
 struct SwipeViewControllerPreview: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SwipeMusicViewController {
-        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let defaultNetworkProvider = DefaultNetworkProvider()
+        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
+                                                                tokenProvider: mockSpotifyTokenProvider
+        )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultMusicRepository = DefaultMusicRepository(
-            spotifyAPIService: mockSpotifyAPIService,
+            spotifyAPIService: defaultSpotifyAPIService,
             musicKitService: defaultMusicKitService
         )
         let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
-        return SwipeMusicViewController(viewModel: SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase))
+        let defaultImageProvider = DefaultImageProvider()
+        let defaultImageRepository = DefaultImageRepository(imageProvider: defaultImageProvider)
+        let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
+        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
+                                                      fetchImageUseCase: defaultFetchImageUseCase
+        )
+        
+        return SwipeMusicViewController(viewModel: swipeMusicViewModel)
     }
     
     func updateUIViewController(_ uiViewController: SwipeMusicViewController, context: Context) {
