@@ -11,7 +11,7 @@ struct DefaultMusicRepository: MusicRepository {
     
     func fetchMusics(genres: [String]) async throws -> [RandomMusic] {
         let musicFilter = MusicFilter(genres: genres)
-        let isrcs = await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilterEntity: musicFilter)
+        let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilter: musicFilter)
         
         var musics: [RandomMusic?] = []
         
