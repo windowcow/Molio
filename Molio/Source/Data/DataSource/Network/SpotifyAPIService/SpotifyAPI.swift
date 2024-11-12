@@ -12,12 +12,12 @@ enum SpotifyAPI {
 
 extension SpotifyAPI: EndPoint {
     var base: String {
-        "https://api.spotify.com/v1"
+        "https://api.spotify.com"
     }
     
     var path: String {
         switch self {
-        case .getRecommendations: "/recommendations"
+        case .getRecommendations: "/v1/recommendations"
         }
     }
     
@@ -50,19 +50,10 @@ extension SpotifyAPI: EndPoint {
             ]
         }
     }
-    
-    var url: URL? {
-        switch self {
-        case .getRecommendations:
-            guard var components = URLComponents(string: base + path) else { return nil }
-            components.queryItems = params.map({ URLQueryItem(name: $0.key, value: $0.value) })
-            return components.url
-        }
-    }
 }
 
-extension SpotifyAPI {
-    private func makeAuthorizationHeader(with accessToken: String) -> [String: String] {
+private extension SpotifyAPI {
+    func makeAuthorizationHeader(with accessToken: String) -> [String: String] {
         return ["Authorization": "Bearer \(accessToken)"]
     }
 }

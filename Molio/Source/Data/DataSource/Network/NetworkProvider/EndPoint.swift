@@ -18,7 +18,4 @@ protocol EndPoint {
     
     /// 요청 쿼리 파라미터
     var params: [String: String] { get }
-    
-    /// 엔드포인트의 완성된 URL
-    var url: URL? { get }
 }
