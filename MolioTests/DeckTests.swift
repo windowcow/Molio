@@ -36,8 +36,8 @@ final class DeckTests: XCTestCase {
                 print("노래 5곡:", randomMusics.prefix(5).map { $0.title }.joined(separator: ", "))
             }
         
-        let currentMusicPublisher = deck.getPublisherForMusicFromDeck(at: 0)
-        let nextMusicPublisher = deck.getPublisherForMusicFromDeck(at: 1)
+        let currentMusicPublisher = deck.musicPublisher(at: 0)
+        let nextMusicPublisher = deck.musicPublisher(at: 1)
         
         let currentMusicSubscription = currentMusicPublisher
             .sink { music in
@@ -52,7 +52,7 @@ final class DeckTests: XCTestCase {
         for i in 0 ..< 50 {
             Thread.sleep(forTimeInterval: 1)
 
-            deck.swipeCurrentMusicRight()
+            deck.likeCurrentMusic()
         }
     }
 }
