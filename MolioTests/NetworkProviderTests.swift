@@ -1,10 +1,3 @@
-//
-//  NetworkProviderTests.swift
-//  MolioTests
-//
-//  Created by 김영빈 on 11/10/24.
-//
-
 import XCTest
 @testable import Molio
 
