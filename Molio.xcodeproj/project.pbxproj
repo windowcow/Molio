@@ -218,6 +218,24 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		881622722CE3BAB900E81EA0 /* MusicDeck */ = {
+			isa = PBXGroup;
+			children = (
+				881622682CE3671400E81EA0 /* RandomMusicDeck.swift */,
+				8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */,
+			);
+			path = MusicDeck;
+			sourceTree = "<group>";
+		};
+		881622732CE3BAC500E81EA0 /* MusicFilterProvider */ = {
+			isa = PBXGroup;
+			children = (
+				881622702CE3B16200E81EA0 /* MockMusicFilterProvider.swift */,
+				8816226E2CE3B14200E81EA0 /* MusicFilterProvider.swift */,
+			);
+			path = MusicFilterProvider;
+			sourceTree = "<group>";
+		};
 		881BBCAE2CDCF91B00010A61 /* SpotifyTokenProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,10 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				881BBCBF2CDCF97900010A61 /* MusicFilter.swift */,
-				881622682CE3671400E81EA0 /* RandomMusicDeck.swift */,
-				881622702CE3B16200E81EA0 /* MockMusicFilterProvider.swift */,
-				8816226E2CE3B14200E81EA0 /* MusicFilterProvider.swift */,
-				8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */,
+				881622722CE3BAB900E81EA0 /* MusicDeck */,
+				881622732CE3BAC500E81EA0 /* MusicFilterProvider */,
 				881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */,
 				F173693C2CDF191800F6242C /* RandomMusic.swift */,
 				F17369582CDFB73000F6242C /* RGBAColor.swift */,
