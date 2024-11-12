@@ -5,6 +5,10 @@ protocol MusicDeck {
     // @Published의 고질적인 문제: 프로토콜 요구사항에 프로퍼티 레퍼를 강제할 수가 없다.
     // 따라서 일단 Current Value Subject로 하겠다.
     func getPublisherForMusicFromDeck(at: Int) -> AnyPublisher<RandomMusic?, Never>
+    
+    func swipeCurrentMusicRight()
+    
+    func swipeCurrentMusicLeft()
 }
 
 final class RandomMusicDeck: MusicDeck {
@@ -68,6 +72,22 @@ final class RandomMusicDeck: MusicDeck {
                 previousMusicAtTheIndex?.isrc == newMusicAtTheIndex?.isrc
             }
             .eraseToAnyPublisher()
+    }
+    
+    func swipeCurrentMusicRight() {
+        removeCurrentMusicCard()
+        // 현재 노래에 대한 좋아요 로직
+    }
+    
+    func swipeCurrentMusicLeft() {
+        removeCurrentMusicCard()
+        // 현재 노래에 대한 싫어요 로직
+    }
+    
+    private func removeCurrentMusicCard() {
+        guard !randomMusics.value.isEmpty else { return }
+        
+        randomMusics.value.remove(at: 0)
     }
 }
 
