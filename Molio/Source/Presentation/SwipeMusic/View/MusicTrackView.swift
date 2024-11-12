@@ -52,8 +52,7 @@ final class MusicTrackView: UIView {
         setupConstraint()
     }
     
-    func configure(music: RandomMusic) {
-        setupAlbumImage(imageURL: music.artworkImageURL)
+    func configure(music: SwipeMusicTrackModel) {
         songTitleLabel.molioExtraBold(text: music.title, size: 48)
         artistNameLabel.molioMedium(text: music.artistName, size: 20)
         setupGenre(music.gerneNames)
@@ -61,6 +60,10 @@ final class MusicTrackView: UIView {
         let textColor = music.primaryTextColor.flatMap { UIColor(rgbaColor: $0) } ?? UIColor.white
         songTitleLabel.textColor = textColor
         artistNameLabel.textColor = textColor.withAlphaComponent(0.7)
+        
+        if let imageData = music.artworkImageData {
+            albumImageView.image = UIImage(data: imageData)
+        }
     }
     
     private func setupShadow() {
@@ -68,21 +71,6 @@ final class MusicTrackView: UIView {
         layer.shadowOffset = .zero
         layer.shadowRadius = 26
         layer.shadowOpacity = 0.36
-    }
-    
-    private func setupAlbumImage(imageURL: URL?) {
-        guard let imageURL else {
-            albumImageView.backgroundColor = .systemPink
-            return
-        }
-        
-        URLSession.shared.dataTask(with: imageURL) { [weak self] data, _, _ in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.albumImageView.image = image
-                }
-            }
-        }.resume()
     }
     
     private func setupGenre(_ genres: [String]) {
