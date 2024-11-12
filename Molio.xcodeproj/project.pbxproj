@@ -110,7 +110,6 @@
 		881BBCC52CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecommendedSongsUseCase.swift; sourceTree = "<group>"; };
 		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
-		B809709A2CDB4682007BC3C4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B809709D2CDB640B007BC3C4 /* MusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitService.swift; sourceTree = "<group>"; };
 		B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		B8D553E92CDFE271007CCD6D /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -467,7 +466,6 @@
 				F17368F72CD86B1100F6242C /* Molio */,
 				F17369342CDCE31C00F6242C /* MolioTests */,
 				F17368F62CD86B1100F6242C /* Products */,
-				F17369272CDC784900F6242C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -506,14 +504,6 @@
 				F17369222CDC5E5F00F6242C /* MusicTagView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		F17369272CDC784900F6242C /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				B809709A2CDB4682007BC3C4 /* Extension.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		F17369342CDCE31C00F6242C /* MolioTests */ = {
