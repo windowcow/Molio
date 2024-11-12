@@ -29,7 +29,7 @@ extension SpotifyAPI: EndPoint {
     
     var headers: [String: String]? {
         switch self {
-        case .getRecommendations(let genres, let accessToken):
+        case .getRecommendations(_, let accessToken):
             return makeAuthorizationHeader(with: accessToken)
         }
     }

@@ -62,9 +62,11 @@ extension SpotifyAuthorizationAPI {
         enum Authorization {
             static let field = "Authorization"
             static var value: String {
-                // TODO: - Base64 인코딩
-                guard let clientID = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID"),
-                      let clientSecret = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") else {
+                guard let clientIDString = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID") as? String,
+                      let clientSecretString = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") as? String,
+                      let clientID = clientIDString.toBase64,
+                      let clientSecret = clientSecretString.toBase64
+                else {
                     return ""
                 }
                 return "Basic \(clientID):\(clientSecret)"
