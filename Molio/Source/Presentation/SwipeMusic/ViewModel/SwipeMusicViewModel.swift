@@ -1,29 +1,29 @@
 import Foundation
 import Combine
 import MusicKit
-import AVFoundation
 
 final class SwipeMusicViewModel: ObservableObject {
-    let musicPlayer = SwipeMusicPlayer()
+    @Published var musics: [RandomMusic] = []
     
-    @Published var music: RandomMusic?
-    let musicService = DefaultMusicKitService()
+    let fetchMusicsUseCase: FetchMusicsUseCase
+    
+    init() {
+        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultMusicRepository = DefaultMusicRepository(
+            spotifyAPIService: mockSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        self.fetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+    }
     
     func fetchMusic() {
         Task {
-            let music = await musicService.getMusic(with: "USAT22409172")
-            self.music = music
-            self.loadAndPlaySongs(urls: [self.music!.previewAsset])
+            do {
+                musics = try await fetchMusicsUseCase.execute(genres: ["k-pop"])
+            } catch {
+                print("error")
+            }
         }
     }
-    
-    func loadAndPlaySongs(urls: [URL]) {
-        musicPlayer.loadSongs(with: urls)
-        musicPlayer.play()
-    }
-    
-    func nextSong() {
-        musicPlayer.playNext()
-    }
-    
 }

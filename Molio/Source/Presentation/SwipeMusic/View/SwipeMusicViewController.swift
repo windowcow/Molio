@@ -84,18 +84,19 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupBindings() {
-        viewModel.$music
+        viewModel.$musics
             .receive(on: RunLoop.main)
-            .sink { [weak self] music in
-                guard let music = music else { return }
-                self?.setupBackgroundColor(by: music.artworkBackgroundColor)
+            .sink { [weak self] musics in
+                guard let self, !musics.isEmpty else { return }
+                let artworkBackgroundColor = musics.first?.artworkBackgroundColor
+                                .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
+                view.backgroundColor = artworkBackgroundColor
             }
             .store(in: &cancellables)
     }
     
-    private func setupBackgroundColor(by color: RGBAColor?) {
-        guard let color = color else { return }
-        view.backgroundColor = UIColor(rgbaColor: color)
+    private func setupBackgroundColor(by cgColor: CGColor?) {
+        view.backgroundColor = cgColor.map(UIColor.init(cgColor:)) ?? basicBackgroundColor
     }
     
     private func addPanGestureToMusicTrack() {
