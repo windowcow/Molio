@@ -8,7 +8,7 @@ struct MockSpotifyAPIService: SpotifyAPIService {
     }
     
     func fetchRecommendedMusicISRCs(musicFilterEntity: MusicFilter) async -> [String] {
-        let accessToken = "BQCmJHKir_NIfGVSQ0TGJ-z-V2Bs1t5IAP3pMDES0uASxSNjANjqigASfXAb93fHc0zQvKH_U2YHQV0johbdrdqZf-v9eFEeiv8bvoH-aP1650DQgF4"
+        let accessToken = await spotifyAccessTokenProvider.getAccessToken()
         
         var components = URLComponents(string: "https://api.spotify.com/v1/recommendations")!
 
