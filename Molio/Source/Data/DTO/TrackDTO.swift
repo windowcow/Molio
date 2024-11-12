@@ -1,4 +1,4 @@
-struct TrackDTO: Codable {
+struct TrackDTO: Decodable {
     let externalIDs: ExternalIDsDTO
     
     enum CodingKeys: String, CodingKey {
