@@ -36,7 +36,7 @@ final class DefaultSpotifyTokenProvider: SpotifyTokenProvider {
             updateAccessToken(to: newAccessToken, expirationSecond: responseDTO.expiresIn)
             return newAccessToken
         } catch {
-            throw TokenProviderError.failedToCreateToken
+            throw SpotifyTokenProviderError.failedToCreateToken
         }
     }
     
