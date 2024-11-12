@@ -84,8 +84,16 @@ final class RandomMusicDeck {
                 musicFilterBefore.genres == musicFilterAfter.genres
             }
             .sink { [weak self] musicFilter in
-                self?.musicFilter.value = musicFilter
-                self?.loadRandomMusic()
+                guard let self else { return }
+                
+                self.musicFilter.value = musicFilter
+                
+                let cardCountToRemove = max(0, self.randomMusics.value.count - 2)
+                
+                // 2개 빼고 다 제거 (덱의 노래 카드를 다 제거하면 아무 것도 보이지 않는 상태로 꽤 오래 기다려야 할 수도 있다)
+                self.randomMusics.value.removeLast(cardCountToRemove)
+                
+                self.loadRandomMusic()
             }
     }
     
