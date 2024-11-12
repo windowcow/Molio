@@ -27,6 +27,7 @@ extension RandomMusicDeck: MusicDeck {
     }
 }
 
+// MARK: 프로토콜 요구사항을 위한 구현체
 
 final class RandomMusicDeck {
     
@@ -77,8 +78,6 @@ final class RandomMusicDeck {
     }
     
     // 필터 프로바이더의 필터가 변경되는 경우 deck에서도 필터를 바꾼다.
-    // 이렇게 하지 않는 경우 Deck 외부에서 일어나는 musicFilter의 변경에 대해 대응하기 어렵다.
-    // 반응형의 이유
     private func setUpFetchMusicWhenMusicFilterChangedCancellable() {
         self.fetchMusicWhenMusicFilterChangedCancellable = musicFilterProvider.getMusicFilterPublisher()
             .removeDuplicates { musicFilterBefore, musicFilterAfter in
