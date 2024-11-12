@@ -10,7 +10,6 @@ protocol MusicDeck {
 final class RandomMusicDeck: MusicDeck {
     // MARK: 의존성 주입
     
-    private var musicPlayer: any MusicPlayer
     private var fetchMusicsUseCase: any FetchMusicsUseCase
     private var musicFilterProvider: any MusicFilterProvider
     
@@ -24,8 +23,7 @@ final class RandomMusicDeck: MusicDeck {
 
     // MARK: 생성자
     
-    init(musicPlayer: any MusicPlayer, fetchMusicsUseCase: any FetchMusicsUseCase, musicFilterProvider: any MusicFilterProvider) {
-        self.musicPlayer = musicPlayer
+    init(fetchMusicsUseCase: any FetchMusicsUseCase, musicFilterProvider: any MusicFilterProvider) {
         self.fetchMusicsUseCase = fetchMusicsUseCase
         self.musicFilterProvider = musicFilterProvider
     }
@@ -71,10 +69,6 @@ final class RandomMusicDeck: MusicDeck {
             }
             .eraseToAnyPublisher()
     }
-}
-
-protocol MusicPlayer {
-    func play()
 }
 
 protocol MusicFilterProvider {
