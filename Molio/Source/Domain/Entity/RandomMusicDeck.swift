@@ -17,19 +17,29 @@ final class RandomMusicDeck: MusicDeck {
     private var fetchMusicsUseCase: any FetchMusicsUseCase
     private var musicFilterProvider: any MusicFilterProvider
     
-    private var randomMusics = CurrentValueSubject<[RandomMusic], Never>([])
-    private var musicFilter: MusicFilter?
+    // MARK: 생성자에서 초기화
+    
+    var randomMusics: CurrentValueSubject<[RandomMusic], Never>
+    private var musicFilter: CurrentValueSubject<MusicFilter?, Never>
     
     // MARK: Combine
     
-    private var deckReloadSubscription: AnyCancellable? = nil
-    private var musicFilterSubscription: AnyCancellable? = nil
+    private var deckReloadSubscription: AnyCancellable?
+    private var musicFilterSubscription: AnyCancellable?
 
     // MARK: 생성자
     
     init(fetchMusicsUseCase: any FetchMusicsUseCase, musicFilterProvider: any MusicFilterProvider) {
+        // 의존성 주입
         self.fetchMusicsUseCase = fetchMusicsUseCase
         self.musicFilterProvider = musicFilterProvider
+        
+        // 생성자에서 초기화
+        self.randomMusics = CurrentValueSubject([])
+        self.musicFilter = CurrentValueSubject(nil)
+        
+        setUpDeckReloadSubscription()
+        setUpMusicFilterSubscription()
     }
     
     // MARK: 구독
@@ -38,26 +48,22 @@ final class RandomMusicDeck: MusicDeck {
     private func setUpDeckReloadSubscription() {
         self.deckReloadSubscription = self.randomMusics.sink { randomMusic in
             if randomMusic.count < 10 {
-                Task { [weak self] in
-                    guard let self else { return }
-                    
-                    guard let musicFilter = self.musicFilter else { return }
-                    
-                    guard let fetchedMusics = try? await fetchMusicsUseCase.execute(genres: musicFilter.genres) else { return }
-                    
-                    randomMusics.value.append(contentsOf: fetchedMusics)
-                }
+                self.loadRandomMusics()
             }
         }
     }
     
+    // 필터 프로바이더의 필터가 변경되는 경우 deck에서도 필터를 바꾼다.
+    // 이렇게 하지 않는 경우 Deck 외부에서 일어나는 musicFilter의 변경에 대해 대응하기 어렵다.
+    // 반응형의 이유
     private func setUpMusicFilterSubscription() {
         self.musicFilterSubscription = musicFilterProvider.getMusicFilterPublisher()
-            .removeDuplicates(by: { m1, m2 in
-                m1.genres == m2.genres
+            .removeDuplicates(by: { musicFilterBefore, musicFilterAfter in
+                musicFilterBefore.genres == musicFilterAfter.genres
             })
-            .sink { [weak self] musicFilter in
-                self?.musicFilter = musicFilter
+            .sink { musicFilter in
+                self.musicFilter.value = musicFilter
+                self.loadRandomMusics()
             }
     }
     
@@ -72,6 +78,18 @@ final class RandomMusicDeck: MusicDeck {
                 previousMusicAtTheIndex?.isrc == newMusicAtTheIndex?.isrc
             }
             .eraseToAnyPublisher()
+    }
+    
+    private func loadRandomMusics() {
+        let genres = self.musicFilter.value?.genres ?? []
+        
+        Task { [weak self] in
+            let fetchedMusics = try? await self?.fetchMusicsUseCase.execute(genres: genres)
+            
+            guard let fetchedMusics else { return }
+            
+            self?.randomMusics.value.append(contentsOf: fetchedMusics)
+        }
     }
     
     func swipeCurrentMusicRight() {
@@ -93,4 +111,12 @@ final class RandomMusicDeck: MusicDeck {
 
 protocol MusicFilterProvider {
     func getMusicFilterPublisher() -> AnyPublisher<MusicFilter, Never>
+}
+
+struct MockMusicFilterProvider: MusicFilterProvider {
+    func getMusicFilterPublisher() -> AnyPublisher<MusicFilter, Never> {
+        let musicFilter = MusicFilter(genres: ["k-pop"])
+        
+        return Just(musicFilter).eraseToAnyPublisher()
+    }
 }
