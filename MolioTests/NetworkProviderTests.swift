@@ -25,7 +25,9 @@ final class NetworkProviderTests: XCTestCase {
         var requestHttpMethod: String!
         var requestAuthorizationHeaderValue: String!
         MockURLProtocol.requestHandler = { request in
-            isRequestContainsCorrectPath = request.url?.pathComponents.contains("recommendations")
+            let containCorrectPath2 = request.url?.pathComponents.contains("v1")
+            let containCorrectPath1 = request.url?.pathComponents.contains("recommendations")
+            isRequestContainsCorrectPath = containCorrectPath1! && containCorrectPath2!
             requestHttpMethod = request.httpMethod
             requestAuthorizationHeaderValue = request.value(forHTTPHeaderField: "Authorization")
             return (HTTPURLResponse(), RecommendationsResponseDTO.dummyData)
@@ -48,7 +50,9 @@ final class NetworkProviderTests: XCTestCase {
         var isRequestContainsCorrectPath: Bool!
         var requestHttpMethod: String!
         MockURLProtocol.requestHandler = { request in
-            isRequestContainsCorrectPath = request.url?.pathComponents.contains("token")
+            let containCorrectPath1 = request.url?.pathComponents.contains("api")
+            let containCorrectPath2 = request.url?.pathComponents.contains("token")
+            isRequestContainsCorrectPath = containCorrectPath1! && containCorrectPath2!
             requestHttpMethod = request.httpMethod
             return (HTTPURLResponse(), SpotifyAccessTokenResponseDTO.dummyData)
         }
