@@ -1,6 +1,7 @@
 import UIKit
 
 final class MusicTrackView: UIView {
+    private let basicBackgroundColor = UIColor(resource: .background)
     
     private let albumImageView: UIImageView = {
         let imageView = UIImageView()
@@ -14,7 +15,6 @@ final class MusicTrackView: UIView {
     
     private let songTitleLabel: UILabel = {
         let label = UILabel()
-        label.molioExtraBold(text: "APT.", size: 48) // TODO: 서버 연결시 text 제거
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,7 +22,6 @@ final class MusicTrackView: UIView {
     
     private let artistNameLabel: UILabel = {
         let label = UILabel()
-        label.molioMedium(text: "로제 & Bruno Mars", size: 20) // TODO: 서버 연결시 text 제거
         label.textColor = .white.withAlphaComponent(0.7)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -53,11 +52,37 @@ final class MusicTrackView: UIView {
         setupConstraint()
     }
     
+    func configure(music: RandomMusic) {
+        setupAlbumImage(imageURL: music.artworkImageURL)
+        songTitleLabel.molioExtraBold(text: music.title, size: 48)
+        artistNameLabel.molioMedium(text: music.artistName, size: 20)
+        setupGenre(music.gerneNames)
+        
+        let textColor = music.primaryTextColor.flatMap { UIColor(rgbaColor: $0) } ?? UIColor.white
+        songTitleLabel.textColor = textColor
+        artistNameLabel.textColor = textColor.withAlphaComponent(0.7)
+    }
+    
     private func setupShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = .zero
         layer.shadowRadius = 26
         layer.shadowOpacity = 0.36
+    }
+    
+    private func setupAlbumImage(imageURL: URL?) {
+        guard let imageURL else {
+            albumImageView.backgroundColor = .systemPink
+            return
+        }
+        
+        URLSession.shared.dataTask(with: imageURL) { [weak self] data, _, _ in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self?.albumImageView.image = image
+                }
+            }
+        }.resume()
     }
     
     private func setupGenre(_ genres: [String]) {
@@ -86,12 +111,14 @@ final class MusicTrackView: UIView {
         
         NSLayoutConstraint.activate([
             songTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -121),
-            songTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28)
+            songTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+            songTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -28)
         ])
         
         NSLayoutConstraint.activate([
             artistNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -92),
-            artistNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28)
+            artistNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+            artistNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -28)
         ])
         
         NSLayoutConstraint.activate([
