@@ -52,15 +52,13 @@ private extension SpotifyAuthorizationAPI {
     enum Header {
         enum Authorization {
             static let field = "Authorization"
-            static var value: String {
-                guard let clientIDString = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID") as? String,
-                      let clientSecretString = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") as? String,
-                      let clientID = clientIDString.toBase64,
-                      let clientSecret = clientSecretString.toBase64
-                else {
-                    return ""
+            static var value: String? {
+                guard let clientID = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID") as? String,
+                      let clientSecret = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") as? String,
+                      let base64ClientKey = "\(clientID):\(clientSecret)".toBase64 else {
+                    return nil
                 }
-                return "Basic \(clientID):\(clientSecret)"
+                return "Basic \(base64ClientKey)"
             }
         }
         
