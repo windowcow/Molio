@@ -13,8 +13,21 @@ final class SpotifyTokenProviderTests: XCTestCase {
         sut = nil
     }
     
-    func test_expireTime이_nil일_경우_isTokenExpiringSoon은_true를_반환한다() async throws {
-        XCTAssertTrue(sut.isTokenExpiringSoon)
+    func test_accessToken이_nil이_아니고_만료시간까지_300초_넘게_남은_경우_getAccessToken메서드를_호출하면_네트워크_요청_없이_accessToken바로_반환한다() async throws {
+        // Given
+        let firstToken = "abcd"
+        let newTokenResponseDTO = SpotifyAccessTokenResponseDTO(accessToken: firstToken, tokenType: "", expiresIn: 500)
+        let mockNetworkProvider = MockNetworkProvider()
+        mockNetworkProvider.dtoToReturn = newTokenResponseDTO
+        sut = DefaultSpotifyTokenProvider(networkProvider: mockNetworkProvider)
+        _ = try await sut.getAccessToken() // 토큰 1번 주입
+        
+        // When
+        let result = try await sut.getAccessToken()
+        
+        // Then
+        XCTAssertEqual(result, firstToken)
+        XCTAssertEqual(mockNetworkProvider.requestCallCount, 1)
     }
     
     func test_accessToken이_nil일_경우_getAccessToken메서드를_호출하면_accessToken을_새로_발급받아서_반환한다() async throws {
