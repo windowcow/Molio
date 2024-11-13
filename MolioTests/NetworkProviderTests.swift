@@ -49,11 +49,15 @@ final class NetworkProviderTests: XCTestCase {
         // Given
         var isRequestContainsCorrectPath: Bool!
         var requestHttpMethod: String!
+        var isRequestContainsCorrectHeaderField: Bool!
         MockURLProtocol.requestHandler = { request in
             let containCorrectPath1 = request.url?.pathComponents.contains("api")
             let containCorrectPath2 = request.url?.pathComponents.contains("token")
             isRequestContainsCorrectPath = containCorrectPath1! && containCorrectPath2!
             requestHttpMethod = request.httpMethod
+            let containCorrectHeaderField1 = request.allHTTPHeaderFields?.keys.contains("Authorization")
+            let containCorrectHeaderField2 = request.allHTTPHeaderFields?.keys.contains("Content-Type")
+            isRequestContainsCorrectHeaderField = containCorrectHeaderField1! && containCorrectHeaderField2!
             return (HTTPURLResponse(), SpotifyAccessTokenResponseDTO.dummyData)
         }
         let apiRequest = SpotifyAuthorizationAPI.createAccessToken
@@ -64,6 +68,7 @@ final class NetworkProviderTests: XCTestCase {
         // Then
         XCTAssertTrue(isRequestContainsCorrectPath)
         XCTAssertEqual(requestHttpMethod, apiRequest.httpMethod.value)
+        XCTAssertTrue(isRequestContainsCorrectHeaderField)
     }
 }
 
