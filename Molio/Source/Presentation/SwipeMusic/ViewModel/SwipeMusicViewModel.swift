@@ -77,16 +77,16 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     
     private func loadMusicCard(from music: RandomMusic) {
         guard let imageURL = music.artworkImageURL else {
-            currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, data: nil))
+            currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: nil))
             return
         }
         
         Task {
             do {
                 let imageData = try await fetchImageUseCase.execute(url: imageURL)
-                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, data: imageData))
+                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: imageData))
             } catch {
-                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, data: nil))
+                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: nil))
             }
         }
     }
