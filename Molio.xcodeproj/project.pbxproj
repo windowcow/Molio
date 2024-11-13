@@ -923,6 +923,7 @@
 		};
 		F173690A2CD86B1300F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -956,6 +957,7 @@
 		};
 		F173690B2CD86B1300F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -989,6 +991,7 @@
 		};
 		F17369392CDCE31C00F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1007,6 +1010,7 @@
 		};
 		F173693A2CDCE31C00F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
