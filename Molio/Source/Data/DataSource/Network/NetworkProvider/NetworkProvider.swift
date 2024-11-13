@@ -15,7 +15,7 @@ protocol NetworkProvider {
 
 private extension NetworkProvider {
     func makeURLRequest(of endPoint: EndPoint) throws -> URLRequest {
-        guard let url = endPoint.url else { throw NetworkError.invalidURL }
+        guard let url = makeURL(of: endPoint) else { throw NetworkError.invalidURL }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.httpMethod.rawValue
         endPoint.headers?.forEach {
@@ -24,6 +24,13 @@ private extension NetworkProvider {
         urlRequest.httpBody = endPoint.body
         
         return urlRequest
+    }
+    
+    func makeURL(of endPoint: EndPoint) -> URL? {
+        var components = URLComponents(string: endPoint.base)
+        components?.path = endPoint.path
+        components?.queryItems = endPoint.params.map { URLQueryItem(name: $0.key, value: $0.value) }
+        return components?.url
     }
 }
 

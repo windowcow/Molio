@@ -12,12 +12,12 @@ enum SpotifyAuthorizationAPI {
 
 extension SpotifyAuthorizationAPI: EndPoint {
     var base: String {
-        "https://accounts.spotify.com/api"
+        "https://accounts.spotify.com"
     }
     
     var path: String {
         switch self {
-        case .createAccessToken: "/token"
+        case .createAccessToken: "/api/token"
         }
     }
     
@@ -27,7 +27,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
         }
     }
     
-    var headers: [String: String]? {
+    var headers: [String: String?]? {
         return [
             Header.Authorization.field: Header.Authorization.value,
             Header.ContentType.field: Header.ContentType.value
@@ -46,28 +46,19 @@ extension SpotifyAuthorizationAPI: EndPoint {
             return ["grant_type": "client_credentials"]
         }
     }
-    
-    var url: URL? {
-        switch self {
-        case .createAccessToken:
-            guard var components = URLComponents(string: base + path) else { return nil }
-            components.queryItems = params.map({ URLQueryItem(name: $0.key, value: $0.value) })
-            return components.url
-        }
-    }
 }
 
-extension SpotifyAuthorizationAPI {
+private extension SpotifyAuthorizationAPI {
     enum Header {
         enum Authorization {
             static let field = "Authorization"
-            static var value: String {
-                // TODO: - Base64 인코딩
-                guard let clientID = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID"),
-                      let clientSecret = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") else {
-                    return ""
+            static var value: String? {
+                guard let clientID = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_ID") as? String,
+                      let clientSecret = Bundle.main.object(forInfoDictionaryKey: "SPOTIFY_CLIENT_SECRET") as? String,
+                      let base64ClientKey = "\(clientID):\(clientSecret)".toBase64 else {
+                    return nil
                 }
-                return "Basic \(clientID):\(clientSecret)"
+                return "Basic \(base64ClientKey)"
             }
         }
         

@@ -11,14 +11,11 @@ protocol EndPoint {
     var httpMethod: HTTPMethod { get }
     
     /// 요청에 사용할 헤더
-    var headers: [String: String]? { get }
+    var headers: [String: String?]? { get }
     
     /// 요청에 사용할 바디 데이터
     var body: Data? { get }
     
     /// 요청 쿼리 파라미터
     var params: [String: String] { get }
-    
-    /// 엔드포인트의 완성된 URL
-    var url: URL? { get }
 }

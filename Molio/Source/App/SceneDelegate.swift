@@ -11,9 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         configureAudioSession()
         
         let defaultNetworkProvider = DefaultNetworkProvider()
-        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyTokenProvider = DefaultSpotifyTokenProvider(networkProvider: defaultNetworkProvider)
         let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
-                                                                tokenProvider: mockSpotifyTokenProvider
+                                                                tokenProvider: defaultSpotifyTokenProvider
         )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultMusicRepository = DefaultMusicRepository(

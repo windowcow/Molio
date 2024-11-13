@@ -80,9 +80,9 @@ final class SwipeMusicViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         let defaultNetworkProvider = DefaultNetworkProvider()
-        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyTokenProvider = DefaultSpotifyTokenProvider(networkProvider: defaultNetworkProvider)
         let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
-                                                                tokenProvider: mockSpotifyTokenProvider
+                                                                tokenProvider: defaultSpotifyTokenProvider
         )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultMusicRepository = DefaultMusicRepository(
@@ -224,9 +224,9 @@ import SwiftUI
 struct SwipeViewControllerPreview: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SwipeMusicViewController {
         let defaultNetworkProvider = DefaultNetworkProvider()
-        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyTokenProvider = DefaultSpotifyTokenProvider(networkProvider: defaultNetworkProvider)
         let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
-                                                                tokenProvider: mockSpotifyTokenProvider
+                                                                tokenProvider: defaultSpotifyTokenProvider
         )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultMusicRepository = DefaultMusicRepository(

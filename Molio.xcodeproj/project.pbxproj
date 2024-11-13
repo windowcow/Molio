@@ -49,6 +49,11 @@
 		B8D554862CE0F417007CCD6D /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F42CDFE5F0007CCD6D /* MockURLProtocol.swift */; };
 		B8D554872CE0F41F007CCD6D /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */; };
 		B8D554892CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554882CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift */; };
+		B8D554C02CE322CF007CCD6D /* SpotifyTokenProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554BF2CE322CF007CCD6D /* SpotifyTokenProviderError.swift */; };
+		B8D554C22CE32B9A007CCD6D /* SpotifyTokenProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554C12CE32B9A007CCD6D /* SpotifyTokenProviderTests.swift */; };
+		B8D554C42CE33979007CCD6D /* MockNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554C32CE33979007CCD6D /* MockNetworkProvider.swift */; };
+		B8D554C62CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554C52CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift */; };
+		B8D554C82CE34A47007CCD6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D554C72CE34A47007CCD6D /* String+Extension.swift */; };
 		F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368F82CD86B1100F6242C /* AppDelegate.swift */; };
 		F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17368FA2CD86B1100F6242C /* SceneDelegate.swift */; };
 		F17369022CD86B1300F6242C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17369012CD86B1300F6242C /* Assets.xcassets */; };
@@ -134,6 +139,12 @@
 		B8D554052CE0ED2C007CCD6D /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
 		B8D5547F2CE0F152007CCD6D /* RecommendationsResponseDTODummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsResponseDTODummy.swift; sourceTree = "<group>"; };
 		B8D554882CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpotifyAPIService.swift; sourceTree = "<group>"; };
+		B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		B8D554BF2CE322CF007CCD6D /* SpotifyTokenProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenProviderError.swift; sourceTree = "<group>"; };
+		B8D554C12CE32B9A007CCD6D /* SpotifyTokenProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenProviderTests.swift; sourceTree = "<group>"; };
+		B8D554C32CE33979007CCD6D /* MockNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkProvider.swift; sourceTree = "<group>"; };
+		B8D554C52CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSpotifyTokenProvider.swift; sourceTree = "<group>"; };
+		B8D554C72CE34A47007CCD6D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		F17368F52CD86B1100F6242C /* Molio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Molio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17368F82CD86B1100F6242C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F17368FA2CD86B1100F6242C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +245,8 @@
 				881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */,
 				881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */,
 				B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */,
+				B8D554BF2CE322CF007CCD6D /* SpotifyTokenProviderError.swift */,
+				B8D554C52CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift */,
 			);
 			path = SpotifyTokenProvider;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 				F17369012CD86B1300F6242C /* Assets.xcassets */,
 				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
 				F17369062CD86B1300F6242C /* Info.plist */,
+				B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -440,6 +454,7 @@
 		B80970992CDB4678007BC3C4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B8D554C92CE34C8C007CCD6D /* Foundation */,
 				2003BA1A2CDB8EC6002CAB3E /* UIKit */,
 				2003BA192CDB8EB5002CAB3E /* SwiftUI */,
 			);
@@ -471,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D553F42CDFE5F0007CCD6D /* MockURLProtocol.swift */,
+				B8D554C32CE33979007CCD6D /* MockNetworkProvider.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -482,6 +498,14 @@
 				B8D5547F2CE0F152007CCD6D /* RecommendationsResponseDTODummy.swift */,
 			);
 			path = Dummy;
+			sourceTree = "<group>";
+		};
+		B8D554C92CE34C8C007CCD6D /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B8D554C72CE34A47007CCD6D /* String+Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		F17368EC2CD86B1100F6242C = {
@@ -537,6 +561,7 @@
 			children = (
 				B8D553F32CDFE5E6007CCD6D /* Test Double */,
 				B8D553F62CDFE623007CCD6D /* NetworkProviderTests.swift */,
+				B8D554C12CE32B9A007CCD6D /* SpotifyTokenProviderTests.swift */,
 			);
 			path = MolioTests;
 			sourceTree = "<group>";
@@ -783,10 +808,13 @@
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
 				F17369682CE36E8F00F6242C /* DefaultImageRepository.swift in Sources */,
 				B8D554062CE0ED2C007CCD6D /* SpotifyAPI.swift in Sources */,
+				B8D554C82CE34A47007CCD6D /* String+Extension.swift in Sources */,
 				881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */,
 				20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */,
 				B8D553EC2CDFE29D007CCD6D /* NetworkError.swift in Sources */,
 				881BBCC22CDCF97900010A61 /* RecommendationRequestEntity.swift in Sources */,
+				B8D554C62CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift in Sources */,
+				B8D554C02CE322CF007CCD6D /* SpotifyTokenProviderError.swift in Sources */,
 				F17369662CE36E2900F6242C /* ImageRepository.swift in Sources */,
 				B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */,
 				B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */,
@@ -831,6 +859,8 @@
 				B8D554862CE0F417007CCD6D /* MockURLProtocol.swift in Sources */,
 				B8D554852CE0F411007CCD6D /* SpotifyAccessTokenResponseDTODummy.swift in Sources */,
 				B8D554802CE0F152007CCD6D /* RecommendationsResponseDTODummy.swift in Sources */,
+				B8D554C22CE32B9A007CCD6D /* SpotifyTokenProviderTests.swift in Sources */,
+				B8D554C42CE33979007CCD6D /* MockNetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,6 +1011,7 @@
 		};
 		F173690A2CD86B1300F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1014,6 +1045,7 @@
 		};
 		F173690B2CD86B1300F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1047,6 +1079,7 @@
 		};
 		F17369392CDCE31C00F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1065,6 +1098,7 @@
 		};
 		F173693A2CDCE31C00F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8D554BE2CE31FE6007CCD6D /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
