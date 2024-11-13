@@ -4,7 +4,7 @@ import MusicKit
 
 final class SwipeMusicViewModel: ObservableObject {
     @Published var musics: [RandomMusic] = []
-    let musicPlayer = SwipeMusicPlayer()
+    private let musicPlayer = SwipeMusicPlayer()
 
     let fetchMusicsUseCase: FetchMusicsUseCase
     

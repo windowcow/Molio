@@ -20,7 +20,7 @@
 		2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA152CDB8D69002CAB3E /* Font+Extension.swift */; };
 		2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */; };
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
-		20397E4C2CE10C25004ED9CE /* AudioPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E4B2CE10C24004ED9CE /* AudioPlayable.swift */; };
+		20397E4C2CE10C25004ED9CE /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E4B2CE10C24004ED9CE /* AudioPlayer.swift */; };
 		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
 		881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */; };
 		881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAF2CDCF91B00010A61 /* MockSpotifyAPIService.swift */; };
@@ -96,7 +96,7 @@
 		2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
 		2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
-		20397E4B2CE10C24004ED9CE /* AudioPlayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayable.swift; sourceTree = "<group>"; };
+		20397E4B2CE10C24004ED9CE /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
 		881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyRepository.swift; sourceTree = "<group>"; };
 		881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyTokenProvider.swift; sourceTree = "<group>"; };
@@ -216,6 +216,7 @@
 				881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */,
 				881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */,
 				B8D553F12CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift */,
+				20397E4B2CE10C24004ED9CE /* AudioPlayer.swift */,
 			);
 			path = SpotifyTokenProvider;
 			sourceTree = "<group>";
@@ -735,7 +736,7 @@
 				F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
-				20397E4C2CE10C25004ED9CE /* AudioPlayable.swift in Sources */,
+				20397E4C2CE10C25004ED9CE /* AudioPlayer.swift in Sources */,
 				881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

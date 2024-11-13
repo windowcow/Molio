@@ -1,7 +1,7 @@
 
 import AVFoundation
 
-final class SwipeMusicPlayer: AudioPlayable {
+final class SwipeMusicPlayer: AudioPlayer {
     var player: AVQueuePlayer?
     var looper: AVPlayerLooper?
     var updatePlaybackTime: ((Double) -> Void)?
@@ -28,7 +28,6 @@ final class SwipeMusicPlayer: AudioPlayable {
     
     func play() {
         guard let player = player else { return }
-        print("play")
         player.play()
     }
     
@@ -52,6 +51,4 @@ final class SwipeMusicPlayer: AudioPlayable {
             looper = AVPlayerLooper(player: player, templateItem: currentItem)
         }
     }
-    
-    
 }
