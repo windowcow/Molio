@@ -11,4 +11,3 @@ enum PretendardFontName {
     static let Light = "Pretendard-Light"
     static let ExtraLight = "Pretendard-ExtraLight"
 }
-

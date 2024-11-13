@@ -1,4 +1,3 @@
-
 import AVFoundation
 
 final class SwipeMusicPlayer: AudioPlayer {
@@ -8,7 +7,7 @@ final class SwipeMusicPlayer: AudioPlayer {
     private var timeObserverToken: Any?
     
     func loadSongs(with urls: [URL]) {
-        let items = urls.map{ AVPlayerItem(url: $0)}
+        let items = urls.map { AVPlayerItem(url: $0) }
         player = AVQueuePlayer(items: items)
         
         guard let player = player else { return }
@@ -21,7 +20,8 @@ final class SwipeMusicPlayer: AudioPlayer {
             timeObserverToken = nil
         }
         
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: .main) { [weak self] time in
+        timeObserverToken = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1),
+                                                           queue: .main) { [weak self] time in
             self?.updatePlaybackTime?(time.seconds)
         }
     }
