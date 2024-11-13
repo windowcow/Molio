@@ -45,7 +45,7 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
-    private let musicTrackView = MusicTrackView()
+    private let musicCardView = MusicCardView()
     
     private let filterButton = CircleMenuButton(backgroundColor: .black.withAlphaComponent(0.2),
                                                 buttonSize: 58.0,
@@ -124,17 +124,13 @@ final class SwipeMusicViewController: UIViewController {
                 let artworkBackgroundColor = music.artworkBackgroundColor
                     .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
                 view.backgroundColor = artworkBackgroundColor
-                musicTrackView.configure(music: music)
+                musicCardView.configure(music: music)
             }.store(in: &cancellables)
-    }
-    
-    private func setupBackgroundColor(by cgColor: CGColor?) {
-        view.backgroundColor = cgColor.map(UIColor.init(cgColor:)) ?? basicBackgroundColor
     }
     
     private func addPanGestureToMusicTrack() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        musicTrackView.addGestureRecognizer(panGesture)
+        musicCardView.addGestureRecognizer(panGesture)
     }
     
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -198,13 +194,13 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupMusicTrackView() {
-        view.addSubview(musicTrackView)
+        view.addSubview(musicCardView)
         
         NSLayoutConstraint.activate([
-            musicTrackView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
-            musicTrackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
-            musicTrackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-            musicTrackView.bottomAnchor.constraint(
+            musicCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
+            musicCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
+            musicCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
+            musicCardView.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -107)
         ])
     }

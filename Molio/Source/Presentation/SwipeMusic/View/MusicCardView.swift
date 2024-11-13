@@ -1,6 +1,6 @@
 import UIKit
 
-final class MusicTrackView: UIView {
+final class MusicCardView: UIView {
     private let basicBackgroundColor = UIColor(resource: .background)
     
     private let albumImageView: UIImageView = {
