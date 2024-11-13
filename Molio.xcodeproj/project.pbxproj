@@ -20,6 +20,7 @@
 		2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA152CDB8D69002CAB3E /* Font+Extension.swift */; };
 		2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */; };
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
+		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
 		881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */; };
 		881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAF2CDCF91B00010A61 /* MockSpotifyAPIService.swift */; };
 		881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */; };
@@ -33,7 +34,6 @@
 		881BBCC22CDCF97900010A61 /* RecommendationRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */; };
 		881BBCC42CDCF98300010A61 /* SpotifyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */; };
 		881BBCC72CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCC52CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift */; };
-		B80970802CDB4455007BC3C4 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809707F2CDB4455007BC3C4 /* Base.swift */; };
 		B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80970932CDB45DF007BC3C4 /* LocalStorage.swift */; };
 		B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809709D2CDB640B007BC3C4 /* MusicKitService.swift */; };
 		B8D553E82CDFE25C007CCD6D /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */; };
@@ -62,7 +62,7 @@
 		F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */; };
 		F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369222CDC5E5F00F6242C /* MusicTagView.swift */; };
 		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
-		F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicTrackView.swift */; };
+		F17369292CDC79E100F6242C /* MusicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicCardView.swift */; };
 		F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */; };
 		F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* RandomMusic.swift */; };
 		F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693E2CDF21BC00F6242C /* MusicRepository.swift */; };
@@ -73,6 +73,16 @@
 		F17369542CDFA9FD00F6242C /* CGColorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369532CDFA9FD00F6242C /* CGColorMapper.swift */; };
 		F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */; };
 		F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369582CDFB73000F6242C /* RGBAColor.swift */; };
+		F173695D2CE31CBA00F6242C /* InputOutputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173695C2CE31CBA00F6242C /* InputOutputViewModel.swift */; };
+		F17369612CE36D8000F6242C /* FetchImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369602CE36D8000F6242C /* FetchImageUseCase.swift */; };
+		F17369642CE36DE300F6242C /* DefaultFetchImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369632CE36DE300F6242C /* DefaultFetchImageUseCase.swift */; };
+		F17369662CE36E2900F6242C /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369652CE36E2900F6242C /* ImageRepository.swift */; };
+		F17369682CE36E8F00F6242C /* DefaultImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369672CE36E8F00F6242C /* DefaultImageRepository.swift */; };
+		F17369702CE3710A00F6242C /* ImageFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173696F2CE3710A00F6242C /* ImageFetchService.swift */; };
+		F17369722CE3716100F6242C /* DafaultImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369712CE3716100F6242C /* DafaultImageProvider.swift */; };
+		F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369732CE3733300F6242C /* ImageFecthError.swift */; };
+		F17369772CE389AA00F6242C /* SwipeMusicTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */; };
+		F173697B2CE4AAC600F6242C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173697A2CE4AAC600F6242C /* AudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +110,7 @@
 		2003BA172CDB8DE0002CAB3E /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
 		2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
+		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
 		881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyRepository.swift; sourceTree = "<group>"; };
 		881BBCAC2CDCF91B00010A61 /* MockSpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSpotifyTokenProvider.swift; sourceTree = "<group>"; };
 		881BBCAD2CDCF91B00010A61 /* SpotifyTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenProvider.swift; sourceTree = "<group>"; };
@@ -113,7 +124,6 @@
 		881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationRequestEntity.swift; sourceTree = "<group>"; };
 		881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyRepository.swift; sourceTree = "<group>"; };
 		881BBCC52CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecommendedSongsUseCase.swift; sourceTree = "<group>"; };
-		B809707F2CDB4455007BC3C4 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		B80970932CDB45DF007BC3C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		B809709D2CDB640B007BC3C4 /* MusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitService.swift; sourceTree = "<group>"; };
 		B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
@@ -145,7 +155,7 @@
 		F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewController.swift; sourceTree = "<group>"; };
 		F17369222CDC5E5F00F6242C /* MusicTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTagView.swift; sourceTree = "<group>"; };
 		F17369242CDC662A00F6242C /* CircleMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleMenuButton.swift; sourceTree = "<group>"; };
-		F17369282CDC79E100F6242C /* MusicTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTrackView.swift; sourceTree = "<group>"; };
+		F17369282CDC79E100F6242C /* MusicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCardView.swift; sourceTree = "<group>"; };
 		F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F17369332CDCE31C00F6242C /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F173693C2CDF191800F6242C /* RandomMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusic.swift; sourceTree = "<group>"; };
@@ -157,6 +167,16 @@
 		F17369532CDFA9FD00F6242C /* CGColorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorMapper.swift; sourceTree = "<group>"; };
 		F17369562CDFB03E00F6242C /* DefaultMusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMusicKitService.swift; sourceTree = "<group>"; };
 		F17369582CDFB73000F6242C /* RGBAColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBAColor.swift; sourceTree = "<group>"; };
+		F173695C2CE31CBA00F6242C /* InputOutputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutputViewModel.swift; sourceTree = "<group>"; };
+		F17369602CE36D8000F6242C /* FetchImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageUseCase.swift; sourceTree = "<group>"; };
+		F17369632CE36DE300F6242C /* DefaultFetchImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchImageUseCase.swift; sourceTree = "<group>"; };
+		F17369652CE36E2900F6242C /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		F17369672CE36E8F00F6242C /* DefaultImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageRepository.swift; sourceTree = "<group>"; };
+		F173696F2CE3710A00F6242C /* ImageFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchService.swift; sourceTree = "<group>"; };
+		F17369712CE3716100F6242C /* DafaultImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DafaultImageProvider.swift; sourceTree = "<group>"; };
+		F17369732CE3733300F6242C /* ImageFecthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFecthError.swift; sourceTree = "<group>"; };
+		F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicTrackModel.swift; sourceTree = "<group>"; };
+		F173697A2CE4AAC600F6242C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +337,7 @@
 		B80970792CDB43F1007BC3C4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F17369792CE4AAB600F6242C /* Protocol */,
 				F173695B2CE0F5B800F6242C /* Mapper */,
 				B80970992CDB4678007BC3C4 /* Extension */,
 			);
@@ -343,7 +364,7 @@
 		B809707E2CDB444C007BC3C4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B809707F2CDB4455007BC3C4 /* Base.swift */,
+				F173695C2CE31CBA00F6242C /* InputOutputViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -351,6 +372,7 @@
 		B80970812CDB4472007BC3C4 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				F173695E2CE36D4D00F6242C /* FetchImageUsecase */,
 				F17369432CDF248700F6242C /* FetchMusicsUseCase */,
 				881BBCC62CDCF98F00010A61 /* FetchRecommendedSongsUseCase */,
 			);
@@ -362,6 +384,7 @@
 			children = (
 				881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */,
 				F173693E2CDF21BC00F6242C /* MusicRepository.swift */,
+				F17369652CE36E2900F6242C /* ImageRepository.swift */,
 			);
 			path = RepositoryInterface;
 			sourceTree = "<group>";
@@ -382,6 +405,7 @@
 			children = (
 				881BBCA92CDCF90700010A61 /* MockSpotifyRepository.swift */,
 				F173694A2CDF265900F6242C /* DefaultMusicRepository.swift */,
+				F17369672CE36E8F00F6242C /* DefaultImageRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -410,6 +434,7 @@
 		B809708F2CDB45B7007BC3C4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F173696E2CE370F200F6242C /* ImageFetchService */,
 				F17369552CDFB02100F6242C /* MusicKitService */,
 				B8D553E62CDFE245007CCD6D /* NetworkProvider */,
 				881BBCAE2CDCF91B00010A61 /* SpotifyTokenProvider */,
@@ -514,6 +539,7 @@
 		F173691C2CDB991D00F6242C /* SwipeMusic */ = {
 			isa = PBXGroup;
 			children = (
+				F17369752CE389A200F6242C /* Model */,
 				F173695A2CDFD39000F6242C /* ViewModel */,
 				F173691D2CDB992700F6242C /* View */,
 			);
@@ -524,7 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				F173691E2CDB995100F6242C /* SwipeMusicViewController.swift */,
-				F17369282CDC79E100F6242C /* MusicTrackView.swift */,
+				F17369282CDC79E100F6242C /* MusicCardView.swift */,
 				F17369222CDC5E5F00F6242C /* MusicTagView.swift */,
 			);
 			path = View;
@@ -586,6 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */,
+				20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -596,6 +623,57 @@
 				F17369532CDFA9FD00F6242C /* CGColorMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		F173695E2CE36D4D00F6242C /* FetchImageUsecase */ = {
+			isa = PBXGroup;
+			children = (
+				F173695F2CE36D6A00F6242C /* Protocol */,
+				F17369622CE36DC700F6242C /* Implementation */,
+			);
+			path = FetchImageUsecase;
+			sourceTree = "<group>";
+		};
+		F173695F2CE36D6A00F6242C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F17369602CE36D8000F6242C /* FetchImageUseCase.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F17369622CE36DC700F6242C /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				F17369632CE36DE300F6242C /* DefaultFetchImageUseCase.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		F173696E2CE370F200F6242C /* ImageFetchService */ = {
+			isa = PBXGroup;
+			children = (
+				F173696F2CE3710A00F6242C /* ImageFetchService.swift */,
+				F17369712CE3716100F6242C /* DafaultImageProvider.swift */,
+				F17369732CE3733300F6242C /* ImageFecthError.swift */,
+			);
+			path = ImageFetchService;
+			sourceTree = "<group>";
+		};
+		F17369752CE389A200F6242C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F17369792CE4AAB600F6242C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F173697A2CE4AAC600F6242C /* AudioPlayer.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -714,6 +792,7 @@
 			files = (
 				F17369492CDF250200F6242C /* DefaultFetchMusicsUseCase.swift in Sources */,
 				B8D554842CE0F3F3007CCD6D /* SpotifyAccessTokenResponseDTO.swift in Sources */,
+				F173697B2CE4AAC600F6242C /* AudioPlayer.swift in Sources */,
 				881BBCC42CDCF98300010A61 /* SpotifyRepository.swift in Sources */,
 				B8D553F22CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift in Sources */,
 				B80970942CDB45DF007BC3C4 /* LocalStorage.swift in Sources */,
@@ -727,32 +806,41 @@
 				F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */,
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
+				F17369682CE36E8F00F6242C /* DefaultImageRepository.swift in Sources */,
 				B8D554062CE0ED2C007CCD6D /* SpotifyAPI.swift in Sources */,
 				B8D554C82CE34A47007CCD6D /* String+Extension.swift in Sources */,
 				881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */,
+				20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */,
 				B8D553EC2CDFE29D007CCD6D /* NetworkError.swift in Sources */,
 				881BBCC22CDCF97900010A61 /* RecommendationRequestEntity.swift in Sources */,
 				B8D554C62CE339BC007CCD6D /* DefaultSpotifyTokenProvider.swift in Sources */,
 				B8D554C02CE322CF007CCD6D /* SpotifyTokenProviderError.swift in Sources */,
+				F17369662CE36E2900F6242C /* ImageRepository.swift in Sources */,
 				B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */,
 				B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */,
 				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,
+				F17369642CE36DE300F6242C /* DefaultFetchImageUseCase.swift in Sources */,
+				F17369722CE3716100F6242C /* DafaultImageProvider.swift in Sources */,
 				2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */,
 				B8D553E82CDFE25C007CCD6D /* NetworkProvider.swift in Sources */,
-				B80970802CDB4455007BC3C4 /* Base.swift in Sources */,
 				881BBCBB2CDCF95600010A61 /* TrackDTO.swift in Sources */,
 				881BBCBC2CDCF95600010A61 /* RecommendationsResponseDTO.swift in Sources */,
 				881BBCBD2CDCF95600010A61 /* ExternalIDsDTO.swift in Sources */,
 				B8D554892CE10A3A007CCD6D /* DefaultSpotifyAPIService.swift in Sources */,
 				881BBCBE2CDCF95600010A61 /* RecommendationsRequestDTO.swift in Sources */,
-				F17369292CDC79E100F6242C /* MusicTrackView.swift in Sources */,
+				F17369292CDC79E100F6242C /* MusicCardView.swift in Sources */,
 				F173693F2CDF21BC00F6242C /* MusicRepository.swift in Sources */,
 				F17368F92CD86B1100F6242C /* AppDelegate.swift in Sources */,
+				F173695D2CE31CBA00F6242C /* InputOutputViewModel.swift in Sources */,
 				F17369462CDF24A100F6242C /* FetchMusicsUseCase.swift in Sources */,
+				F17369612CE36D8000F6242C /* FetchImageUseCase.swift in Sources */,
+				F17369772CE389AA00F6242C /* SwipeMusicTrackModel.swift in Sources */,
 				B8D553F02CDFE2F5007CCD6D /* HTTPMethod.swift in Sources */,
 				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
+				F17369702CE3710A00F6242C /* ImageFetchService.swift in Sources */,
 				881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
+				F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */,
 				881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */,
 				881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */,
 				881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */,

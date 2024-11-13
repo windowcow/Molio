@@ -2,10 +2,12 @@ import UIKit
 import Combine
 
 final class SwipeMusicViewController: UIViewController {
-    private let viewModel = SwipeMusicViewModel()
+    private let viewModel: SwipeMusicViewModel
+    private var input: SwipeMusicViewModel.Input
+    private var output: SwipeMusicViewModel.Output
+    private let viewDidLoadPublisher = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
-
-    let basicBackgroundColor = UIColor(resource: .background)
+    private let basicBackgroundColor = UIColor(resource: .background)
     
     private let playlistSelectButton: UIButton = {
         let button = UIButton()
@@ -43,7 +45,7 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
-    private let musicTrackView = MusicTrackView()
+    private let musicCardView = MusicCardView()
     
     private let filterButton = CircleMenuButton(backgroundColor: .black.withAlphaComponent(0.2),
                                                 buttonSize: 58.0,
@@ -69,39 +71,66 @@ final class SwipeMusicViewController: UIViewController {
                                                  buttonImage: UIImage(systemName: "music.note"),
                                                  buttonImageSize: CGSize(width: 18.0, height: 24.0))
     
+    init(viewModel: SwipeMusicViewModel) {
+        self.viewModel = viewModel
+        self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
+        self.output = viewModel.transform(from: input)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        let defaultNetworkProvider = DefaultNetworkProvider()
+        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
+                                                                tokenProvider: mockSpotifyTokenProvider
+        )
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultMusicRepository = DefaultMusicRepository(
+            spotifyAPIService: defaultSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+        let defaultImageProvider = DefaultImageFetchService()
+        let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
+        let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
+        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
+                                                      fetchImageUseCase: defaultFetchImageUseCase
+        )
+        self.viewModel = swipeMusicViewModel
+        self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
+        self.output = viewModel.transform(from: input)
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        view.backgroundColor = basicBackgroundColor // TODO: 앨범의 배경색으로 지정된 이후 삭제
+        view.backgroundColor = basicBackgroundColor
         setupSelectPlaylistView()
         setupMusicTrackView()
         setupMenuButtonView()
         
         setupBindings()
-        viewModel.fetchMusic()
-        
         addPanGestureToMusicTrack()
+        
+        viewDidLoadPublisher.send()
     }
     
     private func setupBindings() {
-        viewModel.$musics
+        output.currentMusicTrack
             .receive(on: RunLoop.main)
-            .sink { [weak self] musics in
-                guard let self, !musics.isEmpty else { return }
-                let artworkBackgroundColor = musics.first?.artworkBackgroundColor
-                                .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
+            .sink { [weak self] music in
+                guard let self else { return }
+                let artworkBackgroundColor = music.artworkBackgroundColor
+                    .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
                 view.backgroundColor = artworkBackgroundColor
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func setupBackgroundColor(by cgColor: CGColor?) {
-        view.backgroundColor = cgColor.map(UIColor.init(cgColor:)) ?? basicBackgroundColor
+                musicCardView.configure(music: music)
+            }.store(in: &cancellables)
     }
     
     private func addPanGestureToMusicTrack() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        musicTrackView.addGestureRecognizer(panGesture)
+        musicCardView.addGestureRecognizer(panGesture)
     }
     
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -165,13 +194,13 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupMusicTrackView() {
-        view.addSubview(musicTrackView)
+        view.addSubview(musicCardView)
         
         NSLayoutConstraint.activate([
-            musicTrackView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
-            musicTrackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
-            musicTrackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-            musicTrackView.bottomAnchor.constraint(
+            musicCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
+            musicCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
+            musicCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
+            musicCardView.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -107)
         ])
     }
@@ -194,7 +223,25 @@ final class SwipeMusicViewController: UIViewController {
 import SwiftUI
 struct SwipeViewControllerPreview: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> SwipeMusicViewController {
-        return SwipeMusicViewController()
+        let defaultNetworkProvider = DefaultNetworkProvider()
+        let mockSpotifyTokenProvider = MockSpotifyTokenProvider() //TODO: 이후 Mock -> Default 수정
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(networkProvider: defaultNetworkProvider,
+                                                                tokenProvider: mockSpotifyTokenProvider
+        )
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultMusicRepository = DefaultMusicRepository(
+            spotifyAPIService: defaultSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+        let defaultImageProvider = DefaultImageFetchService()
+        let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
+        let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
+        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
+                                                      fetchImageUseCase: defaultFetchImageUseCase
+        )
+        
+        return SwipeMusicViewController(viewModel: swipeMusicViewModel)
     }
     
     func updateUIViewController(_ uiViewController: SwipeMusicViewController, context: Context) {

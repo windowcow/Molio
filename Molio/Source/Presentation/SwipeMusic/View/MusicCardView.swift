@@ -1,6 +1,7 @@
 import UIKit
 
-final class MusicTrackView: UIView {
+final class MusicCardView: UIView {
+    private let basicBackgroundColor = UIColor(resource: .background)
     
     private let albumImageView: UIImageView = {
         let imageView = UIImageView()
@@ -14,7 +15,6 @@ final class MusicTrackView: UIView {
     
     private let songTitleLabel: UILabel = {
         let label = UILabel()
-        label.molioExtraBold(text: "APT.", size: 48) // TODO: 서버 연결시 text 제거
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,7 +22,6 @@ final class MusicTrackView: UIView {
     
     private let artistNameLabel: UILabel = {
         let label = UILabel()
-        label.molioMedium(text: "로제 & Bruno Mars", size: 20) // TODO: 서버 연결시 text 제거
         label.textColor = .white.withAlphaComponent(0.7)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,6 +50,20 @@ final class MusicTrackView: UIView {
         setupShadow()
         setupHierarchy()
         setupConstraint()
+    }
+    
+    func configure(music: SwipeMusicTrackModel) {
+        songTitleLabel.molioExtraBold(text: music.title, size: 48)
+        artistNameLabel.molioMedium(text: music.artistName, size: 20)
+        setupGenre(music.gerneNames)
+        
+        let textColor = music.primaryTextColor.flatMap { UIColor(rgbaColor: $0) } ?? UIColor.white
+        songTitleLabel.textColor = textColor
+        artistNameLabel.textColor = textColor.withAlphaComponent(0.7)
+        
+        if let imageData = music.artworkImageData {
+            albumImageView.image = UIImage(data: imageData)
+        }
     }
     
     private func setupShadow() {
@@ -86,12 +99,14 @@ final class MusicTrackView: UIView {
         
         NSLayoutConstraint.activate([
             songTitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -121),
-            songTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28)
+            songTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+            songTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -28)
         ])
         
         NSLayoutConstraint.activate([
             artistNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -92),
-            artistNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28)
+            artistNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 28),
+            artistNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -28)
         ])
         
         NSLayoutConstraint.activate([
