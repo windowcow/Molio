@@ -72,9 +72,9 @@
 		F17369642CE36DE300F6242C /* DefaultFetchImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369632CE36DE300F6242C /* DefaultFetchImageUseCase.swift */; };
 		F17369662CE36E2900F6242C /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369652CE36E2900F6242C /* ImageRepository.swift */; };
 		F17369682CE36E8F00F6242C /* DefaultImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369672CE36E8F00F6242C /* DefaultImageRepository.swift */; };
-		F17369702CE3710A00F6242C /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173696F2CE3710A00F6242C /* ImageProvider.swift */; };
+		F17369702CE3710A00F6242C /* ImageFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173696F2CE3710A00F6242C /* ImageFetchService.swift */; };
 		F17369722CE3716100F6242C /* DafaultImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369712CE3716100F6242C /* DafaultImageProvider.swift */; };
-		F17369742CE3733300F6242C /* ImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369732CE3733300F6242C /* ImageError.swift */; };
+		F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369732CE3733300F6242C /* ImageFecthError.swift */; };
 		F17369772CE389AA00F6242C /* SwipeMusicTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,9 +158,9 @@
 		F17369632CE36DE300F6242C /* DefaultFetchImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchImageUseCase.swift; sourceTree = "<group>"; };
 		F17369652CE36E2900F6242C /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		F17369672CE36E8F00F6242C /* DefaultImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageRepository.swift; sourceTree = "<group>"; };
-		F173696F2CE3710A00F6242C /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		F173696F2CE3710A00F6242C /* ImageFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetchService.swift; sourceTree = "<group>"; };
 		F17369712CE3716100F6242C /* DafaultImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DafaultImageProvider.swift; sourceTree = "<group>"; };
-		F17369732CE3733300F6242C /* ImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageError.swift; sourceTree = "<group>"; };
+		F17369732CE3733300F6242C /* ImageFecthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFecthError.swift; sourceTree = "<group>"; };
 		F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicTrackModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -622,9 +622,9 @@
 		F173696E2CE370F200F6242C /* ImageProvider */ = {
 			isa = PBXGroup;
 			children = (
-				F173696F2CE3710A00F6242C /* ImageProvider.swift */,
+				F173696F2CE3710A00F6242C /* ImageFetchService.swift */,
 				F17369712CE3716100F6242C /* DafaultImageProvider.swift */,
-				F17369732CE3733300F6242C /* ImageError.swift */,
+				F17369732CE3733300F6242C /* ImageFecthError.swift */,
 			);
 			path = ImageProvider;
 			sourceTree = "<group>";
@@ -793,10 +793,10 @@
 				F17369772CE389AA00F6242C /* SwipeMusicTrackModel.swift in Sources */,
 				B8D553F02CDFE2F5007CCD6D /* HTTPMethod.swift in Sources */,
 				F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */,
-				F17369702CE3710A00F6242C /* ImageProvider.swift in Sources */,
+				F17369702CE3710A00F6242C /* ImageFetchService.swift in Sources */,
 				881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
-				F17369742CE3733300F6242C /* ImageError.swift in Sources */,
+				F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */,
 				881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */,
 				881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */,
 				881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */,

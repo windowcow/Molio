@@ -1,6 +1,6 @@
 import Foundation
 
-final class DefaultImageProvider: ImageProvider {
+final class DefaultImageFetchService: ImageFetchService {
     private let session: URLSession
     
     init(session: URLSession = .shared) {
@@ -11,13 +11,13 @@ final class DefaultImageProvider: ImageProvider {
         do {
             let (data, _) = try await session.data(from: url)
             guard !data.isEmpty else {
-                throw ImageError.noData
+                throw ImageFecthError.noData
             }
             return data
         } catch URLError.badURL {
-            throw ImageError.invalidURL
+            throw ImageFecthError.invalidURL
         } catch {
-            throw ImageError.networkError
+            throw ImageFecthError.networkError
         }
     }
 }

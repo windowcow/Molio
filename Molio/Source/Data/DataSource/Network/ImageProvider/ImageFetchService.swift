@@ -1,5 +1,5 @@
 import Foundation
 
-protocol ImageProvider {
+protocol ImageFetchService {
     func fetchImage(from url: URL) async throws -> Data
 }

@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             musicKitService: defaultMusicKitService
         )
         let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
-        let defaultImageProvider = DefaultImageProvider()
-        let defaultImageRepository = DefaultImageRepository(imageProvider: defaultImageProvider)
+        let defaultImageProvider = DefaultImageFetchService()
+        let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
         let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
                                                       fetchImageUseCase: defaultFetchImageUseCase

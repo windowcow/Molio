@@ -1,13 +1,13 @@
 import Foundation
 
 struct DefaultImageRepository: ImageRepository {
-    private let imageProvider: ImageProvider
+    private let imageFetchService: ImageFetchService
     
-    init(imageProvider: ImageProvider) {
-        self.imageProvider = imageProvider
+    init(imageFetchService: ImageFetchService) {
+        self.imageFetchService = imageFetchService
     }
     
     func fetchImage(from url: URL) async throws -> Data {
-        return try await imageProvider.fetchImage(from: url)
+        return try await imageFetchService.fetchImage(from: url)
     }
 }

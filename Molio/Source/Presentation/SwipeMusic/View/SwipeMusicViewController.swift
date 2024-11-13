@@ -90,8 +90,8 @@ final class SwipeMusicViewController: UIViewController {
             musicKitService: defaultMusicKitService
         )
         let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
-        let defaultImageProvider = DefaultImageProvider()
-        let defaultImageRepository = DefaultImageRepository(imageProvider: defaultImageProvider)
+        let defaultImageProvider = DefaultImageFetchService()
+        let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
         let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
                                                       fetchImageUseCase: defaultFetchImageUseCase
@@ -238,8 +238,8 @@ struct SwipeViewControllerPreview: UIViewControllerRepresentable {
             musicKitService: defaultMusicKitService
         )
         let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
-        let defaultImageProvider = DefaultImageProvider()
-        let defaultImageRepository = DefaultImageRepository(imageProvider: defaultImageProvider)
+        let defaultImageProvider = DefaultImageFetchService()
+        let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
         let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
                                                       fetchImageUseCase: defaultFetchImageUseCase

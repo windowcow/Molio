@@ -1,6 +1,6 @@
 import Foundation
 
-enum ImageError: LocalizedError {
+enum ImageFecthError: LocalizedError {
     case invalidURL
     case networkError
     case noData
