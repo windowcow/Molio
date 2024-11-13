@@ -12,8 +12,8 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         let isLoading: AnyPublisher<Bool, Never> // TODO: 로딩 UI 구현 및 연결
         let error: AnyPublisher<String, Never> // TODO: Error에 따른 알림 UI 구현 및 연결
     }
-    private let musicPlayer = SwipeMusicPlayer()
     
+    private let musicPlayer = SwipeMusicPlayer()
     private let fetchMusicsUseCase: FetchMusicsUseCase
     private let fetchImageUseCase: FetchImageUseCase
     private var musicsSubject = CurrentValueSubject<[RandomMusic], Never>([])
@@ -71,6 +71,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
                     self?.errorPublisher.send("재생 가능한 음악이 없습니다.")
                 } else if let firstMusic = musics.first {
                     self?.loadMusicCard(from: firstMusic)
+                    self?.loadAndPlaySongs(urls: [firstMusic.previewAsset]) // TODO: 임시 노래 재생 이후 수정
                 }
             }
             .store(in: &cancellables)
