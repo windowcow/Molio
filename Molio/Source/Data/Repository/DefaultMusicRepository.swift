@@ -12,13 +12,22 @@ struct DefaultMusicRepository: MusicRepository {
     func fetchMusics(genres: [String]) async throws -> [RandomMusic] {
         let musicFilter = MusicFilter(genres: genres)
         let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilter: musicFilter)
-        
-        var musics: [RandomMusic?] = []
-        
-        for isrc in isrcs {
-            await musics.append(musicKitService.getMusic(with: isrc))
+
+        return try await withThrowingTaskGroup(of: RandomMusic?.self) { group in
+            var musics: [RandomMusic] = []
+            for isrc in isrcs {
+                group.addTask {
+                    return await musicKitService.getMusic(with: isrc)
+                }
+            }
+            
+            for try await music in group {
+                if let music {
+                    musics.append(music)
+                }
+            }
+            
+            return musics
         }
-        
-        return musics.compactMap { $0 }
     }
 }
