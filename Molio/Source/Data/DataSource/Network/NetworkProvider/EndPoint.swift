@@ -11,7 +11,7 @@ protocol EndPoint {
     var httpMethod: HTTPMethod { get }
     
     /// 요청에 사용할 헤더
-    var headers: [String: String]? { get }
+    var headers: [String: String?]? { get }
     
     /// 요청에 사용할 바디 데이터
     var body: Data? { get }

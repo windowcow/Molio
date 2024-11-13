@@ -27,7 +27,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
         }
     }
     
-    var headers: [String: String]? {
+    var headers: [String: String?]? {
         return [
             Header.Authorization.field: Header.Authorization.value,
             Header.ContentType.field: Header.ContentType.value

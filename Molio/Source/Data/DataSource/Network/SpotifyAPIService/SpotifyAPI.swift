@@ -27,7 +27,7 @@ extension SpotifyAPI: EndPoint {
         }
     }
     
-    var headers: [String: String]? {
+    var headers: [String: String?]? {
         switch self {
         case .getRecommendations(_, let accessToken):
             return makeAuthorizationHeader(with: accessToken)
