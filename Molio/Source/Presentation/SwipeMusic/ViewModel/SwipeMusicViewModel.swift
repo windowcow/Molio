@@ -12,6 +12,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         let isLoading: AnyPublisher<Bool, Never> // TODO: 로딩 UI 구현 및 연결
         let error: AnyPublisher<String, Never> // TODO: Error에 따른 알림 UI 구현 및 연결
     }
+    private let musicPlayer = SwipeMusicPlayer()
     
     private let fetchMusicsUseCase: FetchMusicsUseCase
     private let fetchImageUseCase: FetchImageUseCase
@@ -89,5 +90,14 @@ final class SwipeMusicViewModel: InputOutputViewModel {
                 currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: nil))
             }
         }
+    }
+    
+    func loadAndPlaySongs(urls: [URL]) {
+        musicPlayer.loadSongs(with: urls)
+        musicPlayer.play()
+    }
+    
+    func nextSong() {
+        musicPlayer.playNext()
     }
 }
