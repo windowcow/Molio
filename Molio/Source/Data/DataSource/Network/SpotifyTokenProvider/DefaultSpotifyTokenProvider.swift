@@ -5,9 +5,9 @@ final class DefaultSpotifyTokenProvider: SpotifyTokenProvider {
     private var accessToken: String?
     private var expireTime: Date?
     
-    var isTokenExpiringSoon: Bool {
+    private var isTokenExpiringSoon: Bool {
+        guard let expireTime else { return true }
         let now = Date.now
-        let expireTime = expireTime ?? now
         let remainingSecond = Int(expireTime.timeIntervalSince(now))
         return remainingSecond < 300
     }
