@@ -31,7 +31,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     }
     
     var swipeThreshold: CGFloat {
-        return 200.0
+        return 170.0
     }
     
     private let musicPlayer = SwipeMusicPlayer()
