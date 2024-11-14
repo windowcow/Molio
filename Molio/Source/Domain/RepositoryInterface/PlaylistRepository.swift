@@ -1,11 +1,13 @@
 import Foundation
 
 protocol PlaylistRepository {
-    func saveMusic(isrc: String, to playlist: UUID)
-    func deleteMusic(isrc: String)
-    func moveMusic(isrc: String, in playlist: UUID, fromIndex: Int, toIndex: Int)
+    func addMusic(isrc: String, to playlistName: String)
+    func deleteMusic(isrc: String, in playlistName: String)
+    func moveMusic(isrc: String, in playlistName: String, fromIndex: Int, toIndex: Int)
     
-    func fetchPlaylist(from playlist: UUID) -> [String]
-    func saveNewPlaylist(name: String)
-    func deletePlaylist(name: String)
+    func fetchMusics(in playlistName: String) -> [String]?
+    func saveNewPlaylist(_ playlistName: String)
+    func deletePlaylist(_ playlistName: String)
+    
+    func getPlaylistID(for playlistName: String) -> UUID?
 }
