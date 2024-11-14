@@ -8,8 +8,9 @@ final class DefaultSpotifyAPIService: SpotifyAPIService {
     }
     
     func fetchRecommendedMusicISRCs(musicFilter: MusicFilter) async throws -> [String] {
-        // TODO: - TokenProvider로부터 토큰값 받도록 수정
-        let dto: RecommendationsResponseDTO = try await networkProvider.request(SpotifyAPI.getRecommendations(genres: musicFilter.genres))
+        let accessToken = try await tokenProvider.getAccessToken()
+        let endPoint = SpotifyAPI.getRecommendations(genres: musicFilter.genres, accessToken: accessToken)
+        let dto: RecommendationsResponseDTO = try await networkProvider.request(endPoint)
         return dto.tracks.map(\.externalIDs.isrc)
     }
 }
