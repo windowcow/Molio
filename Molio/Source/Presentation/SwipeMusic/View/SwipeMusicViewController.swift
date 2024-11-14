@@ -127,6 +127,7 @@ final class SwipeMusicViewController: UIViewController {
         setupMenuButtonView()
         
         setupBindings()
+        setupButtonTarget()
         addPanGestureToMusicTrack()
         
         viewDidLoadPublisher.send()
@@ -194,6 +195,11 @@ final class SwipeMusicViewController: UIViewController {
         musicCardView.addGestureRecognizer(panGesture)
     }
     
+    private func setupButtonTarget() {
+        likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
+        dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
+    }
+    
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
         guard let card = gesture.view else { return }
         
@@ -205,6 +211,14 @@ final class SwipeMusicViewController: UIViewController {
         } else if gesture.state == .ended {
             musicCardDidFinishSwipePublisher.send(translation.x)
         }
+    }
+    
+    @objc private func didTapLikeButton() {
+        likeButtonDidTapPublisher.send()
+    }
+    
+    @objc private func didTapDislikeButton() {
+        dislikeButtonDidTapPublisher.send()
     }
     
     private func setupSelectPlaylistView() {
