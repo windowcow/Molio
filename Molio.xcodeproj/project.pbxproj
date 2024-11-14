@@ -22,6 +22,7 @@
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
 		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
 		20397E5A2CE5CB3C004ED9CE /* PlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */; };
+		20397E5F2CE5CD85004ED9CE /* Playlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */; };
 		881622692CE3671400E81EA0 /* RandomMusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881622682CE3671400E81EA0 /* RandomMusicDeck.swift */; };
 		8816226B2CE3838B00E81EA0 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226A2CE3838B00E81EA0 /* DeckTests.swift */; };
 		8816226D2CE3B11C00E81EA0 /* MusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */; };
@@ -118,6 +119,7 @@
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
 		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
 		20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRepository.swift; sourceTree = "<group>"; };
+		20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Playlist.xcdatamodel; sourceTree = "<group>"; };
 		881622682CE3671400E81EA0 /* RandomMusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusicDeck.swift; sourceTree = "<group>"; };
 		8816226A2CE3838B00E81EA0 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDeck.swift; sourceTree = "<group>"; };
@@ -251,6 +253,23 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		20397E5B2CE5CD34004ED9CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20397E5C2CE5CD61004ED9CE /* DataModel */,
+				B809708C2CDB457C007BC3C4 /* DTO */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20397E5C2CE5CD61004ED9CE /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		881622722CE3BAB900E81EA0 /* MusicDeck */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +378,7 @@
 				B809708A2CDB456E007BC3C4 /* Repository */,
 				B809708B2CDB4575007BC3C4 /* DataSource */,
 				F17369502CDFA7A100F6242C /* Mapper */,
-				B809708C2CDB457C007BC3C4 /* DTO */,
+				20397E5B2CE5CD34004ED9CE /* Model */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -887,6 +906,7 @@
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
 				881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */,
+				20397E5F2CE5CD85004ED9CE /* Playlist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1225,20 @@
 			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */,
+			);
+			currentVersion = 20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */;
+			name = Playlist.xcdatamodeld;
+			path = "/Users/p_kxn_g/Documents/GitHub/naverboostcamp_challenge/membership/membership/iOS06-molio/Molio/Source/Data/Model/DataModel/Playlist.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F17368ED2CD86B1100F6242C /* Project object */;
 }
