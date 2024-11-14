@@ -21,6 +21,7 @@
 		2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */; };
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
 		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
+		20397E5A2CE5CB3C004ED9CE /* PlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */; };
 		881622692CE3671400E81EA0 /* RandomMusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881622682CE3671400E81EA0 /* RandomMusicDeck.swift */; };
 		8816226B2CE3838B00E81EA0 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226A2CE3838B00E81EA0 /* DeckTests.swift */; };
 		8816226D2CE3B11C00E81EA0 /* MusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */; };
@@ -116,6 +117,7 @@
 		2003BA1B2CDB8EE5002CAB3E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
 		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
+		20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRepository.swift; sourceTree = "<group>"; };
 		881622682CE3671400E81EA0 /* RandomMusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusicDeck.swift; sourceTree = "<group>"; };
 		8816226A2CE3838B00E81EA0 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDeck.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */,
 				F173693E2CDF21BC00F6242C /* MusicRepository.swift */,
 				F17369652CE36E2900F6242C /* ImageRepository.swift */,
+				20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */,
 			);
 			path = RepositoryInterface;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */,
 				881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */,
 				881BBCB62CDCF91B00010A61 /* SpotifyAPIService.swift in Sources */,
+				20397E5A2CE5CB3C004ED9CE /* PlaylistRepository.swift in Sources */,
 				F17369592CDFB73000F6242C /* RGBAColor.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
