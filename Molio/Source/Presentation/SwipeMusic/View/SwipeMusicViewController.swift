@@ -6,6 +6,10 @@ final class SwipeMusicViewController: UIViewController {
     private var input: SwipeMusicViewModel.Input
     private var output: SwipeMusicViewModel.Output
     private let viewDidLoadPublisher = PassthroughSubject<Void, Never>()
+    private let musicCardDidChangeSwipePublisher = PassthroughSubject<CGFloat, Never>()
+    private let musicCardDidFinishSwipePublisher = PassthroughSubject<CGFloat, Never>()
+    private let likeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
+    private let dislikeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
     private let basicBackgroundColor = UIColor(resource: .background)
     
@@ -73,7 +77,13 @@ final class SwipeMusicViewController: UIViewController {
     
     init(viewModel: SwipeMusicViewModel) {
         self.viewModel = viewModel
-        self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
+        self.input = SwipeMusicViewModel.Input(
+            viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
+            musicCardDidChangeSwipe: musicCardDidChangeSwipePublisher.eraseToAnyPublisher(),
+            musicCardDidFinishSwipe: musicCardDidFinishSwipePublisher.eraseToAnyPublisher(),
+            likeButtonDidTap: likeButtonDidTapPublisher.eraseToAnyPublisher(),
+            dislikeButtonDidTap: dislikeButtonDidTapPublisher.eraseToAnyPublisher()
+        )
         self.output = viewModel.transform(from: input)
         super.init(nibName: nil, bundle: nil)
     }
@@ -97,7 +107,13 @@ final class SwipeMusicViewController: UIViewController {
                                                       fetchImageUseCase: defaultFetchImageUseCase
         )
         self.viewModel = swipeMusicViewModel
-        self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
+        self.input = SwipeMusicViewModel.Input(
+            viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
+            musicCardDidChangeSwipe: musicCardDidChangeSwipePublisher.eraseToAnyPublisher(),
+            musicCardDidFinishSwipe: musicCardDidFinishSwipePublisher.eraseToAnyPublisher(),
+            likeButtonDidTap: likeButtonDidTapPublisher.eraseToAnyPublisher(),
+            dislikeButtonDidTap: dislikeButtonDidTapPublisher.eraseToAnyPublisher()
+        )
         self.output = viewModel.transform(from: input)
         super.init(coder: coder)
     }
@@ -126,6 +142,51 @@ final class SwipeMusicViewController: UIViewController {
                 view.backgroundColor = artworkBackgroundColor
                 musicCardView.configure(music: music)
             }.store(in: &cancellables)
+        
+        output.buttonHighlight
+            .receive(on: RunLoop.main)
+            .sink { [weak self] buttonHighlight in
+                
+            }
+            .store(in: &cancellables)
+        
+        output.musicCardSwipeAnimation
+            .receive(on: RunLoop.main)
+            .sink { [weak self] swipeDirection in
+                guard let self else { return }
+                self.animateMusicCard(direction: swipeDirection)
+            }
+            .store(in: &cancellables)
+    }
+    
+    /// Swipe 동작이 끝나고 MusicCard가 animation되는 메서드
+    private func animateMusicCard(direction: SwipeMusicViewModel.SwipeDirection) {
+        let currentCenter = musicCardView.center
+        let viewCenter = view.center
+        let frameWidth = view.frame.width
+        
+        switch direction {
+        case .left, .right:
+            let movedCenterX = currentCenter.x + direction.rawValue * frameWidth
+            UIView.animate(
+                withDuration: 0.3,
+                animations: { [weak self] in
+                    self?.musicCardView.center = CGPoint(x: movedCenterX, y:currentCenter.y)
+                },
+                completion: { [weak self] _ in
+                self?.refreshMusicCardView()
+            })
+        case .none:
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.musicCardView.center = viewCenter
+            }
+        }
+    }
+    
+    /// Music Card가 다시 refresh되는 메서드
+    private func refreshMusicCardView() {
+        self.musicCardView.removeFromSuperview()
+        self.setupMusicTrackView()
     }
     
     private func addPanGestureToMusicTrack() {
@@ -138,29 +199,11 @@ final class SwipeMusicViewController: UIViewController {
         
         let translation = gesture.translation(in: view)
         card.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
-                
-        if gesture.state == .ended {
-            // 스와이프 임계값 : 카드를 특정 거리 이상 스와이프되었는지를 확인한다.
-            let swipeThreshold: CGFloat = 200
-            
-            // X축으로 이동한 거리가 스와이프 임계값을 넘은 경우
-            if abs(translation.x) > swipeThreshold {
-                let direction: CGFloat = translation.x > 0 ? 1 : -1 // 좌우 판단
-                // 화면 밖으로 이동하는 애니메이션
-                UIView.animate(withDuration: 0.3, animations: {
-                    card.center = CGPoint(x: card.center.x + direction * self.view.frame.width, y: card.center.y)
-                }) { _ in
-                    // 애니메이션 이후 카드 제거 및 새로운 카드 설정
-                    card.removeFromSuperview()
-                    self.setupMusicTrackView()
-                }
-            } else {
-                // 다시 원래 자리로 되돌린다.
-                UIView.animate(withDuration: 0.3) {
-                    card.center = self.view.center
-                    card.transform = .identity
-                }
-            }
+        
+        if gesture.state == .changed {
+            musicCardDidChangeSwipePublisher.send(translation.x)
+        } else if gesture.state == .ended {
+            musicCardDidFinishSwipePublisher.send(translation.x)
         }
     }
     
