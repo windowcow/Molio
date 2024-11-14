@@ -2,6 +2,15 @@ import UIKit
 
 final class CircleMenuButton: UIButton {
     
+    private var defaultBackgroundColor: UIColor
+    private var highlightBackgroundColor: UIColor
+    
+    override var isHighlighted: Bool {
+        didSet {
+            self.backgroundColor = isHighlighted ? highlightBackgroundColor : defaultBackgroundColor
+        }
+    }
+    
     private let buttonImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -10,11 +19,14 @@ final class CircleMenuButton: UIButton {
     }()
     
     init(backgroundColor: UIColor,
+         highlightColor: UIColor? = nil,
          buttonSize: CGFloat,
          tintColor: UIColor?,
          buttonImage: UIImage?,
          buttonImageSize: CGSize
     ) {
+        self.defaultBackgroundColor = backgroundColor
+        self.highlightBackgroundColor = highlightColor ?? backgroundColor.withAlphaComponent(0.8)
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         setupView(backgroundColor: backgroundColor,
@@ -26,6 +38,8 @@ final class CircleMenuButton: UIButton {
     }
     
     required init?(coder: NSCoder) {
+        self.defaultBackgroundColor = .black.withAlphaComponent(0.51)
+        self.highlightBackgroundColor = defaultBackgroundColor.withAlphaComponent(0.8)
         super.init(coder: coder)
     }
     
