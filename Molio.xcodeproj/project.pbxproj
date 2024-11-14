@@ -22,7 +22,9 @@
 		2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */; };
 		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
 		20397E5A2CE5CB3C004ED9CE /* PlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */; };
-		20397E5F2CE5CD85004ED9CE /* Playlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */; };
+		20397E6A2CE5DCDD004ED9CE /* MolioModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20397E682CE5DCDD004ED9CE /* MolioModel.xcdatamodeld */; };
+		20397E6D2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E6B2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataClass.swift */; };
+		20397E6E2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E6C2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataProperties.swift */; };
 		881622692CE3671400E81EA0 /* RandomMusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881622682CE3671400E81EA0 /* RandomMusicDeck.swift */; };
 		8816226B2CE3838B00E81EA0 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226A2CE3838B00E81EA0 /* DeckTests.swift */; };
 		8816226D2CE3B11C00E81EA0 /* MusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */; };
@@ -119,7 +121,9 @@
 		2003BA212CDCB31B002CAB3E /* SwipeMusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicViewModel.swift; sourceTree = "<group>"; };
 		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
 		20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRepository.swift; sourceTree = "<group>"; };
-		20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Playlist.xcdatamodel; sourceTree = "<group>"; };
+		20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MolioModel.xcdatamodel; sourceTree = "<group>"; };
+		20397E6B2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MolioPlaylist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20397E6C2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MolioPlaylist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		881622682CE3671400E81EA0 /* RandomMusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusicDeck.swift; sourceTree = "<group>"; };
 		8816226A2CE3838B00E81EA0 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDeck.swift; sourceTree = "<group>"; };
@@ -265,7 +269,9 @@
 		20397E5C2CE5CD61004ED9CE /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */,
+				20397E6B2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataClass.swift */,
+				20397E6C2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataProperties.swift */,
+				20397E682CE5DCDD004ED9CE /* MolioModel.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -856,6 +862,8 @@
 				F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */,
 				2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */,
 				F173694B2CDF265900F6242C /* DefaultMusicRepository.swift in Sources */,
+				20397E6D2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataClass.swift in Sources */,
+				20397E6E2CE5DD6A004ED9CE /* MolioPlaylist+CoreDataProperties.swift in Sources */,
 				F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */,
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,
@@ -875,6 +883,7 @@
 				B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */,
 				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,
 				F17369642CE36DE300F6242C /* DefaultFetchImageUseCase.swift in Sources */,
+				20397E6A2CE5DCDD004ED9CE /* MolioModel.xcdatamodeld in Sources */,
 				F17369722CE3716100F6242C /* DafaultImageProvider.swift in Sources */,
 				2003BA012CDB7498002CAB3E /* PretendardFontName.swift in Sources */,
 				B8D553E82CDFE25C007CCD6D /* NetworkProvider.swift in Sources */,
@@ -906,7 +915,6 @@
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
 				881BBCAA2CDCF90700010A61 /* MockSpotifyRepository.swift in Sources */,
-				20397E5F2CE5CD85004ED9CE /* Playlist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1227,14 +1235,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		20397E5D2CE5CD85004ED9CE /* Playlist.xcdatamodeld */ = {
+		20397E682CE5DCDD004ED9CE /* MolioModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */,
+				20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */,
 			);
-			currentVersion = 20397E5E2CE5CD85004ED9CE /* Playlist.xcdatamodel */;
-			name = Playlist.xcdatamodeld;
-			path = "/Users/p_kxn_g/Documents/GitHub/naverboostcamp_challenge/membership/membership/iOS06-molio/Molio/Source/Data/Model/DataModel/Playlist.xcdatamodeld";
+			currentVersion = 20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */;
+			name = MolioModel.xcdatamodeld;
+			path = "/Users/p_kxn_g/Documents/GitHub/naverboostcamp_challenge/membership/membership/iOS06-molio/Molio/Source/Data/Model/DataModel/MolioModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
