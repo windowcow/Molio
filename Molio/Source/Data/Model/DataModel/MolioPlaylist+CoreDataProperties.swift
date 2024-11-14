@@ -8,11 +8,11 @@ extension MolioPlaylist {
         return NSFetchRequest<MolioPlaylist>(entityName: "MolioPlaylist")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var name: String?
-    @NSManaged public var filters: NSObject?
     @NSManaged public var createdAt: Date?
-    @NSManaged public var musics: NSObject?
+    @NSManaged public var filters: [String]?
+    @NSManaged public var id: UUID?
+    @NSManaged public var musics: [String]?
+    @NSManaged public var name: String?
 
 }
 
