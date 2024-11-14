@@ -12,6 +12,8 @@ final class SwipeMusicViewController: UIViewController {
     private let dislikeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
     private let basicBackgroundColor = UIColor(resource: .background)
+    private var impactFeedBack = UIImpactFeedbackGenerator(style: .medium)
+    private var hasProvidedImpactFeedback: Bool = false
     
     private let playlistSelectButton: UIButton = {
         let button = UIButton()
@@ -178,7 +180,7 @@ final class SwipeMusicViewController: UIViewController {
             UIView.animate(
                 withDuration: 0.3,
                 animations: { [weak self] in
-                    self?.musicCardView.center = CGPoint(x: movedCenterX, y:currentCenter.y)
+                    self?.musicCardView.center = CGPoint(x: movedCenterX, y: currentCenter.y)
                 },
                 completion: { [weak self] _ in
                 self?.refreshMusicCardView()
@@ -206,6 +208,16 @@ final class SwipeMusicViewController: UIViewController {
         dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
     }
     
+    /// 사용자에게 진동 feedback을 주는 메서드
+    private func providedImpactFeedback(translationX: CGFloat) {
+        if abs(translationX) > viewModel.swipeThreshold && !hasProvidedImpactFeedback {
+            impactFeedBack.impactOccurred()
+            hasProvidedImpactFeedback = true
+        } else if abs(translationX) <= viewModel.swipeThreshold {
+            hasProvidedImpactFeedback = false
+        }
+    }
+    
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
         guard let card = gesture.view else { return }
         
@@ -214,6 +226,7 @@ final class SwipeMusicViewController: UIViewController {
         
         if gesture.state == .changed {
             musicCardDidChangeSwipePublisher.send(translation.x)
+            providedImpactFeedback(translationX: translation.x)
         } else if gesture.state == .ended {
             musicCardDidFinishSwipePublisher.send(translation.x)
         }
