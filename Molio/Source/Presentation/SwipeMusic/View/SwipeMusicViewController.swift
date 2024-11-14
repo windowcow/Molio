@@ -45,7 +45,13 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
-    private let musicCardView = MusicCardView()
+    private let currentCardView = MusicCardView()
+    private let nextCardView: MusicCardView = {
+        let nextCardView = MusicCardView()
+        nextCardView.isUserInteractionEnabled = false
+        
+        return nextCardView
+    }()
     
     private let filterButton = CircleMenuButton(backgroundColor: .black.withAlphaComponent(0.2),
                                                 buttonSize: 58.0,
@@ -94,7 +100,7 @@ final class SwipeMusicViewController: UIViewController {
         let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
         let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
-                                                      fetchImageUseCase: defaultFetchImageUseCase
+                                                      fetchImageUseCase: defaultFetchImageUseCase, musicFilterProvider: MockMusicFilterProvider()
         )
         self.viewModel = swipeMusicViewModel
         self.input = SwipeMusicViewModel.Input(viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher())
@@ -117,20 +123,43 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupBindings() {
-        output.currentMusicTrack
+        // MARK: 다음 카드 뷰
+        
+        viewModel.nextMusicTrackPublisher
             .receive(on: RunLoop.main)
             .sink { [weak self] music in
                 guard let self else { return }
+                guard let music else { return }
+                
                 let artworkBackgroundColor = music.artworkBackgroundColor
                     .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
                 view.backgroundColor = artworkBackgroundColor
-                musicCardView.configure(music: music)
-            }.store(in: &cancellables)
+                
+                nextCardView.configure(music: music)
+            }
+            .store(in: &cancellables)
+
+        
+        // MARK: 현재 카드 뷰
+        
+        viewModel.currentMusicTrackPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] music in
+                guard let self else { return }
+                guard let music else { return }
+                
+                let artworkBackgroundColor = music.artworkBackgroundColor
+                    .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
+                view.backgroundColor = artworkBackgroundColor
+                
+                currentCardView.configure(music: music)
+            }
+            .store(in: &cancellables)
     }
     
     private func addPanGestureToMusicTrack() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        musicCardView.addGestureRecognizer(panGesture)
+        currentCardView.addGestureRecognizer(panGesture)
     }
     
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
@@ -149,10 +178,12 @@ final class SwipeMusicViewController: UIViewController {
                 // 화면 밖으로 이동하는 애니메이션
                 UIView.animate(withDuration: 0.3, animations: {
                     card.center = CGPoint(x: card.center.x + direction * self.view.frame.width, y: card.center.y)
-                }) { _ in
+                }) { [weak self] _ in
                     // 애니메이션 이후 카드 제거 및 새로운 카드 설정
                     card.removeFromSuperview()
-                    self.setupMusicTrackView()
+                    
+                    self?.viewModel.nextSong()
+                    self?.setupMusicTrackView()
                 }
             } else {
                 // 다시 원래 자리로 되돌린다.
@@ -194,13 +225,28 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupMusicTrackView() {
-        view.addSubview(musicCardView)
+        
+        // MARK: 다음 노래 카드
+        
+        view.addSubview(nextCardView)
         
         NSLayoutConstraint.activate([
-            musicCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
-            musicCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
-            musicCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
-            musicCardView.bottomAnchor.constraint(
+            nextCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
+            nextCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
+            nextCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
+            nextCardView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -107)
+        ])
+        
+        // MARK: 현재 노래 카드
+        
+        view.addSubview(currentCardView)
+        
+        NSLayoutConstraint.activate([
+            currentCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
+            currentCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
+            currentCardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22),
+            currentCardView.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -107)
         ])
     }
@@ -237,8 +283,10 @@ struct SwipeViewControllerPreview: UIViewControllerRepresentable {
         let defaultImageProvider = DefaultImageFetchService()
         let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
-        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
-                                                      fetchImageUseCase: defaultFetchImageUseCase
+        let swipeMusicViewModel = SwipeMusicViewModel(
+            fetchMusicsUseCase: defaultFetchMusicsUseCase,
+            fetchImageUseCase: defaultFetchImageUseCase,
+            musicFilterProvider: MockMusicFilterProvider()
         )
         
         return SwipeMusicViewController(viewModel: swipeMusicViewModel)
