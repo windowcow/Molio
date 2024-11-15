@@ -2,7 +2,9 @@ import Foundation
 import Combine
 
 protocol MusicDeck {
-    func musicPublisher(at: Int) -> AnyPublisher<RandomMusic?, Never>
+    var currentMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> { get }
+    
+    var nextMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> { get }
     
     func likeCurrentMusic()
     

@@ -6,24 +6,24 @@ final class SwipeMusicPlayer: AudioPlayer {
     var updatePlaybackTime: ((Double) -> Void)?
     private var timeObserverToken: Any?
     
-    func loadSongs(with urls: [URL]) {
-        let items = urls.map { AVPlayerItem(url: $0) }
-        player = AVQueuePlayer(items: items)
+    func loadSong(with url: URL) {
+        stop()
+        let item =  AVPlayerItem(url: url)
+        player = AVQueuePlayer(playerItem: item)
         
         guard let player = player else { return }
-        if let firstItem = items.first {
-            looper = AVPlayerLooper(player: player, templateItem: firstItem)
-        }
+        
+        looper = AVPlayerLooper(player: player, templateItem: item)
         
         if let token = timeObserverToken {
             player.removeTimeObserver(token)
             timeObserverToken = nil
         }
         
-        timeObserverToken = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1),
-                                                           queue: .main) { [weak self] time in
-            self?.updatePlaybackTime?(time.seconds)
-        }
+//        timeObserverToken = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1),
+//                                                           queue: .main) { [weak self] time in
+//            self?.updatePlaybackTime?(time.seconds)
+//        }
     }
     
     func play() {
@@ -43,12 +43,4 @@ final class SwipeMusicPlayer: AudioPlayer {
         looper = nil
     }
     
-    func playNext() {
-        guard let player = player else { return }
-        player.advanceToNextItem()
-        
-        if let currentItem = player.currentItem {
-            looper = AVPlayerLooper(player: player, templateItem: currentItem)
-        }
-    }
 }

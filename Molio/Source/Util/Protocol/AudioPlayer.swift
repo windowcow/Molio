@@ -1,9 +1,8 @@
 import AVFoundation
 
 protocol AudioPlayer {
-    func loadSongs(with urls: [URL])
+    func loadSong(with url: URL)
     func play()
     func pause()
     func stop()
-    func playNext()
 }
