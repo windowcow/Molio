@@ -5,12 +5,15 @@ final class SwipeMusicViewController: UIViewController {
     private let viewModel: SwipeMusicViewModel
     private var input: SwipeMusicViewModel.Input
     private var output: SwipeMusicViewModel.Output
+    private let musicPlayer: AudioPlayer = SwipeMusicPlayer()
+
     private let viewDidLoadPublisher = PassthroughSubject<Void, Never>()
     private let musicCardDidChangeSwipePublisher = PassthroughSubject<CGFloat, Never>()
     private let musicCardDidFinishSwipePublisher = PassthroughSubject<CGFloat, Never>()
     private let likeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private let dislikeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
+    
     private let basicBackgroundColor = UIColor(resource: .background)
     private var impactFeedBack = UIImpactFeedbackGenerator(style: .medium)
     private var hasProvidedImpactFeedback: Bool = false
@@ -127,6 +130,7 @@ final class SwipeMusicViewController: UIViewController {
             dislikeButtonDidTap: dislikeButtonDidTapPublisher.eraseToAnyPublisher()
         )
         self.output = viewModel.transform(from: input)
+
         super.init(coder: coder)
     }
     
@@ -175,6 +179,8 @@ final class SwipeMusicViewController: UIViewController {
                 })
                 
                 currentCardView.configure(music: music)
+                self.loadAndPlaySongs(url: music.previewAsset)
+                
             }
             .store(in: &cancellables)
         
@@ -195,7 +201,12 @@ final class SwipeMusicViewController: UIViewController {
             }
             .store(in: &cancellables)
     }
-
+    
+    private func loadAndPlaySongs(url: URL) {
+        musicPlayer.loadSong(with: url)
+        musicPlayer.play()
+    }
+    
     /// Swipe 동작이 끝나고 MusicCard가 animation되는 메서드
     private func animateMusicCard(direction: SwipeMusicViewModel.SwipeDirection) {
         let currentCenter = currentCardView.center

@@ -33,7 +33,6 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         return 170.0
     }
     
-    private let musicPlayer = SwipeMusicPlayer()
     private let fetchImageUseCase: FetchImageUseCase
     private let isLoadingPublisher = PassthroughSubject<Bool, Never>()
     private let buttonHighlightPublisher = PassthroughSubject<ButtonHighlight, Never>()
@@ -187,11 +186,6 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         let imageData = try await fetchImageUseCase.execute(url: imageURL)
 
         return SwipeMusicTrackModel(randomMusic: music, imageData: imageData)
-    }
-    
-    func loadAndPlaySongs(urls: [URL]) {
-        musicPlayer.loadSongs(with: urls)
-        musicPlayer.play()
     }
     
     func likeCurrentMusic() {
