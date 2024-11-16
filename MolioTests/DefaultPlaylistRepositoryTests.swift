@@ -25,11 +25,10 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.saveNewPlaylist(playlistName)
         
         let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
-        guard let playlistID = repository.getPlaylistID(for: playlistName) else { return }
         
-        let playlist = repository.fetchPlaylist(id: playlistID)
+        let playlist = repository.fetchPlaylist(for: playlistName)
         
-        XCTAssertEqual(playlist?.id, playlistID)
+        XCTAssertEqual(playlist?.name, playlistName)
     }
     
     func testAddMusic() {
@@ -40,8 +39,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: testISRC, to: playlistName)
         
         
-        guard let playlistID = repository.getPlaylistID(for: playlistName),
-              let playlist = repository.fetchPlaylist(id: playlistID),
+        guard let playlist = repository.fetchPlaylist(for: playlistName),
               let musics = playlist.musics else {
                   return }
         
@@ -91,11 +89,11 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     func testDeletePlaylist() {
         let playlistName: String = "DeletePlaylist"
         repository.saveNewPlaylist(playlistName)
-        let id = repository.getPlaylistID(for: playlistName)
+        let id = repository.fetchPlaylist(for: playlistName)?.id
         print(id ?? "nil")
 
         repository.deletePlaylist(playlistName)
-        let currId = repository.getPlaylistID(for: playlistName)
+        let currId = repository.fetchPlaylist(for: playlistName)?.id
 
         XCTAssertEqual(currId, nil)
 

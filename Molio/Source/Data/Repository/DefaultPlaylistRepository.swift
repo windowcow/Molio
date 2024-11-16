@@ -17,7 +17,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func addMusic(isrc: String, to playlistName: String) {
-        guard let playlist = fetchPlaylist(name: playlistName), var musics = playlist.musics else { return }
+        guard let playlist = fetchPlaylist(for: playlistName), var musics = playlist.musics else { return }
         
         musics.append(isrc)
         playlist.musics = musics
@@ -25,7 +25,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func deleteMusic(isrc: String, in playlistName: String) {
-        guard let playlist = fetchPlaylist(name: playlistName), var musics = playlist.musics else { return }
+        guard let playlist = fetchPlaylist(for: playlistName), var musics = playlist.musics else { return }
 
         musics.removeAll { $0 == isrc }
         playlist.musics = musics
@@ -33,7 +33,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func moveMusic(isrc: String, in playlistName: String, fromIndex: Int, toIndex: Int) {
-        guard let playlist = fetchPlaylist(name: playlistName),
+        guard let playlist = fetchPlaylist(for: playlistName),
               var musics = playlist.musics,
               musics.indices.contains(fromIndex),
               musics.indices.contains(toIndex) else { return }
@@ -48,7 +48,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func fetchMusics(in playlistName: String) -> [String]? {
-        guard let playlist = fetchPlaylist(name: playlistName), let musics = playlist.musics else {
+        guard let playlist = fetchPlaylist(for: playlistName), let musics = playlist.musics else {
             showAlert(alertNotFoundMusicsinPlaylist)
             return nil
         }
@@ -79,16 +79,23 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func deletePlaylist(_ playlistName: String) {
-        guard let playlist = fetchPlaylist(name: playlistName) else { return }
+        guard let playlist = fetchPlaylist(for: playlistName) else { return }
         
         context.delete(playlist)
         saveContext()
     }
     
-    func getPlaylistID(for playlistName: String) -> UUID? {
-        guard let playlist = fetchPlaylist(name: playlistName) else { return nil }
+    func fetchPlaylist(for name: String) -> MolioPlaylist? {
+        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
-        return playlist.id
+        do {
+            let playlists = try context.fetch(fetchRequest)
+            return playlists.first
+        } catch {
+            print("Failed to fetch playlist: \(error)")
+            return nil
+        }
     }
     
     // MARK: - Private Method
@@ -109,19 +116,6 @@ final class DefaultPlaylistRepository: PlaylistRepository {
             return playlists.first
         } catch {
             showAlert(alertNotFoundPlaylist)
-            return nil
-        }
-    }
-    
-    private func fetchPlaylist(name: String) -> MolioPlaylist? {
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        
-        do {
-            let playlists = try context.fetch(fetchRequest)
-            return playlists.first
-        } catch {
-            print("Failed to fetch playlist: \(error)")
             return nil
         }
     }
