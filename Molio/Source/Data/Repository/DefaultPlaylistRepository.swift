@@ -130,9 +130,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     
     /// 현재 데이터 저장하기
     private func saveContext() {
-        if context.hasChanges{
-            PersistenceManager.shared.saveContext()
-        }
+        PersistenceManager.shared.saveContext()
     }
     
     private func fetchPlaylist(id: UUID) -> MolioPlaylist? {
