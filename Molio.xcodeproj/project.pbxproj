@@ -1248,8 +1248,7 @@
 				20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */,
 			);
 			currentVersion = 20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */;
-			name = MolioModel.xcdatamodeld;
-			path = "/Users/p_kxn_g/Documents/GitHub/naverboostcamp_challenge/membership/membership/iOS06-molio/Molio/Source/Data/Model/DataModel/MolioModel.xcdatamodeld";
+			path = MolioModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
