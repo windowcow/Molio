@@ -55,7 +55,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: testISRC, to: playlistName)
         repository.deleteMusic(isrc: testISRC, in: playlistName)
         
-        let musics = repository.fetchMusics(in: playlistName)
+        let musics = repository.fetchPlaylist(for: playlistName)?.musics
         XCTAssertTrue(musics?.isEmpty ?? false)
     }
     
@@ -66,7 +66,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
 
-        let musics = repository.fetchMusics(in: playlistName)
+        let musics = repository.fetchPlaylist(for: playlistName)?.musics
         XCTAssertEqual(musics?.count, 2)
         XCTAssertEqual(musics?[0], "MUSIC_1")
         XCTAssertEqual(musics?[1], "MUSIC_2")
@@ -81,7 +81,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
 
         repository.moveMusic(isrc: "MUSIC_1", in: playlistName, fromIndex: 0, toIndex: 1)
 
-        let musics = repository.fetchMusics(in: playlistName)
+        let musics = repository.fetchPlaylist(for: playlistName)?.musics
         XCTAssertEqual(musics?[0], "MUSIC_2")
         XCTAssertEqual(musics?[1], "MUSIC_1")
     }
