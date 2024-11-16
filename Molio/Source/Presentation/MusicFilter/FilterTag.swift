@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FilterCell: View {
+struct FilterTag: View {
     private let content: String
     private let fontSize: CGFloat
     private let cornerRadius: CGFloat
@@ -52,17 +52,17 @@ struct FilterCell: View {
     ZStack {
         Color.background
         VStack {
-            FilterCell(
+            FilterTag(
                 content: "블랙핑크",
                 isEditing: false,
                 isSelected: true
             )
-            FilterCell(
+            FilterTag(
                 content: "블랙핑크",
                 isEditing: true,
                 isSelected: true
             )
-            FilterCell(
+            FilterTag(
                 content: "블랙핑크",
                 isEditing: false,
                 isSelected: false
