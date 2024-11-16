@@ -9,5 +9,5 @@ protocol PlaylistRepository {
     func fetchPlaylists() -> [String]?
     func saveNewPlaylist(_ playlistName: String)
     func deletePlaylist(_ playlistName: String)
-    func fetchPlaylist(for name: String) -> MolioPlaylist?
+    func fetchPlaylist(for name: String) -> PlaylistDTO?
 }
