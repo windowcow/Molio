@@ -26,6 +26,7 @@ final class PersistenceManager {
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved Error \(nserror), \(nserror.userInfo)")
+                //TODO: 사용자 알림창 띄워주기로 변경
             }
         }
     }
