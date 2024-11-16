@@ -1,10 +1,10 @@
 import Foundation
 import CoreData
 
-class PersistenceManager {
+final class PersistenceManager {
     static let shared = PersistenceManager()
-    let moliomModelName: String = "MolioModel"
-    let persistenceContainer: NSPersistentContainer
+    private let moliomModelName: String = "MolioModel"
+    private let persistenceContainer: NSPersistentContainer
     
     private init() {
         persistenceContainer = NSPersistentContainer(name: moliomModelName)
@@ -18,7 +18,7 @@ class PersistenceManager {
         return persistenceContainer.viewContext
     }
     
-    func saveContext(){
+    func saveContext() {
         let context = persistenceContainer.viewContext
         if context.hasChanges {
             do {
