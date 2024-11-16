@@ -6,8 +6,10 @@ struct FilterTag: View {
     private let cornerRadius: CGFloat
     private let verticalPadding: CGFloat
     private let horizontalPadding: CGFloat
-    @State private var isEditing: Bool
-    @State private var isSelected: Bool
+    private let isEditing: Bool
+    private let isSelected: Bool
+    
+    private let tapAction: () -> Void
     
     init(
         content: String,
@@ -16,7 +18,8 @@ struct FilterTag: View {
         verticalPadding: CGFloat = 6,
         horizontalPadding: CGFloat = 10,
         isEditing: Bool = false,
-        isSelected: Bool = true
+        isSelected: Bool = true,
+        tapAction: @escaping () -> Void = {}
     ) {
         self.content = content
         self.fontSize = fontSize
@@ -25,6 +28,7 @@ struct FilterTag: View {
         self.horizontalPadding = horizontalPadding
         self.isEditing = isEditing
         self.isSelected = isSelected
+        self.tapAction = tapAction
     }
     
     var body: some View {
@@ -44,6 +48,9 @@ struct FilterTag: View {
         .overlay {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(isSelected ? .clear : .gray, lineWidth: 1)
+        }
+        .onTapGesture {
+            tapAction()
         }
     }
 }

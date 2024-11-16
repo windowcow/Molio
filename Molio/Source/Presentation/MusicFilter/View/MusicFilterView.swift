@@ -1,9 +1,14 @@
 import SwiftUI
 
 struct MusicFilterView: View {
-    @State private var selectedGenres: [String]
+    @State private var allGenres: [MusicGenre] // TODO: - 전체 장르 시드 불러오기
+    @State private var selectedGenres: Set<MusicGenre>
     
-    init(selectedGenres: [String]) {
+    init(
+        allGenres: [MusicGenre] = MusicGenre.allCases,
+        selectedGenres: Set<MusicGenre> = []
+    ) {
+        self.allGenres = allGenres
         self.selectedGenres = selectedGenres
     }
     
@@ -13,21 +18,33 @@ struct MusicFilterView: View {
                 .foregroundStyle(.white)
             ScrollView {
                 TagLayout {
-                    ForEach(MusicGenre.allCases.map(\.displayName), id: \.self) { genre in
-                        FilterTag(content: genre)
+                    ForEach(allGenres, id: \.self) { genre in
+                        FilterTag(
+                            content: genre.description,
+                            isSelected: selectedGenres.contains(genre)
+                        ) {
+                            toggleSelection(of: genre)
+                        }
                     }
                 }
-                .background(.red)
             }
         }
         .padding(.vertical, 24)
         .padding(.horizontal, 22)
+    }
+    
+    private func toggleSelection(of genre: MusicGenre) {
+        if selectedGenres.contains(genre) {
+            selectedGenres.remove(genre)
+        } else {
+            selectedGenres.insert(genre)
+        }
     }
 }
 
 #Preview {
     ZStack {
         Color.background
-        MusicFilterView(selectedGenres: MusicFilter.mock.genres)
+        MusicFilterView(selectedGenres: [.acoustic, .blackMetal, .emo, .jDance])
     }
 }

@@ -242,9 +242,8 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     @objc private func didTapFilterButton() {
-        // TODO: - mock 교체
-        let mockMusicFilter = MusicFilter.mock
-        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(selectedGenres: mockMusicFilter.genres))
+        // TODO: - 선택된 장르 넘기기
+        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(selectedGenres: []))
         navigationController?.pushViewController(musicFilterVC, animated: true)
     }
     
