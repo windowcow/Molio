@@ -3,17 +3,12 @@ import Combine
 // MARK: 프로토콜 요구사항
 
 extension RandomMusicDeck: MusicDeck {
+    var currentMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> {
+        return musicPublisher(at: 0)
+    }
     
-    func musicPublisher(at index: Int) -> AnyPublisher<RandomMusic?, Never> {
-        randomMusics
-            .compactMap { randomMusics in
-                // 인덱스 범위를 벗어나지 않는지 체크하는 로직이다.
-                guard randomMusics.count > index else { return nil }
-                
-                return randomMusics[index]
-            }
-            .removeDuplicates { $0?.isrc == $1?.isrc }
-            .eraseToAnyPublisher()
+    var nextMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> {
+        return musicPublisher(at: 1)
     }
 
     func likeCurrentMusic() {
@@ -97,7 +92,6 @@ final class RandomMusicDeck {
             }
     }
     
-    
     private func loadRandomMusic() {
         let genres = self.musicFilter.value?.genres ?? []
         
@@ -110,11 +104,23 @@ final class RandomMusicDeck {
         }
     }
     
-    
     private func removeCurrentMusic() {
         guard !randomMusics.value.isEmpty else { return }
         
         randomMusics.value.remove(at: 0)
+    }
+    
+    
+    private func musicPublisher(at index: Int) -> AnyPublisher<RandomMusic?, Never> {
+        randomMusics
+            .compactMap { randomMusics in
+                // 인덱스 범위를 벗어나지 않는지 체크하는 로직이다.
+                guard randomMusics.count > index else { return nil }
+                
+                return randomMusics[index]
+            }
+            .removeDuplicates { $0?.isrc == $1?.isrc }
+            .eraseToAnyPublisher()
     }
 }
 

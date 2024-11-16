@@ -827,6 +827,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BDA11F2CE5F3C800BA0F11 /* Secrets.xcconfig in Resources */,
 				2003BA142CDB8300002CAB3E /* Pretendard-Bold.otf in Resources */,
 				2003BA122CDB8300002CAB3E /* Pretendard-SemiBold.otf in Resources */,
 				F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */,

@@ -12,7 +12,6 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     }
     
     struct Output {
-        let currentMusicTrack: AnyPublisher<SwipeMusicTrackModel, Never>
         let isLoading: AnyPublisher<Bool, Never> // TODO: 로딩 UI 구현 및 연결
         let buttonHighlight: AnyPublisher<ButtonHighlight, Never>
         let musicCardSwipeAnimation: AnyPublisher<SwipeDirection, Never>
@@ -24,30 +23,38 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         case right = 1.0
         case none = 0
     }
-    
+
     struct ButtonHighlight {
         let isLikeHighlighted: Bool
         let isDislikeHighlighted: Bool
     }
-    
+
     var swipeThreshold: CGFloat {
         return 170.0
     }
     
-    private let musicPlayer = SwipeMusicPlayer()
-    private let fetchMusicsUseCase: FetchMusicsUseCase
     private let fetchImageUseCase: FetchImageUseCase
-    private var musicsSubject = CurrentValueSubject<[RandomMusic], Never>([])
-    private let currentMusicCardPublisher = PassthroughSubject<SwipeMusicTrackModel, Never>()
     private let isLoadingPublisher = PassthroughSubject<Bool, Never>()
     private let buttonHighlightPublisher = PassthroughSubject<ButtonHighlight, Never>()
     private let musicCardSwipeAnimationPublisher = PassthroughSubject<SwipeDirection, Never>()
     private let errorPublisher = PassthroughSubject<String, Never>()
     private var cancellables = Set<AnyCancellable>()
     
-    init(fetchMusicsUseCase: FetchMusicsUseCase, fetchImageUseCase: FetchImageUseCase) {
-        self.fetchMusicsUseCase = fetchMusicsUseCase
+    // MARK: Music Deck
+    
+    let musicDeck: any MusicDeck
+    
+    let currentMusicTrackPublisher = CurrentValueSubject<SwipeMusicTrackModel?, Never>(nil)
+    let nextMusicTrackPublisher = CurrentValueSubject<SwipeMusicTrackModel?, Never>(nil)
+
+    init(
+        fetchMusicsUseCase: FetchMusicsUseCase,
+        fetchImageUseCase: FetchImageUseCase,
+        musicFilterProvider: any MusicFilterProvider
+    ) {
+        self.musicDeck = RandomMusicDeck(fetchMusicsUseCase: fetchMusicsUseCase, musicFilterProvider: musicFilterProvider)
         self.fetchImageUseCase = fetchImageUseCase
+        
         setupBindings()
     }
     
@@ -56,13 +63,8 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             .handleEvents(receiveOutput: { [weak self] _ in
                 self?.isLoadingPublisher.send(true)
             })
-            .flatMap { [weak self] _ -> AnyPublisher<[RandomMusic], Never> in
-                guard let self else { return Just([]).eraseToAnyPublisher() }
-                return self.fetchMusics()
-            }
             .sink { [weak self] musics in
                 self?.isLoadingPublisher.send(false)
-                self?.musicsSubject.send(musics)
             }
             .store(in: &cancellables)
         
@@ -79,15 +81,17 @@ final class SwipeMusicViewModel: InputOutputViewModel {
                 self?.buttonHighlightPublisher.send(buttonHighlight)
             }
             .store(in: &cancellables)
-        
+
         input.musicCardDidFinishSwipe
             .map { [weak self] translation -> SwipeDirection in
                 guard let self else { return .none }
                 if translation > self.swipeThreshold {
                     // TODO: 노래 좋아요에 대한 처리 추가하기
+                    print("like")
                     return .right
                 } else if translation < -self.swipeThreshold {
                     // TODO: 노래 싫어요에 대한 처리 추가하기
+                    print("dislike")
                     return .left
                 } else {
                     return .none
@@ -102,7 +106,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
                 )
             }
             .store(in: &cancellables)
-        
+
         input.likeButtonDidTap
             .sink { [weak self] _ in
                 guard let self else { return }
@@ -110,73 +114,85 @@ final class SwipeMusicViewModel: InputOutputViewModel {
                 self.musicCardSwipeAnimationPublisher.send(.right)
             }
             .store(in: &cancellables)
-        
+
         input.dislikeButtonDidTap
+            // 버튼이 눌릴 때마다 send가 되는 것이 아니라 구독이 생성되고 있습니다.
             .sink { [weak self] _ in
                 guard let self else { return }
                 // TODO: 노래 싫어요 대한 처리 추가하기
                 self.musicCardSwipeAnimationPublisher.send(.left)
             }
             .store(in: &cancellables)
-        
-        return Output(currentMusicTrack: currentMusicCardPublisher.eraseToAnyPublisher(),
-                      isLoading: isLoadingPublisher.eraseToAnyPublisher(),
-                      buttonHighlight: buttonHighlightPublisher.eraseToAnyPublisher(),
-                      musicCardSwipeAnimation: musicCardSwipeAnimationPublisher.eraseToAnyPublisher(),
-                      error: errorPublisher.eraseToAnyPublisher()
+
+        return Output(
+            isLoading: isLoadingPublisher.eraseToAnyPublisher(),
+            buttonHighlight: buttonHighlightPublisher.eraseToAnyPublisher(),
+            musicCardSwipeAnimation: musicCardSwipeAnimationPublisher.eraseToAnyPublisher(),
+            error: errorPublisher.eraseToAnyPublisher()
         )
     }
     
-    private func fetchMusics() -> AnyPublisher<[RandomMusic], Never> {
-        Future { [weak self] promise in
-            guard let self else { return promise(.success([])) }
-            Task {
-                do {
-                    let musics = try await self.fetchMusicsUseCase.execute(genres: ["k-pop"])
-                    promise(.success(musics))
-                } catch {
-                    promise(.success([]))
+    private func setupBindings() {
+        
+        // MARK: 현재 노래 관련
+        // currentMusicTrack이 변경되면 sink에 정의된 동작을 실행한다.
+        musicDeck.currentMusicTrackModelPublisher
+            .sink { [weak self] currentMusic in
+                guard let currentMusic else {
+                    // TODO: 현재 노래가 없는 경우 보여줄 카드를 여기에 담아야 함
+                    return
+                }
+                
+                Task { [weak self] in
+                    do {
+                        let swipeMusicTrackModel = try await self?.loadMusicCard(from: currentMusic)
+                        
+                        self?.currentMusicTrackPublisher.send(swipeMusicTrackModel)
+                    } catch {
+                        self?.errorPublisher.send("재생할 노래가 없습니다.")
+                    }
                 }
             }
-        }
-        .eraseToAnyPublisher()
-    }
-    
-    private func setupBindings() {
-        musicsSubject
-            .sink { [weak self] musics in
-                if musics.isEmpty {
-                    self?.errorPublisher.send("재생 가능한 음악이 없습니다.")
-                } else if let firstMusic = musics.first {
-                    self?.loadMusicCard(from: firstMusic)
-                    self?.loadAndPlaySongs(urls: [firstMusic.previewAsset]) // TODO: 임시 노래 재생 이후 수정
+            .store(in: &cancellables)
+        
+        
+         // MARK: 다음 노래 관련
+        
+        musicDeck.nextMusicTrackModelPublisher
+            .sink { [weak self] nextMusic in
+                guard let nextMusic else {
+                    // TODO: 현재 노래가 없는 경우 보여줄 카드를 여기에 담아야 함
+                    return
+                }
+                
+                Task { [weak self] in
+                    do {
+                        let swipeMusicTrackModel = try await self?.loadMusicCard(from: nextMusic)
+                        
+                        self?.nextMusicTrackPublisher.send(swipeMusicTrackModel)
+                    } catch {
+                        self?.errorPublisher.send("다음 노래가 없습니다.")
+                    }
                 }
             }
             .store(in: &cancellables)
     }
     
-    private func loadMusicCard(from music: RandomMusic) {
+    private func loadMusicCard(from music: RandomMusic) async throws -> SwipeMusicTrackModel {
         guard let imageURL = music.artworkImageURL else {
-            currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: nil))
-            return
+            return SwipeMusicTrackModel(randomMusic: music, imageData: nil)
         }
         
-        Task {
-            do {
-                let imageData = try await fetchImageUseCase.execute(url: imageURL)
-                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: imageData))
-            } catch {
-                currentMusicCardPublisher.send(SwipeMusicTrackModel(randomMusic: music, imageData: nil))
-            }
-        }
+        let imageData = try await fetchImageUseCase.execute(url: imageURL)
+
+        return SwipeMusicTrackModel(randomMusic: music, imageData: imageData)
     }
     
-    func loadAndPlaySongs(urls: [URL]) {
-        musicPlayer.loadSongs(with: urls)
-        musicPlayer.play()
+    func likeCurrentMusic() {
+        musicDeck.likeCurrentMusic()
     }
     
-    func nextSong() {
-        musicPlayer.playNext()
+    func dislikeCurrentMusic() {
+        musicDeck.dislikeCurrentMusic()
     }
 }
