@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct MusicFilterView: View {
-    @Environment(\.dismiss) var dismiss
     @State private var selectedGenres: [String]
     
     init(selectedGenres: [String]) {
@@ -10,23 +9,18 @@ struct MusicFilterView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Button {
-                print("장르 클릭")
-            } label: {
-                HStack {
-                    Text.molioSemiBold("장르", size: 17)
-                        .tint(.white)
-                    Image.molioSemiBold(systemName: "chevron.right", size: 14, color: .gray)
+            Text.molioSemiBold("장르", size: 17)
+                .foregroundStyle(.white)
+            ScrollView {
+                TagLayout {
+                    ForEach(MusicGenre.allCases.map(\.displayName), id: \.self) { genre in
+                        FilterTag(content: genre)
+                    }
                 }
+                .background(.red)
             }
-            TagLayout {
-                ForEach(selectedGenres, id: \.self) { genre in
-                    FilterTag(content: genre)
-                }
-            }
-            Spacer()
         }
-        .padding(.top, 24)
+        .padding(.vertical, 24)
         .padding(.horizontal, 22)
     }
 }
