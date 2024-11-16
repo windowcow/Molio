@@ -12,7 +12,28 @@ struct TagLayout: Layout {
     
     /// 레이아웃 컨테이너 크기를 계산하고 상위 계층으로 보고
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        return CGSize(width: proposal.width ?? .zero, height: proposal.height ?? .zero)
+        guard let proposalWidth = proposal.width else { return .zero }
+        var totalWidth: CGFloat = 0
+        var totalHeight: CGFloat = 0
+        var currentRowWidth: CGFloat = 0
+        var currentRowHeight: CGFloat = 0
+
+        for subview in subviews {
+            let subviewSize = subview.sizeThatFits(.unspecified)
+            // 줄바꿈 시 total size 계산
+            if currentRowWidth + subviewSize.width > proposalWidth {
+                totalWidth = max(totalWidth, currentRowWidth)
+                totalHeight += currentRowHeight + verticalSpacing
+                currentRowWidth = 0
+                currentRowHeight = 0
+            }
+            currentRowWidth += subviewSize.width + horizontalSpacing
+            currentRowHeight = max(currentRowHeight, subviewSize.height)
+        }
+        totalWidth = max(totalWidth, currentRowWidth)
+        totalHeight += currentRowHeight
+
+        return CGSize(width: totalWidth, height: totalHeight)
     }
     
     /// 서브뷰를 배치
