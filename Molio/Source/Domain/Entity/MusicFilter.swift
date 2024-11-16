@@ -6,3 +6,9 @@ struct MusicFilter {
     /// 예시: ["pop", "k-pop"]
     var genres: [String]
 }
+
+extension MusicFilter {
+    static let mock: MusicFilter = .init(
+        genres: ["팝", "락", "재즈", "일렉트로닉", "힙합", "팝", "락", "재즈", "일렉트로닉", "힙합", "팝", "락", "재즈", "일렉트로닉", "힙합"]
+    )
+}

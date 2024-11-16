@@ -206,6 +206,7 @@ final class SwipeMusicViewController: UIViewController {
     private func setupButtonTarget() {
         likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
     }
     
     /// 사용자에게 진동 feedback을 주는 메서드
@@ -238,6 +239,13 @@ final class SwipeMusicViewController: UIViewController {
     
     @objc private func didTapDislikeButton() {
         dislikeButtonDidTapPublisher.send()
+    }
+    
+    @objc private func didTapFilterButton() {
+        // TODO: - mock 교체
+        let mockMusicFilter = MusicFilter.mock
+        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(selectedGenres: mockMusicFilter.genres))
+        navigationController?.pushViewController(musicFilterVC, animated: true)
     }
     
     private func setupSelectPlaylistView() {
