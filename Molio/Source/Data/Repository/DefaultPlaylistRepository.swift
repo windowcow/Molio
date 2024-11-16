@@ -55,6 +55,17 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         return musics
     }
     
+    func fetchPlaylists() -> [String]? {
+        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+        do {
+            let playlists = try context.fetch(fetchRequest)
+            return playlists.compactMap{ $0.name }
+        } catch {
+            print("Failed to fetch playlists: \(error)")
+            return nil
+        }
+    }
+    
     func saveNewPlaylist(_ playlistName: String) {
         let playlist = MolioPlaylist(context: context)
         
@@ -89,7 +100,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         }
     }
     
-    func fetchPlaylist(id: UUID) -> MolioPlaylist? {
+    private func fetchPlaylist(id: UUID) -> MolioPlaylist? {
         let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
