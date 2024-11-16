@@ -18,6 +18,7 @@ final class MusicFilterViewController: UIHostingController<MusicFilterView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .background
         
         // TODO: - 뒤로가기 버튼 텍스트 숨기기
         
