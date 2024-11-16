@@ -149,6 +149,7 @@
 		881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationRequestEntity.swift; sourceTree = "<group>"; };
 		881BBCC32CDCF98300010A61 /* SpotifyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyRepository.swift; sourceTree = "<group>"; };
 		881BBCC52CDCF98F00010A61 /* FetchRecommendedSongsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecommendedSongsUseCase.swift; sourceTree = "<group>"; };
+		B8046A422CE8D4BE00933704 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		B809709D2CDB640B007BC3C4 /* MusicKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicKitService.swift; sourceTree = "<group>"; };
 		B8D553E72CDFE25C007CCD6D /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		B8D553E92CDFE271007CCD6D /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
@@ -350,6 +351,7 @@
 				F17369012CD86B1300F6242C /* Assets.xcassets */,
 				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
 				F17369062CD86B1300F6242C /* Info.plist */,
+				B8046A422CE8D4BE00933704 /* Secrets.xcconfig */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -827,7 +829,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BDA11F2CE5F3C800BA0F11 /* Secrets.xcconfig in Resources */,
 				2003BA142CDB8300002CAB3E /* Pretendard-Bold.otf in Resources */,
 				2003BA122CDB8300002CAB3E /* Pretendard-SemiBold.otf in Resources */,
 				F17369122CDAFE8C00F6242C /* .swiftlint.yml in Resources */,
@@ -1090,6 +1091,7 @@
 		};
 		F173690A2CD86B1300F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8046A422CE8D4BE00933704 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1123,6 +1125,7 @@
 		};
 		F173690B2CD86B1300F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8046A422CE8D4BE00933704 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1156,6 +1159,7 @@
 		};
 		F17369392CDCE31C00F6242C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8046A422CE8D4BE00933704 /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1174,6 +1178,7 @@
 		};
 		F173693A2CDCE31C00F6242C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8046A422CE8D4BE00933704 /* Secrets.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1248,8 +1253,7 @@
 				20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */,
 			);
 			currentVersion = 20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */;
-			name = MolioModel.xcdatamodeld;
-			path = "/Users/p_kxn_g/Documents/GitHub/naverboostcamp_challenge/membership/membership/iOS06-molio/Molio/Source/Data/Model/DataModel/MolioModel.xcdatamodeld";
+			path = MolioModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
