@@ -21,6 +21,11 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     
     init (context: NSManagedObjectContext) {
         self.context = context
+        
+        ValueTransformer.setValueTransformer(
+            NSSecureUnarchiveFromDataTransformer(),
+            forName: NSValueTransformerName("NSSecureUnarchiveFromDataTransformerName")
+        )
         setupChangeObserver()
     }
     

@@ -11,7 +11,7 @@ extension MolioPlaylist {
     @NSManaged public var createdAt: Date
     @NSManaged public var filters: [String]
     @NSManaged public var id: UUID
-    @NSManaged public var musics: [String]
+    @NSManaged public var musicISRCs: [String]
     @NSManaged public var name: String
 
 }
