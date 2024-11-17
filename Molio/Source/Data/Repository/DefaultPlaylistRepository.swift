@@ -24,29 +24,28 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         setupChangeObserver()
     }
     
-    
     func addMusic(isrc: String, to playlistName: String) {
         guard let playlist = fetchRawPlaylist(for: playlistName) else { return }
         
-        playlist.musics.append(isrc)
+        playlist.musicISRCs.append(isrc)
         saveContext()
     }
     
     func deleteMusic(isrc: String, in playlistName: String) {
         guard let playlist = fetchRawPlaylist(for: playlistName) else { return }
         
-        playlist.musics.removeAll { $0 == isrc }
+        playlist.musicISRCs.removeAll { $0 == isrc }
         saveContext()
     }
     
     func moveMusic(isrc: String, in playlistName: String, fromIndex: Int, toIndex: Int) {
         guard let playlist = fetchRawPlaylist(for: playlistName),
-              playlist.musics.indices.contains(fromIndex),
-              playlist.musics.indices.contains(toIndex) else { return }
+              playlist.musicISRCs.indices.contains(fromIndex),
+              playlist.musicISRCs.indices.contains(toIndex) else { return }
         
-        if playlist.musics[fromIndex] == isrc {
-            let musicToMove = playlist.musics.remove(at: fromIndex)
-            playlist.musics.insert(musicToMove, at: toIndex)
+        if playlist.musicISRCs[fromIndex] == isrc {
+            let musicToMove = playlist.musicISRCs.remove(at: fromIndex)
+            playlist.musicISRCs.insert(musicToMove, at: toIndex)
             
             saveContext()
         }
@@ -61,7 +60,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
                     id: playlist.id,
                     name: playlist.name,
                     createdAt: playlist.createdAt,
-                    musics: playlist.musics,
+                    musicISRCs: playlist.musicISRCs,
                     filters: playlist.filters
                 )
             }
@@ -79,7 +78,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         playlist.name = playlistName
         playlist.filters = []
         playlist.createdAt = Date()
-        playlist.musics = []
+        playlist.musicISRCs = []
         
         saveContext()
     }
@@ -102,7 +101,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
                 id: playlist.id,
                 name: playlist.name,
                 createdAt: playlist.createdAt,
-                musics: playlist.musics,
+                musicISRCs: playlist.musicISRCs,
                 filters: playlist.filters)
             
         } catch {
