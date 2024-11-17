@@ -4,7 +4,6 @@ import MusicKit
 
 final class SwipeMusicViewModel: InputOutputViewModel {
     struct Input {
-        let viewDidLoad: AnyPublisher<Void, Never>
         let musicCardDidChangeSwipe: AnyPublisher<CGFloat, Never>
         let musicCardDidFinishSwipe: AnyPublisher<CGFloat, Never>
         let likeButtonDidTap: AnyPublisher<Void, Never>
@@ -59,15 +58,6 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     }
     
     func transform(from input: Input) -> Output {
-        input.viewDidLoad
-            .handleEvents(receiveOutput: { [weak self] _ in
-                self?.isLoadingPublisher.send(true)
-            })
-            .sink { [weak self] musics in
-                self?.isLoadingPublisher.send(false)
-            }
-            .store(in: &cancellables)
-        
         input.musicCardDidChangeSwipe
             .map { [weak self] translation -> ButtonHighlight in
                 guard let self else {
@@ -86,12 +76,10 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             .map { [weak self] translation -> SwipeDirection in
                 guard let self else { return .none }
                 if translation > self.swipeThreshold {
-                    // TODO: 노래 좋아요에 대한 처리 추가하기
-                    print("like")
+                    self.musicDeck.likeCurrentMusic()
                     return .right
                 } else if translation < -self.swipeThreshold {
-                    // TODO: 노래 싫어요에 대한 처리 추가하기
-                    print("dislike")
+                    self.musicDeck.dislikeCurrentMusic()
                     return .left
                 } else {
                     return .none
@@ -110,16 +98,15 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         input.likeButtonDidTap
             .sink { [weak self] _ in
                 guard let self else { return }
-                // TODO: 노래 좋아요에 대한 처리 추가하기
+                self.musicDeck.likeCurrentMusic()
                 self.musicCardSwipeAnimationPublisher.send(.right)
             }
             .store(in: &cancellables)
 
         input.dislikeButtonDidTap
-            // 버튼이 눌릴 때마다 send가 되는 것이 아니라 구독이 생성되고 있습니다.
             .sink { [weak self] _ in
                 guard let self else { return }
-                // TODO: 노래 싫어요 대한 처리 추가하기
+                self.musicDeck.dislikeCurrentMusic()
                 self.musicCardSwipeAnimationPublisher.send(.left)
             }
             .store(in: &cancellables)
@@ -189,13 +176,5 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         let imageData = try await fetchImageUseCase.execute(url: imageURL)
 
         return SwipeMusicTrackModel(randomMusic: music, imageData: imageData)
-    }
-    
-    func likeCurrentMusic() {
-        musicDeck.likeCurrentMusic()
-    }
-    
-    func dislikeCurrentMusic() {
-        musicDeck.dislikeCurrentMusic()
     }
 }
