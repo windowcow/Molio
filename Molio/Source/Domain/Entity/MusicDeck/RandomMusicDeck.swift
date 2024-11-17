@@ -28,7 +28,7 @@ final class RandomMusicDeck {
     
     // MARK: 의존성 주입
     
-    private var fetchMusicsUseCase: any FetchMusicsUseCase
+    private var fetchMusicsUseCase: any FetchRecommendedMusicUseCase
     private var musicFilterProvider: any MusicFilterProvider
     
     // MARK: 생성자에서 초기화하는 프로퍼티
@@ -44,7 +44,7 @@ final class RandomMusicDeck {
     // MARK: 생성자
     
     init(
-        fetchMusicsUseCase: any FetchMusicsUseCase,
+        fetchMusicsUseCase: any FetchRecommendedMusicUseCase,
         musicFilterProvider: any MusicFilterProvider
     ) {
         // 의존성 주입
