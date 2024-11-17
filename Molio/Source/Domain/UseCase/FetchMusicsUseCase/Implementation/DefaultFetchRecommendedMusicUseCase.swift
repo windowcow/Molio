@@ -1,7 +1,7 @@
-struct DefaultFetchMusicsUseCase: FetchMusicsUseCase {
-    private let musicRepository: MusicRepository
+struct DefaultFetchRecommendedMusicUseCase: FetchRecommendedMusicUseCase {
+    private let musicRepository: RecommendedMusicRepository
     
-    init(repository: MusicRepository) {
+    init(repository: RecommendedMusicRepository) {
         self.musicRepository = repository
     }
     

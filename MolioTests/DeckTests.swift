@@ -11,9 +11,9 @@ final class DeckTests: XCTestCase {
         
         let musicKitService = DefaultMusicKitService()
         
-        let repository = DefaultMusicRepository(spotifyAPIService: spotifyAPIService, musicKitService: musicKitService)
+        let repository = DefaultRecommendedMusicRepository(spotifyAPIService: spotifyAPIService, musicKitService: musicKitService)
         
-        let fetchMusicUseCase = DefaultFetchMusicsUseCase(repository: repository)
+        let fetchMusicUseCase = DefaultFetchRecommendedMusicUseCase(repository: repository)
         
         let musicFilterProvider = MockMusicFilterProvider()
         
@@ -36,8 +36,8 @@ final class DeckTests: XCTestCase {
                 print("노래 5곡:", randomMusics.prefix(5).map { $0.title }.joined(separator: ", "))
             }
         
-        let currentMusicPublisher = deck.musicPublisher(at: 0)
-        let nextMusicPublisher = deck.musicPublisher(at: 1)
+        let currentMusicPublisher = deck.currentMusicTrackModelPublisher
+        let nextMusicPublisher = deck.nextMusicTrackModelPublisher
         
         let currentMusicSubscription = currentMusicPublisher
             .sink { music in

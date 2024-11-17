@@ -48,7 +48,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     let nextMusicTrackPublisher = CurrentValueSubject<SwipeMusicTrackModel?, Never>(nil)
 
     init(
-        fetchMusicsUseCase: FetchMusicsUseCase,
+        fetchMusicsUseCase: FetchRecommendedMusicUseCase,
         fetchImageUseCase: FetchImageUseCase,
         musicFilterProvider: any MusicFilterProvider
     ) {
