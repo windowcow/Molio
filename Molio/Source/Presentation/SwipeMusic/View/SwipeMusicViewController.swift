@@ -7,13 +7,14 @@ final class SwipeMusicViewController: UIViewController {
     private var output: SwipeMusicViewModel.Output
     private let musicPlayer: AudioPlayer = SwipeMusicPlayer()
 
-    private let viewDidLoadPublisher = PassthroughSubject<Void, Never>()
     private let musicCardDidChangeSwipePublisher = PassthroughSubject<CGFloat, Never>()
     private let musicCardDidFinishSwipePublisher = PassthroughSubject<CGFloat, Never>()
     private let likeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private let dislikeButtonDidTapPublisher = PassthroughSubject<Void, Never>()
     private var cancellables = Set<AnyCancellable>()
     
+    private var isMusicCardAnimating = false
+    private var pendingMusic: (currentMusic: SwipeMusicTrackModel?, nextMusic: SwipeMusicTrackModel?)
     private let basicBackgroundColor = UIColor(resource: .background)
     private var impactFeedBack = UIImpactFeedbackGenerator(style: .medium)
     private var hasProvidedImpactFeedback: Bool = false
@@ -55,10 +56,10 @@ final class SwipeMusicViewController: UIViewController {
     }()
     
     private let currentCardView = MusicCardView()
+    
     private let nextCardView: MusicCardView = {
         let nextCardView = MusicCardView()
         nextCardView.isUserInteractionEnabled = false
-        
         return nextCardView
     }()
     
@@ -93,7 +94,6 @@ final class SwipeMusicViewController: UIViewController {
     init(viewModel: SwipeMusicViewModel) {
         self.viewModel = viewModel
         self.input = SwipeMusicViewModel.Input(
-            viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
             musicCardDidChangeSwipe: musicCardDidChangeSwipePublisher.eraseToAnyPublisher(),
             musicCardDidFinishSwipe: musicCardDidFinishSwipePublisher.eraseToAnyPublisher(),
             likeButtonDidTap: likeButtonDidTapPublisher.eraseToAnyPublisher(),
@@ -118,12 +118,13 @@ final class SwipeMusicViewController: UIViewController {
         let defaultImageProvider = DefaultImageFetchService()
         let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
-        let swipeMusicViewModel = SwipeMusicViewModel(fetchMusicsUseCase: defaultFetchMusicsUseCase,
-                                                      fetchImageUseCase: defaultFetchImageUseCase, musicFilterProvider: MockMusicFilterProvider()
+        let swipeMusicViewModel = SwipeMusicViewModel(
+            fetchMusicsUseCase: defaultFetchMusicsUseCase,
+            fetchImageUseCase: defaultFetchImageUseCase,
+            musicFilterProvider: MockMusicFilterProvider()
         )
         self.viewModel = swipeMusicViewModel
         self.input = SwipeMusicViewModel.Input(
-            viewDidLoad: viewDidLoadPublisher.eraseToAnyPublisher(),
             musicCardDidChangeSwipe: musicCardDidChangeSwipePublisher.eraseToAnyPublisher(),
             musicCardDidFinishSwipe: musicCardDidFinishSwipePublisher.eraseToAnyPublisher(),
             likeButtonDidTap: likeButtonDidTapPublisher.eraseToAnyPublisher(),
@@ -145,42 +146,30 @@ final class SwipeMusicViewController: UIViewController {
         setupBindings()
         setupButtonTarget()
         addPanGestureToMusicTrack()
-        
-        viewDidLoadPublisher.send()
     }
     
     private func setupBindings() {
-        // MARK: 다음 카드 뷰
-        
-        viewModel.nextMusicTrackPublisher
+        output.currentMusicTrack
             .receive(on: RunLoop.main)
             .sink { [weak self] music in
                 guard let self else { return }
-                guard let music else { return }
-                
-                nextCardView.configure(music: music)
+                if isMusicCardAnimating {
+                    self.pendingMusic.currentMusic = music
+                } else {
+                    self.updateCurrentCard(with: music)
+                }
             }
             .store(in: &cancellables)
-
         
-        // MARK: 현재 카드 뷰
-        
-        viewModel.currentMusicTrackPublisher
+        output.nextMusicTrack
             .receive(on: RunLoop.main)
             .sink { [weak self] music in
                 guard let self else { return }
-                guard let music else { return }
-                
-                let artworkBackgroundColor = music.artworkBackgroundColor
-                    .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
-                
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.view.backgroundColor = artworkBackgroundColor
-                })
-                
-                currentCardView.configure(music: music)
-                self.loadAndPlaySongs(url: music.previewAsset)
-                
+                if isMusicCardAnimating {
+                    self.pendingMusic.nextMusic = music
+                } else {
+                    nextCardView.configure(music: music)
+                }
             }
             .store(in: &cancellables)
         
@@ -210,38 +199,50 @@ final class SwipeMusicViewController: UIViewController {
     /// Swipe 동작이 끝나고 MusicCard가 animation되는 메서드
     private func animateMusicCard(direction: SwipeMusicViewModel.SwipeDirection) {
         let currentCenter = currentCardView.center
-        let viewCenter = view.center
         let frameWidth = view.frame.width
 
         switch direction {
         case .left, .right:
+            self.isMusicCardAnimating = true
             let movedCenterX = currentCenter.x + direction.rawValue * frameWidth
             UIView.animate(
                 withDuration: 0.3,
                 animations: { [weak self] in
-                    // 이 부분에서 돌아오고 따로 refreshMusicCardView를 하지 않아도 됩니다.
                     self?.currentCardView.center = CGPoint(x: movedCenterX, y: currentCenter.y)
                 },
                 completion: { [weak self] _ in
-                    self?.refreshMusicCardView(direction: direction)
+                    guard let self else { return }
+                    if let currentMusic = self.pendingMusic.currentMusic {
+                        self.updateCurrentCard(with: currentMusic)
+                        self.pendingMusic.currentMusic = nil
+                    }
+                    
+                    if let nextMusic = self.pendingMusic.nextMusic {
+                        self.nextCardView.configure(music: nextMusic)
+                        self.pendingMusic.nextMusic = nil
+                    }
+                    
+                    self.isMusicCardAnimating = false
             })
         case .none:
             UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.currentCardView.center = viewCenter
+                guard let self else { return }
+                self.currentCardView.center = self.nextCardView.center
             }
         }
     }
     
-    private func refreshMusicCardView(direction: SwipeMusicViewModel.SwipeDirection) {
-        self.currentCardView.removeFromSuperview()
+    /// 현재 노래 카드 정보 변경 및 현재 노래 재생하는 메서드
+    private func updateCurrentCard(with music: SwipeMusicTrackModel) {
+        let artworkBackgroundColor = music.artworkBackgroundColor
+            .flatMap { UIColor(rgbaColor: $0) } ?? self.basicBackgroundColor
         
-        if direction == .right {
-            self.viewModel.likeCurrentMusic()
-        } else if direction == .left {
-            self.viewModel.dislikeCurrentMusic()
-        }
-    
-        self.setupMusicTrackView()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.backgroundColor = artworkBackgroundColor
+        })
+        
+        currentCardView.configure(music: music)
+        self.loadAndPlaySongs(url: music.previewAsset)
     }
     
     private func addPanGestureToMusicTrack() {
@@ -330,11 +331,8 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupMusicTrackView() {
-        
         // MARK: 다음 노래 카드
-        
-        view.addSubview(nextCardView)
-        
+        view.insertSubview(nextCardView, belowSubview: playlistSelectButton)
         NSLayoutConstraint.activate([
             nextCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
             nextCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
@@ -344,9 +342,7 @@ final class SwipeMusicViewController: UIViewController {
         ])
         
         // MARK: 현재 노래 카드
-        
-        view.addSubview(currentCardView)
-        
+        view.insertSubview(currentCardView, belowSubview: playlistSelectButton)
         NSLayoutConstraint.activate([
             currentCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
             currentCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
