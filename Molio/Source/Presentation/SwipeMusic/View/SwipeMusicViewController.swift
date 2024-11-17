@@ -110,11 +110,11 @@ final class SwipeMusicViewController: UIViewController {
                                                                 tokenProvider: defaultSpotifyTokenProvider
         )
         let defaultMusicKitService = DefaultMusicKitService()
-        let defaultMusicRepository = DefaultMusicRepository(
+        let defaultMusicRepository = DefaultRecommendedMusicRepository(
             spotifyAPIService: defaultSpotifyAPIService,
             musicKitService: defaultMusicKitService
         )
-        let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+        let defaultFetchMusicsUseCase = DefaultFetchRecommendedMusicUseCase(repository: defaultMusicRepository)
         let defaultImageProvider = DefaultImageFetchService()
         let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)
@@ -376,11 +376,11 @@ struct SwipeViewControllerPreview: UIViewControllerRepresentable {
                                                                 tokenProvider: defaultSpotifyTokenProvider
         )
         let defaultMusicKitService = DefaultMusicKitService()
-        let defaultMusicRepository = DefaultMusicRepository(
+        let defaultMusicRepository = DefaultRecommendedMusicRepository(
             spotifyAPIService: defaultSpotifyAPIService,
             musicKitService: defaultMusicKitService
         )
-        let defaultFetchMusicsUseCase = DefaultFetchMusicsUseCase(repository: defaultMusicRepository)
+        let defaultFetchMusicsUseCase = DefaultFetchRecommendedMusicUseCase(repository: defaultMusicRepository)
         let defaultImageProvider = DefaultImageFetchService()
         let defaultImageRepository = DefaultImageRepository(imageFetchService: defaultImageProvider)
         let defaultFetchImageUseCase = DefaultFetchImageUseCase(repository: defaultImageRepository)

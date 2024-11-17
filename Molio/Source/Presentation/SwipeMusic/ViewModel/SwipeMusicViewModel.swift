@@ -45,7 +45,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
     private var cancellables = Set<AnyCancellable>()
     
     init(
-        fetchMusicsUseCase: FetchMusicsUseCase,
+        fetchMusicsUseCase: FetchRecommendedMusicUseCase,
         fetchImageUseCase: FetchImageUseCase,
         musicFilterProvider: any MusicFilterProvider
     ) {

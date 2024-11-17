@@ -1,4 +1,4 @@
-struct DefaultMusicRepository: MusicRepository {
+struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
     private let spotifyAPIService: SpotifyAPIService
     private let musicKitService: MusicKitService
     
