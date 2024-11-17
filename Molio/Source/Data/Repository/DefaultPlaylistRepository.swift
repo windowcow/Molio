@@ -5,13 +5,14 @@ import Combine
 final class DefaultPlaylistRepository: PlaylistRepository {
     private let context: NSManagedObjectContext
     private var cancellables = Set<AnyCancellable>()
-    private let playlistsSubject = PassthroughSubject <[PlaylistEntity], Never>()
-    
+    private let playlistsSubject = PassthroughSubject <[MolioPlaylist], Never>()
+    private let fetchRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+
     private let alertNotFoundPlaylist: String = "해당 플레이리스트를 못 찾았습니다."
     private let alertNotFoundMusicsinPlaylist: String = "플레이리스트에 음악이 없습니다."
     private let alertFailDeletePlaylist: String = "플레이리스트를 삭제할 수 없습니다"
     
-    var playlistsPublisher: AnyPublisher<[PlaylistEntity], Never> {
+    var playlistsPublisher: AnyPublisher<[MolioPlaylist], Never> {
         playlistsSubject.eraseToAnyPublisher()
     }
     
@@ -30,7 +31,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func addMusic(isrc: String, to playlistName: String) {
-        guard let playlist = fetchRawPlaylist(for: playlistName) else { return }
+        guard var playlist = fetchRawPlaylist(for: playlistName) else { return }
         
         playlist.musicISRCs.append(isrc)
         saveContext()
@@ -56,12 +57,11 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         }
     }
     
-    func fetchPlaylists() -> [PlaylistEntity]? {
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+    func fetchPlaylists() -> [MolioPlaylist]? {
         do {
             let playlists = try context.fetch(fetchRequest)
-            let playlistEntitys = playlists.map { playlist in
-                PlaylistEntity(
+            let molioPlaylists = playlists.map { playlist in
+                MolioPlaylist(
                     id: playlist.id,
                     name: playlist.name,
                     createdAt: playlist.createdAt,
@@ -69,7 +69,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
                     filters: playlist.filters
                 )
             }
-            return playlistEntitys
+            return molioPlaylists
         } catch {
             print("Failed to fetch playlists: \(error)")
             return nil
@@ -77,7 +77,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func saveNewPlaylist(_ playlistName: String) {
-        let playlist = MolioPlaylist(context: context)
+        let playlist = Playlist(context: context)
         
         playlist.id = UUID()
         playlist.name = playlistName
@@ -95,14 +95,13 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         saveContext()
     }
     
-    func fetchPlaylist(for name: String) -> PlaylistEntity? {
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+    func fetchPlaylist(for name: String) -> MolioPlaylist? {
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.fetchLimit = 1
         
         do {
             guard let playlist = try context.fetch(fetchRequest).first else { return nil }
-            return PlaylistEntity(
+            return MolioPlaylist(
                 id: playlist.id,
                 name: playlist.name,
                 createdAt: playlist.createdAt,
@@ -137,8 +136,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         PersistenceManager.shared.saveContext()
     }
     
-    private func fetchPlaylist(id: UUID) -> MolioPlaylist? {
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+    private func fetchPlaylist(id: UUID) -> Playlist? {
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
         do {
@@ -150,8 +148,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         }
     }
     
-    private func fetchRawPlaylist(for name: String) -> MolioPlaylist? {
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
+    private func fetchRawPlaylist(for name: String) -> Playlist? {
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.fetchLimit = 1
         
