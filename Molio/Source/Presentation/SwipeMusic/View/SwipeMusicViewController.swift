@@ -331,11 +331,8 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     private func setupMusicTrackView() {
-        
         // MARK: 다음 노래 카드
-        
-        view.addSubview(nextCardView)
-        
+        view.insertSubview(nextCardView, belowSubview: playlistSelectButton)
         NSLayoutConstraint.activate([
             nextCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
             nextCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
@@ -345,9 +342,7 @@ final class SwipeMusicViewController: UIViewController {
         ])
         
         // MARK: 현재 노래 카드
-        
-        view.addSubview(currentCardView)
-        
+        view.insertSubview(currentCardView, belowSubview: playlistSelectButton)
         NSLayoutConstraint.activate([
             currentCardView.topAnchor.constraint(equalTo: playlistSelectButton.bottomAnchor, constant: 12),
             currentCardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
