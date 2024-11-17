@@ -54,6 +54,17 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
+
+    @objc func showActionSheet() {
+        let playlistView = CreatePlaylistView( onConfirm: {
+            print("확인 버튼 눌림") // 확인 버튼 동작
+        })
+        self.presentCustomSheet(
+            content: playlistView
+        )
+    }
+    
+   
     private let currentCardView = MusicCardView()
     private let nextCardView: MusicCardView = {
         let nextCardView = MusicCardView()
@@ -252,6 +263,7 @@ final class SwipeMusicViewController: UIViewController {
     private func setupButtonTarget() {
         likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
+        playlistSelectButton.addTarget(self, action: #selector(showActionSheet), for: .touchUpInside)
     }
 
     /// 사용자에게 진동 feedback을 주는 메서드
@@ -294,7 +306,7 @@ final class SwipeMusicViewController: UIViewController {
         NSLayoutConstraint.activate([
             playlistSelectButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
             playlistSelectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            playlistSelectButton.widthAnchor.constraint(equalToConstant: 192),
+            //playlistSelectButton.widthAnchor.constraint(equalToConstant: 192),
             playlistSelectButton.heightAnchor.constraint(equalToConstant: 39)
         ])
         
@@ -408,3 +420,6 @@ struct SwipeViewController_Previews: PreviewProvider {
             .edgesIgnoringSafeArea(.all)
     }
 }
+
+
+
