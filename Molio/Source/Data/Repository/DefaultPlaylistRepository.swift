@@ -31,7 +31,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     func addMusic(isrc: String, to playlistName: String) {
-        guard var playlist = fetchRawPlaylist(for: playlistName) else { return }
+        guard let playlist = fetchRawPlaylist(for: playlistName) else { return }
         
         playlist.musicISRCs.append(isrc)
         saveContext()
@@ -113,8 +113,6 @@ final class DefaultPlaylistRepository: PlaylistRepository {
             return nil
         }
     }
-    
-    
     
     // MARK: - Private Method
     

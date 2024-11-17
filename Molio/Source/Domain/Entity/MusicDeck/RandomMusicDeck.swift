@@ -110,7 +110,6 @@ final class RandomMusicDeck {
         randomMusics.value.remove(at: 0)
     }
     
-    
     private func musicPublisher(at index: Int) -> AnyPublisher<RandomMusic?, Never> {
         randomMusics
             .compactMap { randomMusics in
@@ -123,4 +122,3 @@ final class RandomMusicDeck {
             .eraseToAnyPublisher()
     }
 }
-
