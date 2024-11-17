@@ -199,7 +199,6 @@ final class SwipeMusicViewController: UIViewController {
     /// Swipe 동작이 끝나고 MusicCard가 animation되는 메서드
     private func animateMusicCard(direction: SwipeMusicViewModel.SwipeDirection) {
         let currentCenter = currentCardView.center
-        let viewCenter = view.center
         let frameWidth = view.frame.width
 
         switch direction {
@@ -227,7 +226,8 @@ final class SwipeMusicViewController: UIViewController {
             })
         case .none:
             UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.currentCardView.center = viewCenter
+                guard let self else { return }
+                self.currentCardView.center = self.nextCardView.center
             }
         }
     }
