@@ -9,7 +9,7 @@ final class MusicCardView: UIView {
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .systemPink
+        imageView.backgroundColor = .background
         return imageView
     }()
     
