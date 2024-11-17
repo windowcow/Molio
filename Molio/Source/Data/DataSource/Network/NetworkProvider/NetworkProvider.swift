@@ -29,7 +29,7 @@ private extension NetworkProvider {
     func makeURL(of endPoint: any EndPoint) -> URL? {
         var components = URLComponents(string: endPoint.base)
         components?.path = endPoint.path
-        components?.queryItems = endPoint.params.map { URLQueryItem(name: $0.key, value: $0.value) }
+        components?.queryItems = endPoint.params?.map { URLQueryItem(name: $0.key, value: $0.value) }
         return components?.url
     }
 }
