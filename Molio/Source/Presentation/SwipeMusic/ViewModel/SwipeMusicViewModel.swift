@@ -96,6 +96,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             .store(in: &cancellables)
 
         input.likeButtonDidTap
+            .throttle(for: .seconds(0.4), scheduler: RunLoop.main, latest: false)
             .sink { [weak self] _ in
                 guard let self else { return }
                 self.musicDeck.likeCurrentMusic()
@@ -104,6 +105,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             .store(in: &cancellables)
 
         input.dislikeButtonDidTap
+            .throttle(for: .seconds(0.4), scheduler: RunLoop.main, latest: false)
             .sink { [weak self] _ in
                 guard let self else { return }
                 self.musicDeck.dislikeCurrentMusic()
