@@ -15,6 +15,8 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         let isLoading: AnyPublisher<Bool, Never> // TODO: 로딩 UI 구현 및 연결
         let buttonHighlight: AnyPublisher<ButtonHighlight, Never>
         let musicCardSwipeAnimation: AnyPublisher<SwipeDirection, Never>
+        let currentMusicTrack: AnyPublisher<SwipeMusicTrackModel, Never>
+        let nextMusicTrack: AnyPublisher<SwipeMusicTrackModel, Never>
         let error: AnyPublisher<String, Never> // TODO: Error에 따른 알림 UI 구현 및 연결
     }
     
@@ -33,28 +35,26 @@ final class SwipeMusicViewModel: InputOutputViewModel {
         return 170.0
     }
     
+    private let musicDeck: any MusicDeck
     private let fetchImageUseCase: FetchImageUseCase
     private let isLoadingPublisher = PassthroughSubject<Bool, Never>()
     private let buttonHighlightPublisher = PassthroughSubject<ButtonHighlight, Never>()
     private let musicCardSwipeAnimationPublisher = PassthroughSubject<SwipeDirection, Never>()
+    private let currentMusicTrackPublisher = PassthroughSubject<SwipeMusicTrackModel, Never>()
+    private let nextMusicTrackPublisher = PassthroughSubject<SwipeMusicTrackModel, Never>()
     private let errorPublisher = PassthroughSubject<String, Never>()
     private var cancellables = Set<AnyCancellable>()
     
-    // MARK: Music Deck
-    
-    let musicDeck: any MusicDeck
-    
-    let currentMusicTrackPublisher = CurrentValueSubject<SwipeMusicTrackModel?, Never>(nil)
-    let nextMusicTrackPublisher = CurrentValueSubject<SwipeMusicTrackModel?, Never>(nil)
-
     init(
         fetchMusicsUseCase: FetchMusicsUseCase,
         fetchImageUseCase: FetchImageUseCase,
         musicFilterProvider: any MusicFilterProvider
     ) {
-        self.musicDeck = RandomMusicDeck(fetchMusicsUseCase: fetchMusicsUseCase, musicFilterProvider: musicFilterProvider)
+        self.musicDeck = RandomMusicDeck(
+            fetchMusicsUseCase: fetchMusicsUseCase,
+            musicFilterProvider: musicFilterProvider
+        )
         self.fetchImageUseCase = fetchImageUseCase
-        
         setupBindings()
     }
     
@@ -128,50 +128,53 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             isLoading: isLoadingPublisher.eraseToAnyPublisher(),
             buttonHighlight: buttonHighlightPublisher.eraseToAnyPublisher(),
             musicCardSwipeAnimation: musicCardSwipeAnimationPublisher.eraseToAnyPublisher(),
+            currentMusicTrack: currentMusicTrackPublisher.eraseToAnyPublisher(),
+            nextMusicTrack: nextMusicTrackPublisher.eraseToAnyPublisher(),
             error: errorPublisher.eraseToAnyPublisher()
         )
     }
     
     private func setupBindings() {
-        
         // MARK: 현재 노래 관련
         // currentMusicTrack이 변경되면 sink에 정의된 동작을 실행한다.
         musicDeck.currentMusicTrackModelPublisher
             .sink { [weak self] currentMusic in
                 guard let currentMusic else {
-                    // TODO: 현재 노래가 없는 경우 보여줄 카드를 여기에 담아야 함
+                    // TODO: 현재 노래가 없는 경우 보여줄 카드 처리.
                     return
                 }
-                
                 Task { [weak self] in
+                    guard let self else { return }
                     do {
-                        let swipeMusicTrackModel = try await self?.loadMusicCard(from: currentMusic)
-                        
-                        self?.currentMusicTrackPublisher.send(swipeMusicTrackModel)
+                        let swipeMusicTrackModel = try await self.loadMusicCard(from: currentMusic)
+                        self.currentMusicTrackPublisher.send(swipeMusicTrackModel)
                     } catch {
-                        self?.errorPublisher.send("재생할 노래가 없습니다.")
+                        self.currentMusicTrackPublisher.send(SwipeMusicTrackModel(
+                            randomMusic: currentMusic,
+                            imageData: nil)
+                        )
                     }
                 }
             }
             .store(in: &cancellables)
         
-        
-         // MARK: 다음 노래 관련
-        
+        // MARK: 다음 노래 관련
         musicDeck.nextMusicTrackModelPublisher
             .sink { [weak self] nextMusic in
                 guard let nextMusic else {
-                    // TODO: 현재 노래가 없는 경우 보여줄 카드를 여기에 담아야 함
+                    // TODO: 다음 노래가 없는 경우 보여줄 카드 처리.
                     return
                 }
-                
                 Task { [weak self] in
+                    guard let self else { return }
                     do {
-                        let swipeMusicTrackModel = try await self?.loadMusicCard(from: nextMusic)
-                        
-                        self?.nextMusicTrackPublisher.send(swipeMusicTrackModel)
+                        let swipeMusicTrackModel = try await self.loadMusicCard(from: nextMusic)
+                        self.nextMusicTrackPublisher.send(swipeMusicTrackModel)
                     } catch {
-                        self?.errorPublisher.send("다음 노래가 없습니다.")
+                        self.currentMusicTrackPublisher.send(SwipeMusicTrackModel(
+                            randomMusic: nextMusic,
+                            imageData: nil)
+                        )
                     }
                 }
             }
