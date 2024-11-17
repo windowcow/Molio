@@ -28,13 +28,13 @@
 		201048542CEA280E0015E800 /* presentCustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201048532CEA280E0015E800 /* presentCustomSheet.swift */; };
 		201048592CEA2B020015E800 /* CreatePlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201048582CEA2B020015E800 /* CreatePlaylistUseCase.swift */; };
 		2010485B2CEA2B1B0015E800 /* DefaultCreatePlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010485A2CEA2B1B0015E800 /* DefaultCreatePlaylistUseCase.swift */; };
+		20150EC52CEA36B700FC8883 /* Playlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20150EC32CEA36B700FC8883 /* Playlist+CoreDataClass.swift */; };
+		20150EC62CEA36B700FC8883 /* Playlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20150EC42CEA36B700FC8883 /* Playlist+CoreDataProperties.swift */; };
 		20397E512CE33C03004ED9CE /* SwipeMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */; };
 		20397E5A2CE5CB3C004ED9CE /* PlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */; };
 		20397E6A2CE5DCDD004ED9CE /* MolioModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20397E682CE5DCDD004ED9CE /* MolioModel.xcdatamodeld */; };
 		20397E702CE5DE56004ED9CE /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E6F2CE5DE56004ED9CE /* PersistenceManager.swift */; };
 		20397E722CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E712CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift */; };
-		20397E7D2CE5F864004ED9CE /* MolioPlaylist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E7B2CE5F864004ED9CE /* MolioPlaylist+CoreDataClass.swift */; };
-		20397E7E2CE5F864004ED9CE /* MolioPlaylist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E7C2CE5F864004ED9CE /* MolioPlaylist+CoreDataProperties.swift */; };
 		20397E802CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E7F2CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift */; };
 		881622692CE3671400E81EA0 /* RandomMusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881622682CE3671400E81EA0 /* RandomMusicDeck.swift */; };
 		8816226B2CE3838B00E81EA0 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226A2CE3838B00E81EA0 /* DeckTests.swift */; };
@@ -137,13 +137,13 @@
 		201048532CEA280E0015E800 /* presentCustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = presentCustomSheet.swift; sourceTree = "<group>"; };
 		201048582CEA2B020015E800 /* CreatePlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistUseCase.swift; sourceTree = "<group>"; };
 		2010485A2CEA2B1B0015E800 /* DefaultCreatePlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCreatePlaylistUseCase.swift; sourceTree = "<group>"; };
+		20150EC32CEA36B700FC8883 /* Playlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20150EC42CEA36B700FC8883 /* Playlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20397E502CE33C03004ED9CE /* SwipeMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicPlayer.swift; sourceTree = "<group>"; };
 		20397E592CE5CB3C004ED9CE /* PlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRepository.swift; sourceTree = "<group>"; };
 		20397E692CE5DCDD004ED9CE /* MolioModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MolioModel.xcdatamodel; sourceTree = "<group>"; };
 		20397E6F2CE5DE56004ED9CE /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		20397E712CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaylistRepository.swift; sourceTree = "<group>"; };
-		20397E7B2CE5F864004ED9CE /* MolioPlaylist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MolioPlaylist+CoreDataClass.swift"; sourceTree = "<group>"; };
-		20397E7C2CE5F864004ED9CE /* MolioPlaylist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MolioPlaylist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20397E7F2CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaylistRepositoryTests.swift; sourceTree = "<group>"; };
 		881622682CE3671400E81EA0 /* RandomMusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusicDeck.swift; sourceTree = "<group>"; };
 		8816226A2CE3838B00E81EA0 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
@@ -323,8 +323,8 @@
 		20397E5C2CE5CD61004ED9CE /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				20397E7B2CE5F864004ED9CE /* MolioPlaylist+CoreDataClass.swift */,
-				20397E7C2CE5F864004ED9CE /* MolioPlaylist+CoreDataProperties.swift */,
+				20150EC32CEA36B700FC8883 /* Playlist+CoreDataClass.swift */,
+				20150EC42CEA36B700FC8883 /* Playlist+CoreDataProperties.swift */,
 				20397E682CE5DCDD004ED9CE /* MolioModel.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -930,8 +930,6 @@
 				F17369682CE36E8F00F6242C /* DefaultImageRepository.swift in Sources */,
 				B8D554062CE0ED2C007CCD6D /* SpotifyAPI.swift in Sources */,
 				B8D554C82CE34A47007CCD6D /* String+Extension.swift in Sources */,
-				20397E7D2CE5F864004ED9CE /* MolioPlaylist+CoreDataClass.swift in Sources */,
-				20397E7E2CE5F864004ED9CE /* MolioPlaylist+CoreDataProperties.swift in Sources */,
 				881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */,
 				2010485B2CEA2B1B0015E800 /* DefaultCreatePlaylistUseCase.swift in Sources */,
 				201048512CEA23190015E800 /* addGradientBackground.swift in Sources */,
@@ -944,6 +942,8 @@
 				B8D554C02CE322CF007CCD6D /* SpotifyTokenProviderError.swift in Sources */,
 				F17369662CE36E2900F6242C /* ImageRepository.swift in Sources */,
 				201048542CEA280E0015E800 /* presentCustomSheet.swift in Sources */,
+				20150EC52CEA36B700FC8883 /* Playlist+CoreDataClass.swift in Sources */,
+				20150EC62CEA36B700FC8883 /* Playlist+CoreDataProperties.swift in Sources */,
 				B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */,
 				B8D553EA2CDFE271007CCD6D /* EndPoint.swift in Sources */,
 				B809709E2CDB640B007BC3C4 /* MusicKitService.swift in Sources */,

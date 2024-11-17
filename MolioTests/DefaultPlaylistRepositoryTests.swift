@@ -5,7 +5,8 @@ import CoreData
 final class DefaultPlaylistRepositoryTests: XCTestCase {
     var repository: DefaultPlaylistRepository!
     var context: NSManagedObjectContext!
-    
+    let fetchRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+
     override func setUp() {
         super.setUp()
         context = TestPersistenceManager.shared.context
@@ -23,9 +24,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         let playlistName: String = "TestPlaylist"
         
         repository.saveNewPlaylist(playlistName)
-        
-        let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
-        
+                
         let playlist = repository.fetchPlaylist(for: playlistName)
         
         XCTAssertEqual(playlist?.name, playlistName)
@@ -42,7 +41,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         guard let playlist = repository.fetchPlaylist(for: playlistName)else {
             return }
         
-        let musics = playlist.musics
+        let musics = playlist.musicISRCs
         
         XCTAssertEqual(musics.count, 1)
         XCTAssertEqual(musics.first, testISRC)
@@ -55,7 +54,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: testISRC, to: playlistName)
         repository.deleteMusic(isrc: testISRC, in: playlistName)
         
-        let musics = repository.fetchPlaylist(for: playlistName)?.musics
+        let musics = repository.fetchPlaylist(for: playlistName)?.musicISRCs
         XCTAssertTrue(musics?.isEmpty ?? false)
     }
     
@@ -66,7 +65,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
 
-        let musics = repository.fetchPlaylist(for: playlistName)?.musics
+        let musics = repository.fetchPlaylist(for: playlistName)?.musicISRCs
         XCTAssertEqual(musics?.count, 2)
         XCTAssertEqual(musics?[0], "MUSIC_1")
         XCTAssertEqual(musics?[1], "MUSIC_2")
@@ -81,7 +80,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
 
         repository.moveMusic(isrc: "MUSIC_1", in: playlistName, fromIndex: 0, toIndex: 1)
 
-        let musics = repository.fetchPlaylist(for: playlistName)?.musics
+        let musics = repository.fetchPlaylist(for: playlistName)?.musicISRCs
         XCTAssertEqual(musics?[0], "MUSIC_2")
         XCTAssertEqual(musics?[1], "MUSIC_1")
     }
