@@ -13,4 +13,11 @@ final class DefaultSpotifyAPIService: SpotifyAPIService {
         let dto: RecommendationsResponseDTO = try await networkProvider.request(endPoint)
         return dto.tracks.map(\.externalIDs.isrc)
     }
+    
+    func fetchAvailableGenreSeeds() async throws -> SpotifyAvailableGenreSeedsDTO {
+        let accessToken = try await tokenProvider.getAccessToken()
+        let endPoint = SpotifyAPI.getAvailableGenreSeeds(accessToken: accessToken)
+        let dto: SpotifyAvailableGenreSeedsDTO = try await networkProvider.request(endPoint)
+        return dto
+    }
 }
