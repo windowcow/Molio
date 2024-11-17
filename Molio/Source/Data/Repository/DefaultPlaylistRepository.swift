@@ -5,13 +5,13 @@ import Combine
 final class DefaultPlaylistRepository: PlaylistRepository {
     private let context: NSManagedObjectContext
     private var cancellables = Set<AnyCancellable>()
-    private let playlistsSubject = PassthroughSubject <[PlaylistDTO], Never>()
+    private let playlistsSubject = PassthroughSubject <[PlaylistEntity], Never>()
     
     private let alertNotFoundPlaylist: String = "해당 플레이리스트를 못 찾았습니다."
     private let alertNotFoundMusicsinPlaylist: String = "플레이리스트에 음악이 없습니다."
     private let alertFailDeletePlaylist: String = "플레이리스트를 삭제할 수 없습니다"
     
-    var playlistsPublisher: AnyPublisher<[PlaylistDTO], Never> {
+    var playlistsPublisher: AnyPublisher<[PlaylistEntity], Never> {
         playlistsSubject.eraseToAnyPublisher()
     }
     
@@ -52,12 +52,12 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         }
     }
     
-    func fetchPlaylists() -> [PlaylistDTO]? {
+    func fetchPlaylists() -> [PlaylistEntity]? {
         let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
         do {
             let playlists = try context.fetch(fetchRequest)
-            let playlistDTOs = playlists.map { playlist in
-                PlaylistDTO(
+            let playlistEntitys = playlists.map { playlist in
+                PlaylistEntity(
                     id: playlist.id,
                     name: playlist.name,
                     createdAt: playlist.createdAt,
@@ -65,7 +65,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
                     filters: playlist.filters
                 )
             }
-            return playlistDTOs
+            return playlistEntitys
         } catch {
             print("Failed to fetch playlists: \(error)")
             return nil
@@ -91,14 +91,14 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         saveContext()
     }
     
-    func fetchPlaylist(for name: String) -> PlaylistDTO? {
+    func fetchPlaylist(for name: String) -> PlaylistEntity? {
         let fetchRequest: NSFetchRequest<MolioPlaylist> = MolioPlaylist.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.fetchLimit = 1
         
         do {
             guard let playlist = try context.fetch(fetchRequest).first else { return nil }
-            return PlaylistDTO(
+            return PlaylistEntity(
                 id: playlist.id,
                 name: playlist.name,
                 createdAt: playlist.createdAt,
