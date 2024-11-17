@@ -48,7 +48,7 @@ struct TagLayout: Layout {
             let cell = subviews[idx]
             let cellSize = cell.sizeThatFits(.unspecified)
             
-            if originX + cellSize.width > bounds.width {
+            if originX + cellSize.width + verticalSpacing > bounds.width {
                 originX = bounds.minX
                 originY += (cellSize.height + verticalSpacing)
             }
