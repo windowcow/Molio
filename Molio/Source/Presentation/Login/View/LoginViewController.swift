@@ -94,17 +94,17 @@ final class LoginViewController: UIViewController {
     
     private func setupConstraint() {
         NSLayoutConstraint.activate([
-            molioTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 282),
-            molioTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            molioTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            molioTitleLabel.bottomAnchor.constraint(equalTo: molioSubTitleLabel.topAnchor, constant: -4)
         ])
         
         NSLayoutConstraint.activate([
-            molioSubTitleLabel.topAnchor.constraint(equalTo: molioTitleLabel.bottomAnchor, constant: 29),
-            molioSubTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            molioSubTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            molioSubTitleLabel.bottomAnchor.constraint(equalTo: verticalLineView.topAnchor, constant: -31)
         ])
         
         NSLayoutConstraint.activate([
-            verticalLineView.topAnchor.constraint(equalTo: molioSubTitleLabel.bottomAnchor, constant: 31),
+            verticalLineView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.47),
             verticalLineView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             verticalLineView.widthAnchor.constraint(equalToConstant: 1),
             verticalLineView.heightAnchor.constraint(equalToConstant: 93)
