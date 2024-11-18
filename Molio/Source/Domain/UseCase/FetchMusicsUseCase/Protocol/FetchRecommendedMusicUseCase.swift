@@ -1,3 +1,3 @@
 protocol FetchRecommendedMusicUseCase {
-    func execute(genres: [String]) async throws -> [RandomMusic]
+    func execute(with filter: MusicFilter) async throws -> [RandomMusic]
 }

@@ -7,9 +7,10 @@ final class DefaultSpotifyAPIService: SpotifyAPIService {
         self.tokenProvider = tokenProvider
     }
     
-    func fetchRecommendedMusicISRCs(musicFilter: MusicFilter) async throws -> [String] {
+    func fetchRecommendedMusicISRCs(with filter: MusicFilter) async throws -> [String] {
         let accessToken = try await tokenProvider.getAccessToken()
-        let endPoint = SpotifyAPI.getRecommendations(genres: musicFilter.genres, accessToken: accessToken)
+        let genresParam = filter.genres.map(\.rawValue) // TODO: - 장르 5개씩 쪼개서 요청 보내기
+        let endPoint = SpotifyAPI.getRecommendations(genres: genresParam, accessToken: accessToken)
         let dto: RecommendationsResponseDTO = try await networkProvider.request(endPoint)
         return dto.tracks.map(\.externalIDs.isrc)
     }

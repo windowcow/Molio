@@ -93,10 +93,8 @@ final class RandomMusicDeck {
     }
     
     private func loadRandomMusic() {
-        let genres = self.musicFilter.value?.genres ?? []
-        
         Task { [weak self] in
-            let fetchedMusics = try? await self?.fetchMusicsUseCase.execute(genres: genres)
+            let fetchedMusics = try? await self?.fetchMusicsUseCase.execute(with: MusicFilter(genres: []))
             
             guard let fetchedMusics else { return }
             
