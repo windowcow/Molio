@@ -71,6 +71,16 @@ final class LoginViewController: UIViewController {
         view.backgroundColor = .background
         setupHierarchy()
         setupConstraint()
+        addTapGesture()
+    }
+    
+    private func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapSkipLoginButtonLabel))
+        skipLoginButtonLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func didTapSkipLoginButtonLabel() {
+        //TODO: 로그인 없이 시작하는 로직 추가
     }
     
     private func setupHierarchy() {
