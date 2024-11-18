@@ -34,6 +34,7 @@ struct MusicFilterView: View {
         Color.background
         MusicFilterView(
             viewModel: MusicFilterViewModel(
+                fetchAvailableGenresUseCase: MockFetchAvailableGenresUseCase(),
                 selectedGenres: [.acoustic, .blackMetal, .emo, .jDance, .workOut]
             )
         )

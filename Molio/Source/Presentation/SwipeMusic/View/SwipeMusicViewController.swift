@@ -289,8 +289,22 @@ final class SwipeMusicViewController: UIViewController {
     }
     
     @objc private func didTapFilterButton() {
-        // TODO: - 뷰모델 의존성 주입 & 선택된 장르 넘기기
-        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(viewModel: MusicFilterViewModel(selectedGenres: [])))
+        // TODO: - 의존성 주입 & 선택된 장르 넘기기
+        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultRecommendedMusicRepository = DefaultRecommendedMusicRepository(
+            spotifyAPIService: mockSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        let defaultFetchAvailableGenresUseCase = DefaultFetchAvailableGenresUseCase(
+            recommendedMusicRepository: defaultRecommendedMusicRepository
+        )
+        let musicViewModel = MusicFilterViewModel(
+            fetchAvailableGenresUseCase: defaultFetchAvailableGenresUseCase,
+            selectedGenres: []
+        )
+        
+        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(viewModel: musicViewModel))
         navigationController?.pushViewController(musicFilterVC, animated: true)
     }
     
