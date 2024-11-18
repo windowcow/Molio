@@ -32,4 +32,10 @@ struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
             return musics
         }
     }
+    
+    func fetchMusicGenres() async throws -> [MusicGenre] {
+        let availableGenreSeedsDTO = try await spotifyAPIService.fetchAvailableGenreSeeds()
+        let musicGenreArr = availableGenreSeedsDTO.genres.compactMap { MusicGenre(rawValue: $0) }
+        return musicGenreArr
+    }
 }
