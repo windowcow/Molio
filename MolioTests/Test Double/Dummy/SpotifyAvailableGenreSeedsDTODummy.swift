@@ -2,6 +2,17 @@ import Foundation
 @testable import Molio
 
 extension SpotifyAvailableGenreSeedsDTO {
+    static let dummy: Self = SpotifyAvailableGenreSeedsDTO(
+        genres: [
+            "acoustic", "afrobeat", "alt-rock", "alternative",
+            "ambient", "anime", "black-metal", "bluegrass",
+            "blues", "bossanova", "brazil", "breakbeat",
+            "british", "cantopop", "chicago-house", "children",
+            "chill", "classical", "club", "comedy", "country",
+            "dance", "dancehall", "death-metal"
+        ]
+    )
+    
     static let dummyData: Data =
     #"""
     {
