@@ -15,7 +15,7 @@ final class MusicFilterViewModel: ObservableObject {
         self.allGenres = allGenres
         self.selectedGenres = selectedGenres
         
-        getAllGenres() // TODO: - 호출 횟수 조절
+//        getAllGenres() // TODO: - 호출 횟수 조절
     }
     
     func toggleSelection(of genre: MusicGenre) {
