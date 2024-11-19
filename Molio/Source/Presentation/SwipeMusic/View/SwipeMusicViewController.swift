@@ -290,10 +290,15 @@ final class SwipeMusicViewController: UIViewController {
     
     @objc private func didTapFilterButton() {
         // TODO: - 의존성 주입 & 선택된 장르 넘기기
-        let mockSpotifyAPIService = MockSpotifyAPIService()
+        let networkProvider = DefaultNetworkProvider()
+        let tokenProvider = DefaultSpotifyTokenProvider(networkProvider: networkProvider)
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(
+            networkProvider: networkProvider,
+            tokenProvider: tokenProvider
+        )
         let defaultMusicKitService = DefaultMusicKitService()
         let defaultRecommendedMusicRepository = DefaultRecommendedMusicRepository(
-            spotifyAPIService: mockSpotifyAPIService,
+            spotifyAPIService: defaultSpotifyAPIService,
             musicKitService: defaultMusicKitService
         )
         let defaultFetchAvailableGenresUseCase = DefaultFetchAvailableGenresUseCase(
