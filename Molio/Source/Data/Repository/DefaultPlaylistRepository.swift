@@ -76,16 +76,22 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         }
     }
     
-    func saveNewPlaylist(_ playlistName: String) {
-        let playlist = Playlist(context: context)
-        
-        playlist.id = UUID()
-        playlist.name = playlistName
-        playlist.filters = []
-        playlist.createdAt = Date()
-        playlist.musicISRCs = []
-        
-        saveContext()
+    func saveNewPlaylist(_ playlistName: String) async throws -> UUID {
+        try await context.perform { [weak self] in
+            guard let self = self else {
+                throw CoreDataError.contextUnavailable
+            }
+            let newId = UUID()
+            let playlist = Playlist(context: self.context)
+            playlist.id = newId
+            playlist.name = playlistName
+            playlist.createdAt = Date()
+            playlist.musicISRCs = []
+            playlist.filters = []
+
+            try saveContexts()
+            return newId
+        }
     }
     
     func deletePlaylist(_ playlistName: String) {
@@ -135,6 +141,14 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         PersistenceManager.shared.saveContext()
     }
     
+    private func saveContexts() throws {
+            do {
+                try context.save()
+            } catch {
+                throw CoreDataError.saveFailed
+            }
+        
+    }
     private func fetchPlaylist(id: UUID) -> Playlist? {
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
@@ -165,3 +179,4 @@ final class DefaultPlaylistRepository: PlaylistRepository {
         print(context)
     }
 }
+
