@@ -54,7 +54,6 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
-
     @objc func showActionSheet() {
         let playlistView = CreatePlaylistView( onConfirm: {
             print("확인 버튼 눌림") // TODO: 확인 버튼 동작 추가

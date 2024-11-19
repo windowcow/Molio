@@ -41,7 +41,6 @@ struct BasicButton: View {
     }
 }
 
-
 #Preview {
     VStack {
         BasicButton(type: .cancel) {

@@ -10,25 +10,24 @@ struct CreatePlaylistView: View {
     var placeholder: String = "플레이리스트 이름을 입력해주세요"
     
     var body: some View {
-        ZStack{
+        ZStack {
             Color(.clear)
-            VStack (spacing: 20) {
+            VStack(spacing: 20) {
                 Spacer() 
                     .frame(height: 40)
                 
                 Text("플레이리스트 만들기")
                     .font(.custom(PretendardFontName.Bold, size: 28))
                     .foregroundStyle(Color.white)
-                
-//                Spacer()
-                
+                            
                 VStack {
                     ZStack(alignment: .center) {
-                        if text.isEmpty && !isFocused{
+                        if text.isEmpty && !isFocused {
                             Text(placeholder)
                                 .foregroundColor(.white)
                                 .opacity(0.8)
                         }
+                        
                         TextField("", text: $text)
                             .padding(.bottom, 5)
                             .textFieldStyle(PlainTextFieldStyle())
@@ -75,6 +74,3 @@ struct CreatePlaylistView: View {
     CreatePlaylistView()
         .background(Color.background)
 }
-
-
-
