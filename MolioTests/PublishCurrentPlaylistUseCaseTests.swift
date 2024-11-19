@@ -2,7 +2,7 @@ import XCTest
 @testable import Molio
 import Combine
 
-final class DefaultPublishCurrentPlaylistUseCaseTests: XCTestCase {
+final class PublishCurrentPlaylistUseCaseTests: XCTestCase {
     private var subscriptions = Set<AnyCancellable>()
     
     // `CurrentPlaylistRepository`에서 플레이리스트의 UUID가 변경될 때,
@@ -32,10 +32,9 @@ final class DefaultPublishCurrentPlaylistUseCaseTests: XCTestCase {
         
         mockCurrentPlaylistRepository.setCurrentPlaylist(UUID())
         
-        if playlists.count >= 2 {
-            XCTAssertEqual(playlists[0]?.name, nil)
-            XCTAssertEqual(playlists[0]?.name, playlists[1]?.name)
-            XCTAssertEqual(playlists[1]?.name, playlists[2]?.name)
+        if playlists.count >= 3 {
+            XCTAssertNotEqual(playlists[0]?.name, playlists[1]?.name)
+            XCTAssertNotEqual(playlists[1]?.name, playlists[2]?.name)
         } else {
             XCTFail("플레이리스트가 변경되지 않았습니다.")
         }
@@ -44,6 +43,10 @@ final class DefaultPublishCurrentPlaylistUseCaseTests: XCTestCase {
 
 
 private class MockCurrentPlaylistRepository: CurrentPlaylistRepository {
+    func setDefaultPlaylist(_ id: UUID) throws {
+        
+    }
+    
     private var currentPlaylistUUID = CurrentValueSubject<UUID?, Never>(nil)
     
     var currentPlaylistPublisher: AnyPublisher<UUID?, Never> {
