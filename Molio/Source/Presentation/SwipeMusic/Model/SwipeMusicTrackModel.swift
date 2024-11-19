@@ -26,7 +26,7 @@ struct SwipeMusicTrackModel {
     /// 앨범에 이미지에 따른 primary 색상
     let primaryTextColor: RGBAColor?
     
-    init(randomMusic: RandomMusic, imageData: Data?) {
+    init(randomMusic: MolioMusic, imageData: Data?) {
         self.title = randomMusic.title
         self.artistName = randomMusic.artistName
         self.gerneNames = Array(randomMusic.gerneNames.prefix(3))

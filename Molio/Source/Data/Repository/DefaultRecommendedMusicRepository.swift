@@ -9,12 +9,12 @@ struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
         self.musicKitService = musicKitService
     }
     
-    func fetchMusics(genres: [String]) async throws -> [RandomMusic] {
+    func fetchMusics(genres: [String]) async throws -> [MolioMusic] {
         let musicFilter = MusicFilter(genres: genres)
         let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilter: musicFilter)
 
-        return try await withThrowingTaskGroup(of: RandomMusic?.self) { group in
-            var musics: [RandomMusic] = []
+        return try await withThrowingTaskGroup(of: MolioMusic?.self) { group in
+            var musics: [MolioMusic] = []
             for isrc in isrcs {
                 group.addTask {
                     return await musicKitService.getMusic(with: isrc)

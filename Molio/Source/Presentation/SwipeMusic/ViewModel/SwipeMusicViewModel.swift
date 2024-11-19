@@ -170,7 +170,7 @@ final class SwipeMusicViewModel: InputOutputViewModel {
             .store(in: &cancellables)
     }
     
-    private func loadMusicCard(from music: RandomMusic) async throws -> SwipeMusicTrackModel {
+    private func loadMusicCard(from music: MolioMusic) async throws -> SwipeMusicTrackModel {
         guard let imageURL = music.artworkImageURL else {
             return SwipeMusicTrackModel(randomMusic: music, imageData: nil)
         }
