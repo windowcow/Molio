@@ -2,6 +2,8 @@ import SwiftUI
 import UIKit
 
 extension UIViewController {
+    /// 동적으로 높이가 조정되는 커스텀 시트를 생성하는 함수
+    /// 원하는 배경 뷰와 내용 뷰를 지정하고, 고정된 높이도 지정할 수 있다.
     func presentCustomSheet<Content: View>(
         content: Content,
         backgroundView: UIView? = nil,
@@ -40,6 +42,8 @@ extension UIViewController {
         ])
         
         viewController.modalPresentationStyle = .pageSheet
+        
+        /// 동적 높이 지정
         if let sheet = viewController.sheetPresentationController {
             hostingController.view.layoutIfNeeded()
             let calculatedHeight = hostingController.view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
