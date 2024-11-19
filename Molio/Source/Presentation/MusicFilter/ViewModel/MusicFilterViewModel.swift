@@ -27,7 +27,7 @@ final class MusicFilterViewModel: ObservableObject {
     }
     
     func getAllGenres() {
-        Task {
+        Task { @MainActor in
             allGenres = try await fetchAvailableGenresUseCase.execute()
         }
     }
