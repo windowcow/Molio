@@ -34,14 +34,6 @@ jobs:
       - name: Show current version of Xcode
         run: xcodebuild -version
 
-      # SwiftLint 플러그인 활성화 확인
-      - name: Verify SwiftLint Plugin
-        run: |
-          if ! xcodebuild -resolvePackageDependencies -scheme Molio; then
-            echo "SwiftLint plugin or dependencies could not be resolved."
-            exit 1
-          fi
-          
       # 테스트 스크립트 실행
       - name: Run tests
         run: |

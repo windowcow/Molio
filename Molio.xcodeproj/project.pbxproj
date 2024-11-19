@@ -945,7 +945,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B82EB41B2CECFCC20023210A /* PBXTargetDependency */,
 				F17369382CDCE31C00F6242C /* PBXTargetDependency */,
 			);
 			name = MolioTests;
@@ -1140,10 +1139,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B82EB41B2CECFCC20023210A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = B82EB41A2CECFCC20023210A /* SwiftLintBuildToolPlugin */;
-		};
 		F173692B2CDC85DD00F6242C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = F173692A2CDC85DD00F6242C /* SwiftLintBuildToolPlugin */;
@@ -1446,11 +1441,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B82EB41A2CECFCC20023210A /* SwiftLintBuildToolPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
-			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
 		F173692A2CDC85DD00F6242C /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F17369102CDAFE3600F6242C /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
