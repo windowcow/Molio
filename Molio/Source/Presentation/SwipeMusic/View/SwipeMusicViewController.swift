@@ -55,16 +55,6 @@ final class SwipeMusicViewController: UIViewController {
         return stackView
     }()
     
-    @objc func showActionSheet() {
-        let playlistView = CreatePlaylistView( onConfirm: {
-            print("확인 버튼 눌림") // TODO: 확인 버튼 동작 추가
-        })
-        self.presentCustomSheet(
-            content: playlistView
-        )
-    }
-    
-   
     private let currentCardView = MusicCardView()
     
     private let nextCardView: MusicCardView = {
@@ -263,7 +253,7 @@ final class SwipeMusicViewController: UIViewController {
     private func setupButtonTarget() {
         likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
-        playlistSelectButton.addTarget(self, action: #selector(showActionSheet), for: .touchUpInside)
+        playlistSelectButton.addTarget(self, action: #selector(didTapPlaylistSelectButton), for: .touchUpInside)
         filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
     }
 
@@ -299,6 +289,13 @@ final class SwipeMusicViewController: UIViewController {
         dislikeButtonDidTapPublisher.send()
     }
     
+    @objc func didTapPlaylistSelectButton() {
+        let playlistView = CreatePlaylistView(viewModel: CreatePlaylistViewModel(createPlaylistUseCase: DefaultCreatePlaylistUseCase(repository: DefaultPlaylistRepository()), changeCurrentPlaylistUseCase: DefaultChangeCurrentPlaylistUseCase(repository: MockCurrentPlaylistRepository())))
+        self.presentCustomSheet(
+            content: playlistView
+        )
+    }
+
     @objc private func didTapFilterButton() {
         // TODO: - 의존성 주입 & 선택된 장르 넘기기
         let networkProvider = DefaultNetworkProvider()
