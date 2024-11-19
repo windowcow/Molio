@@ -53,13 +53,14 @@ final class SpotifyTokenProviderTests: XCTestCase {
         let mockNetworkProvider = MockNetworkProvider()
         mockNetworkProvider.dtoToReturn = newTokenResponseDTO
         sut = DefaultSpotifyTokenProvider(networkProvider: mockNetworkProvider)
+        _ = try await sut.getAccessToken()
         
         // When
         let result = try await sut.getAccessToken()
         
         // Then
         XCTAssertEqual(result, newToken)
-        XCTAssertTrue(mockNetworkProvider.isRequestCalled)
+        XCTAssertEqual(mockNetworkProvider.requestCallCount, 2)
     }
     
     func test_새로운_access_Token_요청이_실패했을_경우_TokenProviderError의_failedToCreateToken를_throw한다() async {

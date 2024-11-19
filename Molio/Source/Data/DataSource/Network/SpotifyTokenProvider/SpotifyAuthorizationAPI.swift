@@ -40,7 +40,7 @@ extension SpotifyAuthorizationAPI: EndPoint {
         }
     }
     
-    var params: [String: String] {
+    var params: [String: String]? {
         switch self {
         case .createAccessToken:
             return ["grant_type": "client_credentials"]

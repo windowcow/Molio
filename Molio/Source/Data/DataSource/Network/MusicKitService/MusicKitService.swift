@@ -1,3 +1,3 @@
 protocol MusicKitService {
-    func getMusic(with isrc: String) async -> RandomMusic?
+    func getMusic(with isrc: String) async -> MolioMusic?
 }

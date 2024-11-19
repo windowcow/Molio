@@ -17,5 +17,7 @@ protocol EndPoint {
     var body: Data? { get }
     
     /// 요청 쿼리 파라미터
-    var params: [String: String] { get }
+    var params: [String: String]? { get }
+    
+    var description: String { get }
 }
