@@ -16,7 +16,7 @@ struct MockSpotifyAPIService: SpotifyAPIService {
         ]
     )
     
-    func fetchRecommendedMusicISRCs(musicFilter: MusicFilter) async throws -> [String] {
+    func fetchRecommendedMusicISRCs(with filter: MusicFilter) async throws -> [String] {
         return isrcsToReturn
     }
     
