@@ -18,4 +18,6 @@ protocol EndPoint {
     
     /// 요청 쿼리 파라미터
     var params: [String: String]? { get }
+    
+    var description: String { get }
 }
