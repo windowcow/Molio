@@ -86,7 +86,7 @@
 		F17369252CDC662A00F6242C /* CircleMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369242CDC662A00F6242C /* CircleMenuButton.swift */; };
 		F17369292CDC79E100F6242C /* MusicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369282CDC79E100F6242C /* MusicCardView.swift */; };
 		F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */; };
-		F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* RandomMusic.swift */; };
+		F173693D2CDF191800F6242C /* MolioMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693C2CDF191800F6242C /* MolioMusic.swift */; };
 		F173693F2CDF21BC00F6242C /* RecommendedMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173693E2CDF21BC00F6242C /* RecommendedMusicRepository.swift */; };
 		F17369462CDF24A100F6242C /* FetchRecommendedMusicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369452CDF24A100F6242C /* FetchRecommendedMusicUseCase.swift */; };
 		F17369492CDF250200F6242C /* DefaultFetchRecommendedMusicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369482CDF250200F6242C /* DefaultFetchRecommendedMusicUseCase.swift */; };
@@ -105,6 +105,7 @@
 		F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369732CE3733300F6242C /* ImageFecthError.swift */; };
 		F17369772CE389AA00F6242C /* SwipeMusicTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */; };
 		F173697B2CE4AAC600F6242C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F173697A2CE4AAC600F6242C /* AudioPlayer.swift */; };
+		F1E4058C2CEB8FC500533701 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E4058B2CEB8FC500533701 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,7 +202,7 @@
 		F17369282CDC79E100F6242C /* MusicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCardView.swift; sourceTree = "<group>"; };
 		F173692C2CDC9CF300F6242C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F17369332CDCE31C00F6242C /* MolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F173693C2CDF191800F6242C /* RandomMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusic.swift; sourceTree = "<group>"; };
+		F173693C2CDF191800F6242C /* MolioMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MolioMusic.swift; sourceTree = "<group>"; };
 		F173693E2CDF21BC00F6242C /* RecommendedMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMusicRepository.swift; sourceTree = "<group>"; };
 		F17369452CDF24A100F6242C /* FetchRecommendedMusicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecommendedMusicUseCase.swift; sourceTree = "<group>"; };
 		F17369482CDF250200F6242C /* DefaultFetchRecommendedMusicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchRecommendedMusicUseCase.swift; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		F17369732CE3733300F6242C /* ImageFecthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFecthError.swift; sourceTree = "<group>"; };
 		F17369762CE389AA00F6242C /* SwipeMusicTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMusicTrackModel.swift; sourceTree = "<group>"; };
 		F173697A2CE4AAC600F6242C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		F1E4058B2CEB8FC500533701 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +430,7 @@
 				B809707A2CDB4405007BC3C4 /* Common */,
 				F173691C2CDB991D00F6242C /* SwipeMusic */,
 				B88F80B72CE48906000480E6 /* MusicFilter */,
+				F1E405892CEB8FA400533701 /* Login */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -516,7 +519,7 @@
 				881622722CE3BAB900E81EA0 /* MusicDeck */,
 				881622732CE3BAC500E81EA0 /* MusicFilterProvider */,
 				881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */,
-				F173693C2CDF191800F6242C /* RandomMusic.swift */,
+				F173693C2CDF191800F6242C /* MolioMusic.swift */,
 				F17369582CDFB73000F6242C /* RGBAColor.swift */,
 				B8046A432CE9250B00933704 /* MusicGenre.swift */,
 			);
@@ -812,6 +815,22 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		F1E405892CEB8FA400533701 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F1E4058A2CEB8FB200533701 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F1E4058A2CEB8FB200533701 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1E4058B2CEB8FC500533701 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -930,6 +949,7 @@
 				F17369492CDF250200F6242C /* DefaultFetchRecommendedMusicUseCase.swift in Sources */,
 				B8D554842CE0F3F3007CCD6D /* SpotifyAccessTokenResponseDTO.swift in Sources */,
 				F173697B2CE4AAC600F6242C /* AudioPlayer.swift in Sources */,
+				F1E4058C2CEB8FC500533701 /* LoginViewController.swift in Sources */,
 				B8D553F22CDFE33A007CCD6D /* SpotifyAuthorizationAPI.swift in Sources */,
 				F173692D2CDC9CF300F6242C /* UIColor+Extension.swift in Sources */,
 				2003BA162CDB8D69002CAB3E /* Font+Extension.swift in Sources */,
@@ -940,7 +960,7 @@
 				F17369572CDFB03E00F6242C /* DefaultMusicKitService.swift in Sources */,
 				2003BA222CDCB31B002CAB3E /* SwipeMusicViewModel.swift in Sources */,
 				F173694B2CDF265900F6242C /* DefaultRecommendedMusicRepository.swift in Sources */,
-				F173693D2CDF191800F6242C /* RandomMusic.swift in Sources */,
+				F173693D2CDF191800F6242C /* MolioMusic.swift in Sources */,
 				20397E702CE5DE56004ED9CE /* PersistenceManager.swift in Sources */,
 				F173691F2CDB995100F6242C /* SwipeMusicViewController.swift in Sources */,
 				2003BA1C2CDB8EE5002CAB3E /* UILabel+Extension.swift in Sources */,

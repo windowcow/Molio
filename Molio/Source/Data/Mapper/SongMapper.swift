@@ -1,13 +1,13 @@
 import MusicKit
 
 struct SongMapper {
-    static func toDomain(_ song: Song) -> RandomMusic? {
+    static func toDomain(_ song: Song) -> MolioMusic? {
         guard let isrc = song.isrc,
               let previewAsset = song.previewAssets?.first?.url else {
             return nil
         }
         
-        return RandomMusic(title: song.title,
+        return MolioMusic(title: song.title,
                            artistName: song.artistName,
                            gerneNames: song.genreNames,
                            isrc: isrc,

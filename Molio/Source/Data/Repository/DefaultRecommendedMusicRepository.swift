@@ -9,14 +9,11 @@ struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
         self.musicKitService = musicKitService
     }
     
-    /// 넘겨받은 필터에 기반하여 추천된 랜덤 음악 목록을 가져옵니다.
-    ///  - Parameters: 추천받을 랜덤 음악에 대한 필터 (플레이리스트 필터)
-    ///  - Returns: `RandomMusic`의 배열
-    func fetchMusics(with filter: MusicFilter) async throws -> [RandomMusic] {
+    func fetchMusics(with filter: MusicFilter) async throws -> [MolioMusic] {
         let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(with: filter)
 
-        return try await withThrowingTaskGroup(of: RandomMusic?.self) { group in
-            var musics: [RandomMusic] = []
+        return try await withThrowingTaskGroup(of: MolioMusic?.self) { group in
+            var musics: [MolioMusic] = []
             for isrc in isrcs {
                 group.addTask {
                     return await musicKitService.getMusic(with: isrc)

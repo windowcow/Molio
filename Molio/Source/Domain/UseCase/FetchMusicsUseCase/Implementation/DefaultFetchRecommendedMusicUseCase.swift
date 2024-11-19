@@ -5,7 +5,7 @@ struct DefaultFetchRecommendedMusicUseCase: FetchRecommendedMusicUseCase {
         self.musicRepository = repository
     }
     
-    func execute(with filter: MusicFilter) async throws -> [RandomMusic] {
+    func execute(with filter: MusicFilter) async throws -> [MolioMusic] {
         return try await musicRepository.fetchMusics(with: filter)
     }
 }
