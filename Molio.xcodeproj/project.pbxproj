@@ -42,6 +42,8 @@
 		20397E722CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E712CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift */; };
 		20397E802CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20397E7F2CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift */; };
 		2075FEC12CECDDC0009834BE /* CreatePlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075FEC02CECDDC0009834BE /* CreatePlaylistViewModel.swift */; };
+		2075FEC42CECDE29009834BE /* ChangeCurrentPlaylistIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075FEC32CECDE29009834BE /* ChangeCurrentPlaylistIUseCase.swift */; };
+		2075FEC62CECDE37009834BE /* DefaultChangeCurrentPlaylistIUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2075FEC52CECDE37009834BE /* DefaultChangeCurrentPlaylistIUseCase.swift */; };
 		881622692CE3671400E81EA0 /* RandomMusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881622682CE3671400E81EA0 /* RandomMusicDeck.swift */; };
 		8816226B2CE3838B00E81EA0 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226A2CE3838B00E81EA0 /* DeckTests.swift */; };
 		8816226D2CE3B11C00E81EA0 /* MusicDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */; };
@@ -168,6 +170,8 @@
 		20397E712CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaylistRepository.swift; sourceTree = "<group>"; };
 		20397E7F2CE5FD0A004ED9CE /* DefaultPlaylistRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlaylistRepositoryTests.swift; sourceTree = "<group>"; };
 		2075FEC02CECDDC0009834BE /* CreatePlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistViewModel.swift; sourceTree = "<group>"; };
+		2075FEC32CECDE29009834BE /* ChangeCurrentPlaylistIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrentPlaylistIUseCase.swift; sourceTree = "<group>"; };
+		2075FEC52CECDE37009834BE /* DefaultChangeCurrentPlaylistIUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChangeCurrentPlaylistIUseCase.swift; sourceTree = "<group>"; };
 		881622682CE3671400E81EA0 /* RandomMusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMusicDeck.swift; sourceTree = "<group>"; };
 		8816226A2CE3838B00E81EA0 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		8816226C2CE3B11C00E81EA0 /* MusicDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDeck.swift; sourceTree = "<group>"; };
@@ -390,6 +394,15 @@
 			path = CreatePlaylist;
 			sourceTree = "<group>";
 		};
+		2075FEC22CECDE0F009834BE /* ChangeCurrentPlaylistIUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				2075FEC32CECDE29009834BE /* ChangeCurrentPlaylistIUseCase.swift */,
+				2075FEC52CECDE37009834BE /* DefaultChangeCurrentPlaylistIUseCase.swift */,
+			);
+			path = ChangeCurrentPlaylistIUseCase;
+			sourceTree = "<group>";
+		};
 		881622722CE3BAB900E81EA0 /* MusicDeck */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +595,7 @@
 		B80970812CDB4472007BC3C4 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				2075FEC22CECDE0F009834BE /* ChangeCurrentPlaylistIUseCase */,
 				201048552CEA2ACD0015E800 /* CreatePlaylistUsecase */,
 				B8046A502CEB93C600933704 /* FetchAvailableGenresUseCase */,
 				F173695E2CE36D4D00F6242C /* FetchImageUsecase */,
@@ -1116,6 +1130,7 @@
 				881BBCB22CDCF91B00010A61 /* MockSpotifyAPIService.swift in Sources */,
 				F17369522CDFA7DC00F6242C /* SongMapper.swift in Sources */,
 				F17369742CE3733300F6242C /* ImageFecthError.swift in Sources */,
+				2075FEC62CECDE37009834BE /* DefaultChangeCurrentPlaylistIUseCase.swift in Sources */,
 				881BBCB42CDCF91B00010A61 /* SpotifyTokenProvider.swift in Sources */,
 				881BBCB52CDCF91B00010A61 /* MockSpotifyTokenProvider.swift in Sources */,
 				20397E722CE5DFC6004ED9CE /* DefaultPlaylistRepository.swift in Sources */,
@@ -1126,6 +1141,7 @@
 				B8046A3E2CE8780000933704 /* MusicFilterViewController.swift in Sources */,
 				2009183C2CEC9C0E0058D8C7 /* CurrentPlaylistRepository.swift in Sources */,
 				F17368FB2CD86B1100F6242C /* SceneDelegate.swift in Sources */,
+				2075FEC42CECDE29009834BE /* ChangeCurrentPlaylistIUseCase.swift in Sources */,
 				2008FCBB2CE8A1B90060F3B8 /* PlaylistEntity.swift in Sources */,
 				F17369232CDC5E5F00F6242C /* MusicTagView.swift in Sources */,
 			);
