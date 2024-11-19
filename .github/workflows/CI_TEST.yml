@@ -33,3 +33,8 @@ jobs:
       # 현재 Xcode 버전 출력
       - name: Show current version of Xcode
         run: xcodebuild -version
+
+      # 테스트 스크립트 실행
+      - name: Run tests
+        run: |
+          ./run_tests.sh
