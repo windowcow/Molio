@@ -1,5 +1,5 @@
-import Foundation
 import Combine
+import Foundation
 
 protocol CurrentPlaylistRepository {
     var currentPlaylistPublisher: AnyPublisher<UUID?, Never> { get }
