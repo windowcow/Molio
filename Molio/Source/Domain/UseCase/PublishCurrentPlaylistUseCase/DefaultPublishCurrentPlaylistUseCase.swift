@@ -26,5 +26,5 @@ final class DefaultPublishCurrentPlaylistUseCase: PublishCurrentPlaylistUseCase 
 
 protocol CurrentPlaylistRepository {
     var currentPlaylistPublisher: AnyPublisher<UUID?, Never> { get }
-    func setCurrentPlaylsit(_ id: UUID)
+    func setCurrentPlaylist(_ id: UUID)
 }
