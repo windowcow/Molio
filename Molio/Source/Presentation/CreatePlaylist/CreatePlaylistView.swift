@@ -66,25 +66,9 @@ struct CreatePlaylistView: View {
 }
 
 #Preview {
-    CreatePlaylistView(viewModel: CreatePlaylistViewModel(createPlaylistUseCase: DefaultCreatePlaylistUseCase(repository: DefaultPlaylistRepository()), changeCurrentPlaylistUseCase: DefaultChangeCurrentPlaylistUseCase(repository: MockCurrentPlaylistRepository())))
+    CreatePlaylistView(viewModel: CreatePlaylistViewModel(createPlaylistUseCase: DefaultCreatePlaylistUseCase(repository: DefaultPlaylistRepository()), changeCurrentPlaylistUseCase: DefaultChangeCurrentPlaylistUseCase(repository: DefaultCurrentPlaylistRepository())))
         .background(Color.background)
 }
 
-import Combine
-final class MockCurrentPlaylistRepository: CurrentPlaylistRepository {
-    var currentPlaylistPublisher: AnyPublisher<UUID?, Never>
-    
-    init(currentPlaylistPublisher: AnyPublisher<UUID?, Never> = Just(nil).eraseToAnyPublisher()) {
-        self.currentPlaylistPublisher = currentPlaylistPublisher
-    }
-    
-    func setCurrentPlaylist(_ id: UUID) throws {
-        print("저장됐다!!!!!!!!!!!!!!")
-    }
-    
-    func setDefaultPlaylist(_ id: UUID) throws {
-        
-    }
-}
 
 
