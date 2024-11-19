@@ -1,0 +1,35 @@
+# 저장소의 Action 탭에서 표시될 워크플로우 이름
+name: 👨‍🔬 CI - Test
+
+on:
+  # 워크플로우를 깃허브에서 직접 실행할 수 있게 해주는 옵션
+  workflow_dispatch:
+  # S015/feat/#68 브랜치에서 push나 pull request 이벤트 발생 시 해당 workflow가 트리거됨
+  push:
+    branches: [ "S015/feat/#68" ]
+  pull_request:
+    branches: [ "S015/feat/#68" ]
+
+# 하나 이상의 Job으로 구성 가능
+jobs:
+  # 빌드를 수행하는 Job의 이름
+  build:
+    # 깃허브 액션 UI에서 표시될 Job 이름
+    name: Test
+    # Job을 실행할 OS 환경
+    runs-on: macos-latest
+
+    # Job이 실행할 Step들
+    steps:
+      # uses를 사용하면 깃허브 액션에서 기본적으로 제공하는 Action을 사용할 수 있다.
+      # 레포지토리 코드를 체크아웃하는 동작. 이 작업을 통해 워크플로우가 현재 코드베이스에 접근할 수 있게 된다.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 해당 가상 머신 환경에서의 가용 Xcode 버전을 출력
+      - name: List available Xcode versions
+        run: ls /Applications | grep Xcode
+
+      # 현재 Xcode 버전 출력
+      - name: Show current version of Xcode
+        run: xcodebuild -version
