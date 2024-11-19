@@ -12,23 +12,33 @@ final class DefaultPublishCurrentPlaylistUseCaseTests: XCTestCase {
         let mockCurrentPlaylistRepository = MockCurrentPlaylistRepository()
         let mockPlaylistRepository = MockPlaylistRepository()
         
-        let useCase = DefaultPublishCurrentPlaylistUseCase(playlistRepository: mockPlaylistRepository, currentPlaylistRepository: mockCurrentPlaylistRepository)
+        let useCase = DefaultPublishCurrentPlaylistUseCase(
+            playlistRepository: mockPlaylistRepository,
+            currentPlaylistRepository: mockCurrentPlaylistRepository
+        )
+        
+        var playlists: [MolioPlaylist?] = []
         
         let currentPlaylistPublisher = useCase.execute()
-        currentPlaylistPublisher.sink { playlist in
-            print("현재 플레이리스트:", playlist?.name ?? "비어있습니다.")
-        }
+        
+        currentPlaylistPublisher
+            .sink { playlist in
+                playlists.append(playlist)
+            }
+        
         .store(in: &subscriptions)
+
+        mockCurrentPlaylistRepository.setCurrentPlaylist(UUID())
         
-        mockCurrentPlaylistRepository.setCurrentPlaylsit(UUID())
+        mockCurrentPlaylistRepository.setCurrentPlaylist(UUID())
         
-        Thread.sleep(forTimeInterval: 1)
-        
-        mockCurrentPlaylistRepository.setCurrentPlaylsit(UUID())
-        
-        // UUID를 바꿨지만 Playlist가 바뀌어서 저장된다면 성공이다.
-        
-        Thread.sleep(forTimeInterval: 1)
+        if playlists.count >= 2 {
+            XCTAssertEqual(playlists[0]?.name, nil)
+            XCTAssertEqual(playlists[0]?.name, playlists[1]?.name)
+            XCTAssertEqual(playlists[1]?.name, playlists[2]?.name)
+        } else {
+            XCTFail("플레이리스트가 변경되지 않았습니다.")
+        }
     }
 }
 
@@ -40,7 +50,7 @@ private class MockCurrentPlaylistRepository: CurrentPlaylistRepository {
         currentPlaylistUUID.eraseToAnyPublisher()
     }
     
-    func setCurrentPlaylsit(_ id: UUID) {
+    func setCurrentPlaylist(_ id: UUID) {
         currentPlaylistUUID.send(id)
     }
 }
