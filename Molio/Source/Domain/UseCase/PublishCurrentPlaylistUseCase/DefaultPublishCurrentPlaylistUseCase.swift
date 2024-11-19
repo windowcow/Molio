@@ -23,8 +23,3 @@ final class DefaultPublishCurrentPlaylistUseCase: PublishCurrentPlaylistUseCase 
             .eraseToAnyPublisher()
     }
 }
-
-protocol CurrentPlaylistRepository {
-    var currentPlaylistPublisher: AnyPublisher<UUID?, Never> { get }
-    func setCurrentPlaylist(_ id: UUID)
-}
