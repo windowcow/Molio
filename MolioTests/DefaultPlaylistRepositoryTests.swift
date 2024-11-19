@@ -38,8 +38,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         repository.addMusic(isrc: testISRC, to: playlistName)
         
         
-        guard let playlist = repository.fetchPlaylist(for: playlistName)else {
-            return }
+        guard let playlist = repository.fetchPlaylist(for: playlistName)else { return }
         
         let musics = playlist.musicISRCs
         

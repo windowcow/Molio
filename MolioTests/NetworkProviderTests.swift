@@ -25,8 +25,8 @@ final class NetworkProviderTests: XCTestCase {
         var requestHttpMethod: String!
         var requestAuthorizationHeaderValue: String!
         MockURLProtocol.requestHandler = { request in
-            let containCorrectPath2 = request.url?.pathComponents.contains("v1")
-            let containCorrectPath1 = request.url?.pathComponents.contains("recommendations")
+            let containCorrectPath1 = request.url?.pathComponents.contains("v1")
+            let containCorrectPath2 = request.url?.pathComponents.contains("recommendations")
             isRequestContainsCorrectPath = containCorrectPath1! && containCorrectPath2!
             requestHttpMethod = request.httpMethod
             requestAuthorizationHeaderValue = request.value(forHTTPHeaderField: "Authorization")
@@ -36,6 +36,31 @@ final class NetworkProviderTests: XCTestCase {
 
         // When
         let _: RecommendationsResponseDTO = try await sut.request(apiRequest)
+
+        // Then
+        XCTAssertTrue(isRequestContainsCorrectPath)
+        XCTAssertEqual(requestHttpMethod, apiRequest.httpMethod.value)
+        XCTAssertTrue(requestAuthorizationHeaderValue.contains("abc"))
+    }
+    
+    func test_SpotifyAPI의_getAvailableGenreSeeds_엔드포인트로_요청시_request를_제대로_생성한다() async throws {
+        // Given
+        var isRequestContainsCorrectPath: Bool!
+        var requestHttpMethod: String!
+        var requestAuthorizationHeaderValue: String!
+        MockURLProtocol.requestHandler = { request in
+            let containCorrectPath1 = request.url?.pathComponents.contains("v1")
+            let containCorrectPath2 = request.url?.pathComponents.contains("recommendations")
+            let containCorrectPath3 = request.url?.pathComponents.contains("available-genre-seeds")
+            isRequestContainsCorrectPath = containCorrectPath1! && containCorrectPath2! && containCorrectPath3!
+            requestHttpMethod = request.httpMethod
+            requestAuthorizationHeaderValue = request.value(forHTTPHeaderField: "Authorization")
+            return (HTTPURLResponse(), SpotifyAvailableGenreSeedsDTO.dummyData)
+        }
+        let apiRequest = SpotifyAPI.getAvailableGenreSeeds(accessToken: "abc")
+
+        // When
+        let _: SpotifyAvailableGenreSeedsDTO = try await sut.request(apiRequest)
 
         // Then
         XCTAssertTrue(isRequestContainsCorrectPath)

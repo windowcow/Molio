@@ -1,6 +1,7 @@
 protocol RecommendedMusicRepository {
-    /// 장르를 통해 Music 정보를 가져옵니다.
-    ///  - Parameters: filter할 genres 문자열 배열
-    ///  - Returns: 응답 Data
-    func fetchMusics(genres: [String]) async throws -> [MolioMusic]
+    /// 넘겨받은 필터에 기반하여 추천된 랜덤 음악 목록을 가져옵니다.
+    ///  - Parameters: 추천받을 랜덤 음악에 대한 필터 (플레이리스트 필터)
+    ///  - Returns: `RandomMusic`의 배열
+    func fetchMusics(with filter: MusicFilter) async throws -> [MolioMusic]
+    func fetchMusicGenres() async throws -> [MusicGenre]
 }

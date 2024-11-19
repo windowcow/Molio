@@ -9,9 +9,8 @@ struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
         self.musicKitService = musicKitService
     }
     
-    func fetchMusics(genres: [String]) async throws -> [MolioMusic] {
-        let musicFilter = MusicFilter(genres: genres)
-        let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(musicFilter: musicFilter)
+    func fetchMusics(with filter: MusicFilter) async throws -> [MolioMusic] {
+        let isrcs = try await spotifyAPIService.fetchRecommendedMusicISRCs(with: filter)
 
         return try await withThrowingTaskGroup(of: MolioMusic?.self) { group in
             var musics: [MolioMusic] = []
@@ -29,5 +28,11 @@ struct DefaultRecommendedMusicRepository: RecommendedMusicRepository {
             
             return musics
         }
+    }
+    
+    func fetchMusicGenres() async throws -> [MusicGenre] {
+        let availableGenreSeedsDTO = try await spotifyAPIService.fetchAvailableGenreSeeds()
+        let musicGenreArr = availableGenreSeedsDTO.genres.compactMap { MusicGenre(rawValue: $0) }
+        return musicGenreArr
     }
 }

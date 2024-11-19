@@ -253,6 +253,7 @@ final class SwipeMusicViewController: UIViewController {
     private func setupButtonTarget() {
         likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         dislikeButton.addTarget(self, action: #selector(didTapDislikeButton), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
     }
 
     /// 사용자에게 진동 feedback을 주는 메서드
@@ -285,6 +286,31 @@ final class SwipeMusicViewController: UIViewController {
 
     @objc private func didTapDislikeButton() {
         dislikeButtonDidTapPublisher.send()
+    }
+    
+    @objc private func didTapFilterButton() {
+        // TODO: - 의존성 주입 & 선택된 장르 넘기기
+        let networkProvider = DefaultNetworkProvider()
+        let tokenProvider = DefaultSpotifyTokenProvider(networkProvider: networkProvider)
+        let defaultSpotifyAPIService = DefaultSpotifyAPIService(
+            networkProvider: networkProvider,
+            tokenProvider: tokenProvider
+        )
+        let defaultMusicKitService = DefaultMusicKitService()
+        let defaultRecommendedMusicRepository = DefaultRecommendedMusicRepository(
+            spotifyAPIService: defaultSpotifyAPIService,
+            musicKitService: defaultMusicKitService
+        )
+        let defaultFetchAvailableGenresUseCase = DefaultFetchAvailableGenresUseCase(
+            recommendedMusicRepository: defaultRecommendedMusicRepository
+        )
+        let musicViewModel = MusicFilterViewModel(
+            fetchAvailableGenresUseCase: defaultFetchAvailableGenresUseCase,
+            selectedGenres: []
+        )
+        
+        let musicFilterVC = MusicFilterViewController(rootView: MusicFilterView(viewModel: musicViewModel))
+        navigationController?.pushViewController(musicFilterVC, animated: true)
     }
     
     private func setupSelectPlaylistView() {
