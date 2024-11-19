@@ -5,8 +5,8 @@ struct CreatePlaylistView: View {
     var onConfirm: (() -> Void)?
     
     @Environment(\.dismiss) var dismiss
-    @State private var isFocused: Bool = false
-    @State private var text: String = "" 
+    @FocusState private var isFocused: Bool
+    @State private var text: String = ""
     var placeholder: String = "플레이리스트 이름을 입력해주세요"
     
     var body: some View {
@@ -35,12 +35,7 @@ struct CreatePlaylistView: View {
                             .font(.custom(PretendardFontName.Medium, size: 20))
                             .frame(height: 40)
                             .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                isFocused = true
-                            }
-                            .onSubmit {
-                                isFocused = false
-                            }
+                            .focused($isFocused)
                     }
                     .frame(height: 40)
                     
@@ -59,7 +54,6 @@ struct CreatePlaylistView: View {
                     BasicButton(type: .confirm) {
                         dismiss()
                         onConfirm?()
-
                     }
                 }
                 .padding(.horizontal, 22)

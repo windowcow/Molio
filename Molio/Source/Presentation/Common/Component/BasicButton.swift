@@ -6,8 +6,13 @@ enum ButtonType: String {
 }
 
 struct BasicButton: View {
-    var type: ButtonType
-    var action: () -> Void
+    private var type: ButtonType
+    private var action: () -> Void
+    
+    init(type: ButtonType, action: @escaping () -> Void) {
+        self.type = type
+        self.action = action
+    }
     
     var body: some View {
         Button(action: action) {
@@ -43,7 +48,7 @@ struct BasicButton: View {
 
 #Preview {
     VStack {
-        BasicButton(type: .cancel) {
+        BasicButton(type: .cancel){
             print("취소 버튼 눌림")
         }.padding()
         
@@ -51,5 +56,4 @@ struct BasicButton: View {
             print("완료 버튼 눌림")
         }.padding()
     }.background(Color.background)
-    
 }
