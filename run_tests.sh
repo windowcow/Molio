@@ -6,6 +6,5 @@ xcodebuild clean test \
     -scheme $SCHEME \
     -sdk iphonesimulator \
     -destination "$DESTINATION" \
+    -skipPackagePluginValidation \
     CODE_SIGNING_ALLOWED='NO'
-    -skipPackagePluginValidation
-    -skipMacroValidation
