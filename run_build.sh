@@ -7,4 +7,4 @@ xcodebuild clean build \
     -sdk iphonesimulator \
     -destination "$DESTINATION" \
     -skipPackagePluginValidation \
-    CODE_SIGNING_ALLOWED='NO'
+    CODE_SIGNING_ALLOWED='NO' | xcpretty
