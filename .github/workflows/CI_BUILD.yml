@@ -1,5 +1,5 @@
 # 저장소의 Action 탭에서 표시될 워크플로우 이름
-name: 👨‍🔬 CI - Test 🧪
+name: 👷‍♂️ CI - Build 🧱
 
 on:
   # 워크플로우를 깃허브에서 직접 실행할 수 있게 해주는 옵션
@@ -15,7 +15,7 @@ jobs:
   # 빌드를 수행하는 Job의 이름
   build:
     # 깃허브 액션 UI에서 표시될 Job 이름
-    name: Test
+    name: Build
     # Job을 실행할 OS 환경
     runs-on: macos-latest
 
@@ -60,6 +60,6 @@ jobs:
           ls -al
 
       # 테스트 스크립트 실행
-      - name: Run tests
+      - name: Run build
         run: |
-          ./run_tests.sh
+          ./run_build.sh
