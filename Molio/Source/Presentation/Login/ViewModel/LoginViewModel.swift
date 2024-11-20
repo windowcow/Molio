@@ -46,7 +46,7 @@ final class LoginViewModel: InputOutputViewModel {
                         try await self.signInAppleUseCase.excute(info: appleAuthinfo)
                         self.navigateToNextScreenPublisher.send()
                     } catch {
-                        self.errorPublisher.send(error.localizedDescription) //TODO: Error 메시지 지정
+                        self.errorPublisher.send(error.localizedDescription) // TODO: Error 메시지 지정
                     }
                 }
             }

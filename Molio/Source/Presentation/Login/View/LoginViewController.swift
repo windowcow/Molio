@@ -214,7 +214,10 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithAuthorization authorization: ASAuthorization
+    ) {
         didCompleteAuthorizationPublisher.send(authorization)
     }
 }
