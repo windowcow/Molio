@@ -34,6 +34,10 @@ jobs:
       - name: Show current version of Xcode
         run: xcodebuild -version
 
+      # 리소스 파일 확인
+      - name: Check project files
+        run: ls -R Molio/Resource
+
       - name: Bring Secret files
         uses: actions/checkout@v4
         with:
