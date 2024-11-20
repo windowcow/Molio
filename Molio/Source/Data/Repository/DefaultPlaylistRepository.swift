@@ -7,7 +7,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     private var cancellables = Set<AnyCancellable>()
     private let playlistsSubject = PassthroughSubject <[MolioPlaylist], Never>()
     private let fetchRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-
+    
     private let alertNotFoundPlaylist: String = "해당 플레이리스트를 못 찾았습니다."
     private let alertNotFoundMusicsinPlaylist: String = "플레이리스트에 음악이 없습니다."
     private let alertFailDeletePlaylist: String = "플레이리스트를 삭제할 수 없습니다"
@@ -88,7 +88,7 @@ final class DefaultPlaylistRepository: PlaylistRepository {
             playlist.createdAt = Date()
             playlist.musicISRCs = []
             playlist.filters = []
-
+            
             try saveContexts()
             return newId
         }
@@ -142,13 +142,14 @@ final class DefaultPlaylistRepository: PlaylistRepository {
     }
     
     private func saveContexts() throws {
-            do {
-                try context.save()
-            } catch {
-                throw CoreDataError.saveFailed
-            }
+        do {
+            try context.save()
+        } catch {
+            throw CoreDataError.saveFailed
+        }
         
     }
+    
     private func fetchPlaylist(id: UUID) -> Playlist? {
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
