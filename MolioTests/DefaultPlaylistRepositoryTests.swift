@@ -23,7 +23,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     func testSaveNewPlaylist() async throws {
         let playlistName: String = "TestPlaylist"
         
-        let uuid = try await repository.saveNewPlaylist(playlistName)
+        let _ = try await repository.saveNewPlaylist(playlistName)
                 
         let playlist = repository.fetchPlaylist(for: playlistName)
         
@@ -34,7 +34,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         let playlistName: String = "AddMusicPlaylist"
         let testISRC = "TEST_ISRC"
         
-        let uuid = try await repository.saveNewPlaylist(playlistName)
+        let _ = try await repository.saveNewPlaylist(playlistName)
         repository.addMusic(isrc: testISRC, to: playlistName)
         
         
@@ -59,7 +59,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     
     func testFetchMusics() async throws {
         let playlistName: String = "FetchMusicsPlaylist"
-        let uuid = try await repository.saveNewPlaylist(playlistName)
+        let _ = try await repository.saveNewPlaylist(playlistName)
         
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
@@ -72,7 +72,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     
     func testMoveMusic() async throws {
         let playlistName: String = "MoveMusicPlaylist"
-        let uuid = try await repository.saveNewPlaylist(playlistName)
+        let _ = try await repository.saveNewPlaylist(playlistName)
 
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
@@ -87,7 +87,7 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     
     func testDeletePlaylist() async throws {
         let playlistName: String = "DeletePlaylist"
-        let uuid = try await repository.saveNewPlaylist(playlistName)
+        let _ = try await repository.saveNewPlaylist(playlistName)
         let id = repository.fetchPlaylist(for: playlistName)?.id
         print(id ?? "nil")
 
@@ -117,4 +117,3 @@ final class TestPersistenceManager {
         return persistentContainer.viewContext
     }()
 }
-
