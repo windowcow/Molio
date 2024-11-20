@@ -523,11 +523,11 @@
 		B80970742CDB4353007BC3C4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B82EB41C2CEDED990023210A /* Secret */,
 				2003BA022CDB82B5002CAB3E /* Font */,
 				F17369012CD86B1300F6242C /* Assets.xcassets */,
 				F17369032CD86B1300F6242C /* LaunchScreen.storyboard */,
 				F17369062CD86B1300F6242C /* Info.plist */,
-				2010484A2CE9FC8D0015E800 /* Secrets.xcconfig */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -711,6 +711,14 @@
 				2003BA192CDB8EB5002CAB3E /* SwiftUI */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B82EB41C2CEDED990023210A /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				2010484A2CE9FC8D0015E800 /* Secrets.xcconfig */,
+			);
+			path = Secret;
 			sourceTree = "<group>";
 		};
 		B88F80B72CE48906000480E6 /* MusicFilter */ = {
@@ -1339,7 +1347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -1374,7 +1382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
