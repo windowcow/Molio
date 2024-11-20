@@ -56,6 +56,8 @@
 		881BBCBE2CDCF95600010A61 /* RecommendationsRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCB82CDCF95600010A61 /* RecommendationsRequestDTO.swift */; };
 		881BBCC12CDCF97900010A61 /* MusicFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCBF2CDCF97900010A61 /* MusicFilter.swift */; };
 		881BBCC22CDCF97900010A61 /* RecommendationRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */; };
+		88E483382CEDBAD7003D624E /* PublishAllMusicInCurrentPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E483372CEDBAD7003D624E /* PublishAllMusicInCurrentPlaylistUseCase.swift */; };
+		88E4833A2CEDBC4D003D624E /* DefaultPublishAllMusicInCurrentPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E483392CEDBC4D003D624E /* DefaultPublishAllMusicInCurrentPlaylistUseCase.swift */; };
 		88F6E4A72CEC852C00739648 /* DefaultPublishCurrentPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6E4A62CEC852C00739648 /* DefaultPublishCurrentPlaylistUseCase.swift */; };
 		88F6E4A92CEC88C700739648 /* PublishCurrentPlaylistUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6E4A82CEC88C700739648 /* PublishCurrentPlaylistUseCaseTests.swift */; };
 		88F6E4AB2CEC8B5A00739648 /* PublishCurrentPlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6E4AA2CEC8B5A00739648 /* PublishCurrentPlaylistUseCase.swift */; };
@@ -184,6 +186,8 @@
 		881BBCBA2CDCF95600010A61 /* TrackDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDTO.swift; sourceTree = "<group>"; };
 		881BBCBF2CDCF97900010A61 /* MusicFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFilter.swift; sourceTree = "<group>"; };
 		881BBCC02CDCF97900010A61 /* RecommendationRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationRequestEntity.swift; sourceTree = "<group>"; };
+		88E483372CEDBAD7003D624E /* PublishAllMusicInCurrentPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishAllMusicInCurrentPlaylistUseCase.swift; sourceTree = "<group>"; };
+		88E483392CEDBC4D003D624E /* DefaultPublishAllMusicInCurrentPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPublishAllMusicInCurrentPlaylistUseCase.swift; sourceTree = "<group>"; };
 		88F6E4A62CEC852C00739648 /* DefaultPublishCurrentPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPublishCurrentPlaylistUseCase.swift; sourceTree = "<group>"; };
 		88F6E4A82CEC88C700739648 /* PublishCurrentPlaylistUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCurrentPlaylistUseCaseTests.swift; sourceTree = "<group>"; };
 		88F6E4AA2CEC8B5A00739648 /* PublishCurrentPlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCurrentPlaylistUseCase.swift; sourceTree = "<group>"; };
@@ -590,6 +594,8 @@
 				B8046A502CEB93C600933704 /* FetchAvailableGenresUseCase */,
 				F173695E2CE36D4D00F6242C /* FetchImageUsecase */,
 				F17369432CDF248700F6242C /* FetchMusicsUseCase */,
+				88E483372CEDBAD7003D624E /* PublishAllMusicInCurrentPlaylistUseCase.swift */,
+				88E483392CEDBC4D003D624E /* DefaultPublishAllMusicInCurrentPlaylistUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1090,6 +1096,8 @@
 				20150EC52CEA36B700FC8883 /* Playlist+CoreDataClass.swift in Sources */,
 				20150EC62CEA36B700FC8883 /* Playlist+CoreDataProperties.swift in Sources */,
 				B8D553EE2CDFE2C0007CCD6D /* HTTPResponseStatusCode.swift in Sources */,
+				88E483382CEDBAD7003D624E /* PublishAllMusicInCurrentPlaylistUseCase.swift in Sources */,
+				88E4833A2CEDBC4D003D624E /* DefaultPublishAllMusicInCurrentPlaylistUseCase.swift in Sources */,
 				88F6E4AB2CEC8B5A00739648 /* PublishCurrentPlaylistUseCase.swift in Sources */,
 				B8046A542CEB93F900933704 /* FetchAvailableGenresUseCase.swift in Sources */,
 				B8046A562CEB943B00933704 /* DefaultFetchAvailableGenresUseCase.swift in Sources */,
