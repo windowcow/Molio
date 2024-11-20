@@ -52,7 +52,12 @@ jobs:
         
       # 리소스 파일 확인
       - name: Check Resource files
-        run: ls -al Molio/Resource
+        run: |
+          ls -al
+          cd Molio
+          ls -al
+          cd Resource
+          ls -al
 
       # 테스트 스크립트 실행
       - name: Run tests
