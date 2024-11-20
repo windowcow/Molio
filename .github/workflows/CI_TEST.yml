@@ -41,17 +41,18 @@ jobs:
       # 현재 작업 디렉토리 내 파일 확인
       - name: List files in current directory
         run: ls -al
-        
-      # 리소스 파일 확인
-      - name: Check Resource files
-        run: ls -al Molio/Resource
 
+      # 시크릿 가져오기
       - name: Bring Secret files
         uses: actions/checkout@v4
         with:
           repository: kybeen/molioSecrets # 시크릿 파일이 있는 외부 저장소
           path: Molio/Resource # 시크릿 파일을 가져올 위치
           token: ${{ secrets.SECRET_REPO_ACCESS_TOKEN }} # private 저장소의 access token
+        
+      # 리소스 파일 확인
+      - name: Check Resource files
+        run: ls -al Molio/Resource
 
       # 테스트 스크립트 실행
       - name: Run tests
