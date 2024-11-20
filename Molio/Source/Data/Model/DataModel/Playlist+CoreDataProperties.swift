@@ -1,14 +1,5 @@
-//
-//  Playlist+CoreDataProperties.swift
-//  Molio
-//
-//  Created by p_kxn_g on 11/17/24.
-//
-//
-
 import Foundation
 import CoreData
-
 
 extension Playlist {
 
@@ -24,6 +15,4 @@ extension Playlist {
 
 }
 
-extension Playlist : Identifiable {
-
-}
+extension Playlist: Identifiable {}

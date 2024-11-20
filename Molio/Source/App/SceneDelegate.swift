@@ -9,6 +9,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         configureAudioSession()
+        setupNavigationBarAppearance()
         
         let defaultNetworkProvider = DefaultNetworkProvider()
         let defaultSpotifyTokenProvider = DefaultSpotifyTokenProvider(networkProvider: defaultNetworkProvider)
@@ -47,5 +48,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("Failed to set up audio session: \(error)") //  TODO: 에러 알림창으로 표시하기
             }
         }
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let appearance = UINavigationBar.appearance()
+        appearance.tintColor = .main
     }
 }

@@ -3,11 +3,11 @@ import Combine
 // MARK: 프로토콜 요구사항
 
 extension RandomMusicDeck: MusicDeck {
-    var currentMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> {
+    var currentMusicTrackModelPublisher: AnyPublisher<MolioMusic?, Never> {
         return musicPublisher(at: 0)
     }
     
-    var nextMusicTrackModelPublisher: AnyPublisher<RandomMusic?, Never> {
+    var nextMusicTrackModelPublisher: AnyPublisher<MolioMusic?, Never> {
         return musicPublisher(at: 1)
     }
 
@@ -33,7 +33,7 @@ final class RandomMusicDeck {
     
     // MARK: 생성자에서 초기화하는 프로퍼티
     
-    var randomMusics: CurrentValueSubject<[RandomMusic], Never>
+    var randomMusics: CurrentValueSubject<[MolioMusic], Never>
     private var musicFilter: CurrentValueSubject<MusicFilter?, Never>
     
     // MARK: Cancellable들
@@ -93,10 +93,8 @@ final class RandomMusicDeck {
     }
     
     private func loadRandomMusic() {
-        let genres = self.musicFilter.value?.genres ?? []
-        
         Task { [weak self] in
-            let fetchedMusics = try? await self?.fetchMusicsUseCase.execute(genres: genres)
+            let fetchedMusics = try? await self?.fetchMusicsUseCase.execute(with: MusicFilter(genres: []))
             
             guard let fetchedMusics else { return }
             
@@ -110,8 +108,7 @@ final class RandomMusicDeck {
         randomMusics.value.remove(at: 0)
     }
     
-    
-    private func musicPublisher(at index: Int) -> AnyPublisher<RandomMusic?, Never> {
+    private func musicPublisher(at index: Int) -> AnyPublisher<MolioMusic?, Never> {
         randomMusics
             .compactMap { randomMusics in
                 // 인덱스 범위를 벗어나지 않는지 체크하는 로직이다.
@@ -123,4 +120,3 @@ final class RandomMusicDeck {
             .eraseToAnyPublisher()
     }
 }
-

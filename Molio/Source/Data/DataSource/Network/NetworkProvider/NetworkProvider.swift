@@ -10,11 +10,11 @@ protocol NetworkProvider {
     ///    - 응답이 정상적이지 않은 경우 발생
     ///  - Returns: 응답 Data
     @discardableResult
-    func request<T: Decodable>(_ endPoint: EndPoint) async throws -> T
+    func request<T: Decodable>(_ endPoint: any EndPoint) async throws -> T
 }
 
 private extension NetworkProvider {
-    func makeURLRequest(of endPoint: EndPoint) throws -> URLRequest {
+    func makeURLRequest(of endPoint: any EndPoint) throws -> URLRequest {
         guard let url = makeURL(of: endPoint) else { throw NetworkError.invalidURL }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.httpMethod.rawValue
@@ -26,10 +26,10 @@ private extension NetworkProvider {
         return urlRequest
     }
     
-    func makeURL(of endPoint: EndPoint) -> URL? {
+    func makeURL(of endPoint: any EndPoint) -> URL? {
         var components = URLComponents(string: endPoint.base)
         components?.path = endPoint.path
-        components?.queryItems = endPoint.params.map { URLQueryItem(name: $0.key, value: $0.value) }
+        components?.queryItems = endPoint.params?.map { URLQueryItem(name: $0.key, value: $0.value) }
         return components?.url
     }
 }
