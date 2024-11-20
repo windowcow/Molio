@@ -20,21 +20,21 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSaveNewPlaylist() {
+    func testSaveNewPlaylist() async throws {
         let playlistName: String = "TestPlaylist"
         
-        repository.saveNewPlaylist(playlistName)
+        let uuid = try await repository.saveNewPlaylist(playlistName)
                 
         let playlist = repository.fetchPlaylist(for: playlistName)
         
         XCTAssertEqual(playlist?.name, playlistName)
     }
     
-    func testAddMusic() {
+    func testAddMusic() async throws {
         let playlistName: String = "AddMusicPlaylist"
         let testISRC = "TEST_ISRC"
         
-        repository.saveNewPlaylist(playlistName)
+        let uuid = try await repository.saveNewPlaylist(playlistName)
         repository.addMusic(isrc: testISRC, to: playlistName)
         
         
@@ -57,9 +57,9 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         XCTAssertTrue(musics?.isEmpty ?? false)
     }
     
-    func testFetchMusics() {
+    func testFetchMusics() async throws {
         let playlistName: String = "FetchMusicsPlaylist"
-        repository.saveNewPlaylist(playlistName)
+        let uuid = try await repository.saveNewPlaylist(playlistName)
         
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
@@ -70,9 +70,9 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
         XCTAssertEqual(musics?[1], "MUSIC_2")
     }
     
-    func testMoveMusic() {
+    func testMoveMusic() async throws {
         let playlistName: String = "MoveMusicPlaylist"
-        repository.saveNewPlaylist(playlistName)
+        let uuid = try await repository.saveNewPlaylist(playlistName)
 
         repository.addMusic(isrc: "MUSIC_1", to: playlistName)
         repository.addMusic(isrc: "MUSIC_2", to: playlistName)
@@ -85,9 +85,9 @@ final class DefaultPlaylistRepositoryTests: XCTestCase {
     }
     
     
-    func testDeletePlaylist() {
+    func testDeletePlaylist() async throws {
         let playlistName: String = "DeletePlaylist"
-        repository.saveNewPlaylist(playlistName)
+        let uuid = try await repository.saveNewPlaylist(playlistName)
         let id = repository.fetchPlaylist(for: playlistName)?.id
         print(id ?? "nil")
 
