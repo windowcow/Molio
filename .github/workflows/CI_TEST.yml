@@ -4,11 +4,11 @@ name: 👨‍🔬 CI - Test 🧪
 on:
   # 워크플로우를 깃허브에서 직접 실행할 수 있게 해주는 옵션
   workflow_dispatch:
-  # S015/feat/#68 브랜치에서 push나 pull request 이벤트 발생 시 해당 workflow가 트리거됨
+  # develop 브랜치에서 push나 pull request 이벤트 발생 시 해당 workflow가 트리거됨
   push:
-    branches: [ "S015/feat/#68" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "S015/feat/#68" ]
+    branches: [ "develop" ]
 
 # 하나 이상의 Job으로 구성 가능
 jobs:
